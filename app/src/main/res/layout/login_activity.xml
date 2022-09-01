@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
 
     <TextView
         android:id="@+id/textView3"
@@ -25,8 +25,7 @@
         android:id="@+id/tvUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="24dp"
         android:text="Usuário"
         android:textColor="@color/black"
         android:textSize="25dp"
@@ -41,14 +40,14 @@
         app:layout_constraintGuide_begin="43dp" />
 
     <EditText
-
-        android:drawableEnd="@drawable/custom_user_icon"
         android:id="@+id/edUserName"
         android:layout_width="307dp"
         android:layout_height="37dp"
+        android:layout_marginTop="12dp"
+        android:drawableEnd="@drawable/custom_user_icon"
         android:background="@drawable/border_custom"
         android:ems="10"
-        android:hint="Informe o usuário"
+        android:hint="  Informe o usuário"
         android:inputType="textPersonName"
         android:textSize="15dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
@@ -64,53 +63,24 @@
         app:layout_constraintGuide_begin="350dp" />
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/tvSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="36dp"
-        android:text="E-mail"
+        android:text="Senha"
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/edUserName" />
 
     <EditText
-        android:id="@+id/edEmail"
-        android:layout_width="307dp"
-        android:layout_height="37dp"
-        android:drawableEnd="@drawable/ic_baseline_email_24"
-        android:background="@drawable/border_custom"
-        android:ems="10"
-        android:hint="Informe o e-mail"
-        android:inputType="textEmailAddress"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/tv" />
-
-    <TextView
-        android:id="@+id/tvSenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="28dp"
-        android:text="Senha"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/edEmail" />
-
-    <EditText
         android:id="@+id/edSenha"
         android:layout_width="307dp"
         android:layout_height="37dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="12dp"
         android:drawableEnd="@drawable/custom_password_icon"
         android:background="@drawable/border_custom"
         android:ems="10"
-        android:hint="Informe a senha"
+        android:hint="  Informe a senha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.0"
@@ -118,18 +88,14 @@
         app:layout_constraintTop_toBottomOf="@+id/tvSenha" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btEntrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:minWidth="200dp"
-        android:minHeight="50dp"
-        android:text="CADASTRAR"
-        android:onClick="abrirMenuListary"
+        android:text="Entrar"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.579"
+        app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/edSenha" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

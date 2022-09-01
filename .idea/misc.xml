@@ -3,7 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/phtar/AndroidStudioProjects/Listary2/app/src/main/res/layout/activity_main.xml" value="0.38333333333333336" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/drawable-v24/ic_banner_foreground.xml" value="0.109" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.109" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/drawable/border_custom.xml" value="0.1305" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.1885" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/drawable/ic_baseline_shopping_basket_24.xml" value="0.103" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/drawable/ic_launcher_background.xml" value="0.109" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/layout/activity_buscar_produtos.xml" value="0.33542976939203356" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/layout/activity_despensa.xml" value="0.33" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/layout/activity_historico.xml" value="0.33" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/layout/activity_manu_listary.xml" value="0.33" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/layout/activity_nova_lista.xml" value="0.32719836400818" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/layout/criar_listas.xml" value="0.33" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/layout/login_activity.xml" value="0.3970223325062035" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/layout/menu_cards_view.xml" value="0.33" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/mipmap-anydpi-v26/ic_banner.xml" value="0.109" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.109" />
+        <entry key="..\:/Users/phtar/AndroidStudioProjects/listary-TelasAtualizadaS/app/src/main/res/layout/activity_main.xml" value="0.33" />
       </map>
     </option>
   </component>

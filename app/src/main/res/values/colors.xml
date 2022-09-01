@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="Listary_Primary">#206B4E</color>
+    <color name="Listary_Secondary">#8FEECA</color>
+    <color name="Listary_Terc">#46EBAC</color>
+    <color name="Listary_Quart">#2121EB</color>
+    <color name="Listary_Quinta">#2A7062</color>
+    <color name="Listary_Cinza">#575151</color>
 </resources>
