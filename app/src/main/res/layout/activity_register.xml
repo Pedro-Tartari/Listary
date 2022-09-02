@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.registerForm.Register">
 
 
     <TextView
@@ -103,7 +103,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edEmail" />
 
     <EditText
-        android:id="@+id/edSenha"
+        android:id="@+id/edPassword"
         android:layout_width="307dp"
         android:layout_height="37dp"
         android:layout_marginTop="4dp"
@@ -118,18 +118,19 @@
         app:layout_constraintTop_toBottomOf="@+id/tvSenha" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:minWidth="200dp"
         android:minHeight="50dp"
         android:text="CADASTRAR"
-        android:onClick="abrirMenuListary"
+        android:onClick="UserCad"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.579"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/edSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/edPassword" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

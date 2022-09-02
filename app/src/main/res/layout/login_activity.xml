@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Usuário"
+        android:text="Email"
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -47,7 +47,7 @@
         android:drawableEnd="@drawable/custom_user_icon"
         android:background="@drawable/border_custom"
         android:ems="10"
-        android:hint="  Informe o usuário"
+        android:hint="  Informe o email"
         android:inputType="textPersonName"
         android:textSize="15dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
@@ -97,5 +97,29 @@
         app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/edSenha" />
+
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="67dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="100dp"
+        android:text="Registrar"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/forgetPass"
+        app:layout_constraintTop_toBottomOf="@+id/btEntrar" />
+
+    <TextView
+        android:id="@+id/forgetPass"
+        android:layout_width="141dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:text="Esqueceu? Recupere"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/btEntrar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

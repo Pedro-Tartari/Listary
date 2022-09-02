@@ -10,23 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Listary">
         <activity
-            android:name=".DespensaActivity"
+            android:name=".view.DespensaActivity"
             android:exported="false" />
         <activity
-            android:name=".HistoricoActivity"
+            android:name=".view.HistoricoActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuListaryActivity"
+            android:name=".view.MenuListaryActivity"
             android:exported="false" />
         <activity
-            android:name=".BuscarProdutosActivity"
+            android:name=".view.BuscarProdutosActivity"
             android:exported="false" />
         <activity
-            android:name=".NovaListaActivity"
+            android:name=".view.NovaListaActivity"
             android:exported="false" />
-        <activity
-            android:name=".HistoricoActivity"
-            android:exported="false" />
+        <activity android:name=".view.registerForm.Register"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
