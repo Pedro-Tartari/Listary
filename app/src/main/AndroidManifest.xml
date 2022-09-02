@@ -19,7 +19,7 @@
             android:name=".view.MenuListaryActivity"
             android:exported="false" />
         <activity
-            android:name=".view.BuscarProdutosActivity"
+            android:name=".view.searchProduct.SearchProductActivity"
             android:exported="false" />
         <activity
             android:name=".view.NovaListaActivity"

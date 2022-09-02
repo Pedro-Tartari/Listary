@@ -12,7 +12,7 @@ public class HistoricoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_historico);
+        setContentView(R.layout.activity_historic);
     }
 
     public void voltarMenu(View view) {
