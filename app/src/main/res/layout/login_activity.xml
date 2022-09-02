@@ -49,7 +49,6 @@
         android:ems="10"
         android:hint="  Informe o email"
         android:inputType="textPersonName"
-        android:textSize="15dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3"

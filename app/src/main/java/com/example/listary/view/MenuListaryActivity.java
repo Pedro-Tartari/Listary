@@ -7,17 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.listary.R;
+import com.example.listary.view.searchProduct.SearchProductActivity;
 
 public class MenuListaryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manu_listary);
+        setContentView(R.layout.activity_menu_listary);
     }
 
     public void abrirTelaProdutos(View view) {
-        Intent intent = new Intent(this, BuscarProdutosActivity.class);
+        Intent intent = new Intent(this, SearchProductActivity.class);
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
         startActivity(intent);

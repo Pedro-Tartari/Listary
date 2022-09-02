@@ -11,6 +11,6 @@ public class DespensaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_despensa);
+        setContentView(R.layout.activity_pentry);
     }
 }
