@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Listary/listary/app/src/main/res/layout/activity_header.xml" value="0.1" />
+        <entry key="..\:/Listary/listary/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/drawable-v24/ic_banner_foreground.xml" value="0.109" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.109" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/drawable/border_custom.xml" value="0.1305" />
