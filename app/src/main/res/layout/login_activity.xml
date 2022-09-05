@@ -92,6 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="Entrar"
+        android:onClick="onClick"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
