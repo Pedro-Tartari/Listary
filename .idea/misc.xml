@@ -3,8 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Listary/listary/app/src/main/res/layout/activity_header.xml" value="0.1" />
-        <entry key="..\:/Listary/listary/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/drawable-v24/ic_banner_foreground.xml" value="0.109" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.109" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/drawable/border_custom.xml" value="0.1305" />
@@ -22,8 +20,13 @@
         <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/layout/menu_cards_view.xml" value="0.33" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/mipmap-anydpi-v26/ic_banner.xml" value="0.109" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.109" />
-        <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/layout/activity_register.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/layout/login_activity.xml" value="0.3771712158808933" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/drawable/border_custom.xml" value="0.1" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/drawable/terste.xml" value="0.1" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/layout/activity_header_listary.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/layout/activity_historic.xml" value="0.1" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/layout/activity_menu_listary.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/layout/login_activity.xml" value="0.1" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/menu/activity_header.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/phtar/AndroidStudioProjects/listary-TelasAtualizadaS/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_buscar_produtos.xml" value="0.2826086956521739" />
         <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_despensa.xml" value="0.2826086956521739" />
