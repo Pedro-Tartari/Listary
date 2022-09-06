@@ -1,4 +1,4 @@
-package com.example.listary.view;
+package com.example.listary.view.Pantry;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,7 @@ import android.view.MenuInflater;
 
 import com.example.listary.R;
 
-public class DespensaActivity extends AppCompatActivity {
+public class PantryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
