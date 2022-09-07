@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.listary.view.MenuListaryActivity;
+import com.example.listary.view.menu.MenuListaryActivity;
 import com.example.listary.view.registerForm.Register;
 
 public class MainActivity extends AppCompatActivity implements  View.OnClickListener{

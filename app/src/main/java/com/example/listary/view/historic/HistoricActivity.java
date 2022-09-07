@@ -1,19 +1,24 @@
-package com.example.listary.view.searchProduct;
+package com.example.listary.view.historic;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
 
 import com.example.listary.R;
 
-public class SearchProductActivity extends AppCompatActivity {
+public class HistoricActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_products);
+        setContentView(R.layout.activity_historic);
+    }
+
+    public void voltarMenu(View view) {
+        finish();
     }
 
     @Override
