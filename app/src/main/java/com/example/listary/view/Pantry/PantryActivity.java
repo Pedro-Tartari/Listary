@@ -1,4 +1,4 @@
-package com.example.listary.view.searchProduct;
+package com.example.listary.view.Pantry;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,14 +8,17 @@ import android.view.MenuInflater;
 
 import com.example.listary.R;
 
-public class SearchProductActivity extends AppCompatActivity {
+public class PantryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_products);
+        setContentView(R.layout.activity_pentry);
+
+
     }
 
+    //Header
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 

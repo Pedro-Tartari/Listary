@@ -12,7 +12,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.listary.view.MenuListaryActivity;
+
+import com.example.listary.view.menu.MenuListaryActivity;
+
 import com.example.listary.view.registerForm.Register;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -55,9 +57,12 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     @Override
     public void onClick(View view) {
         switch (view.getId()){
+
+
             case R.id.register:
                 startActivity(new Intent(this, Register.class));
                 break;
+
             case R.id.btnLoginUser:
                 isAllFieldsChecked = CheckAllFields();
 
@@ -66,7 +71,12 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
                 }
               break;
+
+
+   
         }
+
+
     }
 
 

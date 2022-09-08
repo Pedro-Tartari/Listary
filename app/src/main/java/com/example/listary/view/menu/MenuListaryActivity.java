@@ -1,12 +1,17 @@
-package com.example.listary.view;
+package com.example.listary.view.menu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 
 import com.example.listary.R;
+import com.example.listary.view.Pantry.PantryActivity;
+import com.example.listary.view.newList.NewListActivity;
+import com.example.listary.view.historic.HistoricActivity;
 import com.example.listary.view.searchProduct.SearchProductActivity;
 
 public class MenuListaryActivity extends AppCompatActivity {
@@ -15,6 +20,15 @@ public class MenuListaryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_listary);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater formMenu = getMenuInflater();
+        formMenu.inflate(R.menu.activity_header, menu);
+
+        return super.onCreateOptionsMenu(menu);
     }
 
     public void abrirTelaProdutos(View view) {
@@ -26,7 +40,7 @@ public class MenuListaryActivity extends AppCompatActivity {
     }
 
     public void abrirTelaCadastroLista(View view) {
-        Intent intent = new Intent(this, NovaListaActivity.class);
+        Intent intent = new Intent(this, NewListActivity.class);
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
         startActivity(intent);
@@ -34,7 +48,7 @@ public class MenuListaryActivity extends AppCompatActivity {
     }
 
     public void abrirTelaHistorico(View view) {
-        Intent intent = new Intent(this, HistoricoActivity.class);
+        Intent intent = new Intent(this, HistoricActivity.class);
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
         startActivity(intent);
@@ -42,7 +56,7 @@ public class MenuListaryActivity extends AppCompatActivity {
     }
 
     public void  abrirTelaDespensa(View view) {
-        Intent intent = new Intent(this, DespensaActivity.class);
+        Intent intent = new Intent(this, PantryActivity.class);
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
         startActivity(intent);
