@@ -32,10 +32,10 @@ public class MenuListaryActivity extends AppCompatActivity {
     }
 
     public void abrirTelaProdutos(View view) {
-        Intent intent = new Intent(this, SearchProductActivity.class);
-        Bundle bundle = new Bundle();
-        intent.putExtras(bundle);
-        startActivity(intent);
+//        Intent intent = new Intent(this, SearchProductActivity.class);
+//        Bundle bundle = new Bundle();
+//        intent.putExtras(bundle);
+//        startActivity(intent);
 
     }
 
