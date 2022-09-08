@@ -125,7 +125,6 @@
         android:minWidth="200dp"
         android:minHeight="50dp"
         android:text="CADASTRAR"
-        android:onClick="UserCad"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.579"
         app:layout_constraintStart_toStartOf="@+id/guideline3"

@@ -40,7 +40,7 @@
         app:layout_constraintGuide_begin="43dp" />
 
     <EditText
-        android:id="@+id/edUserName"
+        android:id="@+id/edEmailLogin"
         android:layout_width="307dp"
         android:layout_height="37dp"
         android:layout_marginTop="12dp"
@@ -69,10 +69,10 @@
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/edUserName" />
+        app:layout_constraintTop_toBottomOf="@+id/edEmailLogin" />
 
     <EditText
-        android:id="@+id/edSenha"
+        android:id="@+id/edPasswordLogin"
         android:layout_width="307dp"
         android:layout_height="37dp"
         android:layout_marginTop="12dp"
@@ -87,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvSenha" />
 
     <Button
-        android:id="@+id/btEntrar"
+        android:id="@+id/btnLoginUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
@@ -95,7 +95,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/edSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/edPasswordLogin" />
 
     <TextView
         android:id="@+id/register"
@@ -108,7 +108,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/forgetPass"
-        app:layout_constraintTop_toBottomOf="@+id/btEntrar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginUser" />
 
     <TextView
         android:id="@+id/forgetPass"
@@ -119,6 +119,6 @@
         android:text="Esqueceu? Recupere"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/btEntrar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginUser" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
