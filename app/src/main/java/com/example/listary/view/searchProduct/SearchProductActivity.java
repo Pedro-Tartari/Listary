@@ -16,12 +16,5 @@ public class SearchProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_products);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
 
-        MenuInflater formMenu = getMenuInflater();
-        formMenu.inflate(R.menu.activity_header, menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
 }

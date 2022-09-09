@@ -37,27 +37,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-<<<<<<< Updated upstream
-    public void onClick(View view) {
-        switch (view.getId()){
-
-
-            case R.id.register:
-                startActivity(new Intent(this, Register.class));
-                break;
-
-            case R.id.btnLoginUser:
-                isAllFieldsChecked = CheckAllFields();
-
-                if (isAllFieldsChecked) {
-                    signIn();
-
-                }
-              break;
-
-
-   
-=======
     protected void onStart() {
         super.onStart();
 
@@ -69,9 +48,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "erro", Toast.LENGTH_LONG).show();
             startActivity(new Intent(this, Login.class));
             finish();
->>>>>>> Stashed changes
+
         }
-
-
     }
 }

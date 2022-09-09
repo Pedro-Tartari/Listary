@@ -23,12 +23,7 @@ public class HeaderActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< Updated upstream
-        setContentView(R.layout.activity_main);
-=======
         setContentView(R.layout.activity_menu_listary);
-
->>>>>>> Stashed changes
     }
 
     @Override
