@@ -1,21 +1,34 @@
 package com.example.listary.view.headerConfig;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.listary.R;
+import com.example.listary.view.loginForm.Login;
+import com.example.listary.view.menu.MenuListaryActivity;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class HeaderActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+<<<<<<< Updated upstream
         setContentView(R.layout.activity_main);
+=======
+        setContentView(R.layout.activity_menu_listary);
+
+>>>>>>> Stashed changes
     }
 
     @Override
@@ -41,6 +54,10 @@ public class HeaderActivity extends AppCompatActivity {
 
             case R.id.despensa:
                 Toast.makeText(HeaderActivity.this, "Voce clicou em Despensa", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.logOut:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(HeaderActivity.this, Login.class));
                 break;
         }
 
