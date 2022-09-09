@@ -22,8 +22,11 @@
         <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/layout/menu_cards_view.xml" value="0.33" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/mipmap-anydpi-v26/ic_banner.xml" value="0.109" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/Listary/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.109" />
-        <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/layout/activity_register.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/layout/login_activity.xml" value="0.3771712158808933" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/layout/activity_create_products.xml" value="0.25" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/layout/activity_menu_listary.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/layout/activity_new_list.xml" value="0.25" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/layout/login_activity.xml" value="0.25" />
         <entry key="..\:/Users/phtar/AndroidStudioProjects/listary-TelasAtualizadaS/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_buscar_produtos.xml" value="0.2826086956521739" />
         <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_despensa.xml" value="0.2826086956521739" />
@@ -37,7 +40,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17_PREVIEW" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

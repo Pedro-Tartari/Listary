@@ -12,7 +12,6 @@ import com.example.listary.R;
 import com.example.listary.view.Pantry.PantryActivity;
 import com.example.listary.view.newList.NewListActivity;
 import com.example.listary.view.historic.HistoricActivity;
-import com.example.listary.view.searchProduct.SearchProductActivity;
 
 public class MenuListaryActivity extends AppCompatActivity {
 
