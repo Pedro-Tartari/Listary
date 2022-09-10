@@ -1,12 +1,15 @@
 package com.example.listary.view.menu;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.listary.R;
 import com.example.listary.view.Pantry.PantryActivity;
@@ -63,6 +66,28 @@ public class MenuListaryActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.novaLista:
+                Toast.makeText(this, "Voce clicou em Novo lista", Toast.LENGTH_LONG).show();
+                return true;
+
+
+            case R.id.consultarListas:
+                Toast.makeText(this, "Voce clicou em Consultar Listas", Toast.LENGTH_LONG).show();
+                return true;
+
+            case R.id.despensa:
+                Toast.makeText(this, "Voce clicou em Despensa", Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return true;
+        }
+
+
+    }
 
 
 }
