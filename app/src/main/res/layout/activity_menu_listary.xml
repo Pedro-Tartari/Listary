@@ -45,7 +45,7 @@
                 android:layout_width="100dp"
                 android:layout_height="81dp"
                 android:layout_gravity="center"
-                android:onClick="abrirTelaCadastroLista"
+                android:onClick="openNewList"
                 android:src="@mipmap/ic_lista"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -112,7 +112,7 @@
                 android:layout_height="81dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/ic_produtos"
-                android:onClick="abrirTelaProdutos"
+                android:onClick="openSearchProduct"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -163,7 +163,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:onClick="abrirTelaHistorico"/>
+                android:onClick="openHistoric"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -207,7 +207,7 @@
                 android:layout_height="81dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/ic_despensa"
-                android:onClick="abrirTelaDespensa"
+                android:onClick="openPantry"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

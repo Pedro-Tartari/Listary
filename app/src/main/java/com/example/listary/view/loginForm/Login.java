@@ -39,23 +39,17 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
         setViewId();
     }
 
-
-
     private void setViewId() {
         edEmailLogin = findViewById(R.id.edEmailLogin);
         edPasswordLogin = findViewById(R.id.edPasswordLogin);
 
-
         register = (TextView) findViewById(R.id.register);
         register.setOnClickListener(this);
-
-
 
         btnLoginUser = (Button) findViewById(R.id.btnLoginUser);
         btnLoginUser.setOnClickListener(this);
 
     }
-
 
     @Override
     public void onClick(View view) {
@@ -65,45 +59,36 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
             case R.id.register:
                 startActivity(new Intent(this, Register.class));
                 break;
-
             case R.id.btnLoginUser:
                 isAllFieldsChecked = CheckAllFields();
-
                 if (isAllFieldsChecked) {
                     signIn();
-
                 }
                 break;
         }
     }
 
-
-
     private boolean CheckAllFields() {
         email = edEmailLogin.getText().toString();
         password = edPasswordLogin.getText().toString();
 
-
-
         if (email.length() == 0) {
-            edEmailLogin.setError("Email is required");
+            edEmailLogin.setError("Esse campo é obrigatório");
             return false;
         }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            edEmailLogin.setError("Informe um email valido");
+            edEmailLogin.setError("Informe um email válido");
             return false;
         }
 
         if (password.length() == 0) {
-            edPasswordLogin.setError("Password is required");
+            edPasswordLogin.setError("Esse campo é obrigatório");
             return false;
-        } else if (password.length() < 8) {
-            edPasswordLogin.setError("Password must be minimum 8 characters");
+        } else if (password.length() < 6) {
+            edPasswordLogin.setError("A senha deve conter ao menos 6 caracteres");
             return false;
         }
-
         return true;
     }
-
 
     private void signIn() {
         auth.signInWithEmailAndPassword(email, password)
@@ -112,7 +97,9 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             //Colar aqui a validação no email
+                            Toast.makeText(Login.this, "Sucesso !", Toast.LENGTH_LONG).show();
                             startActivity(new Intent(Login.this, MenuListaryActivity.class));
+                            finish();
                         }else{
                             Toast.makeText(Login.this, "Erro ao encontrar", Toast.LENGTH_LONG).show();
                         }

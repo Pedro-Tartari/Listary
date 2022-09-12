@@ -42,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null){
-            Toast.makeText(MainActivity.this, "sucesso", Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Sucesso !", Toast.LENGTH_LONG).show();
             startActivity(new Intent(this, MenuListaryActivity.class));
         }else{
-            Toast.makeText(MainActivity.this, "erro", Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Erro Inesperado", Toast.LENGTH_LONG).show();
             startActivity(new Intent(this, Login.class));
             finish();
 

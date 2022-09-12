@@ -55,8 +55,6 @@ public class Register extends AppCompatActivity {
 
     }
 
-
-
     private void setViewId() {
         edUserName = findViewById(R.id.edUserName);
         edEmail = findViewById(R.id.edEmail);
@@ -64,32 +62,29 @@ public class Register extends AppCompatActivity {
         btnRegister = findViewById(R.id.btnRegister);
     }
 
-
-
-
     private boolean CheckAllFields() {
         userName = edUserName.getText().toString();
         email = edEmail.getText().toString();
         password = edPassword.getText().toString();
 
         if (userName.length() == 0) {
-            edUserName.setError("This field is required");
+            edUserName.setError("Esse campo é obrigatório");
             return false;
         }
 
         if (email.length() == 0) {
-            edEmail.setError("Email is required");
+            edEmail.setError("Esse campo é obrigatório");
             return false;
         }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            edEmail.setError("Informe um email valido");
+            edEmail.setError("Informe um email válido");
             return false;
         }
 
         if (password.length() == 0) {
-            edPassword.setError("Password is required");
+            edPassword.setError("Esse campo é obrigatório");
             return false;
-        } else if (password.length() < 8) {
-            edPassword.setError("Password must be minimum 8 characters");
+        } else if (password.length() < 6) {
+            edPassword.setError("A senha deve conter ao menos 6 caracteres");
             return false;
         }
 

@@ -24,6 +24,9 @@
         <activity
             android:name=".view.newList.NewListActivity"
             android:exported="false" />
+        <activity
+            android:name=".view.loginForm.Login"
+            android:exported="false" />
         <activity android:name=".view.registerForm.Register"
             android:exported="false"/>
         <activity
