@@ -18,8 +18,8 @@
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -68,7 +68,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="352dp"
+        android:layout_width="0dp"
         android:layout_height="166dp"
         android:layout_marginTop="108dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
