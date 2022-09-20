@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Sucesso !", Toast.LENGTH_LONG).show();
             startActivity(new Intent(this, MenuListaryActivity.class));
         }else{
-            Toast.makeText(MainActivity.this, "Erro Inesperado", Toast.LENGTH_LONG).show();
             startActivity(new Intent(this, Login.class));
             finish();
 
