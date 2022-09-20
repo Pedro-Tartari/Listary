@@ -71,6 +71,7 @@
         android:layout_width="0dp"
         android:layout_height="166dp"
         android:layout_marginTop="108dp"
+        tools:listitem="@layout/activity_itens_product"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
@@ -88,7 +89,8 @@
         app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView"
         app:layout_constraintVertical_bias="0.693"
-        app:srcCompat="@drawable/ic_add_produto_lista" />
+        app:srcCompat="@drawable/ic_add_produto_lista"
+        android:onClick="iconAddProduct"/>
 
     <Button
         android:id="@+id/button2"
