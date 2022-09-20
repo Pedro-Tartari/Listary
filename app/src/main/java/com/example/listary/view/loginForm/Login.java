@@ -16,6 +16,7 @@ import com.example.listary.MainActivity;
 import com.example.listary.R;
 import com.example.listary.view.menu.MenuListaryActivity;
 import com.example.listary.view.registerForm.Register;
+import com.example.listary.view.resetPassword.ResetPasswordActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity implements  View.OnClickListener{
 
-    private TextView register;
+    private TextView register, forgetPass;
     private EditText edEmailLogin,edPasswordLogin;
     private Button btnLoginUser;
     private FirebaseAuth auth;
@@ -49,6 +50,8 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
         btnLoginUser = (Button) findViewById(R.id.btnLoginUser);
         btnLoginUser.setOnClickListener(this);
 
+        forgetPass = (TextView) findViewById(R.id.forgetPass);
+        forgetPass.setOnClickListener(this);
     }
 
     @Override
@@ -64,6 +67,9 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
                 if (isAllFieldsChecked) {
                     signIn();
                 }
+                break;
+            case R.id.forgetPass:
+                startActivity(new Intent(this, ResetPasswordActivity.class));
                 break;
         }
     }
