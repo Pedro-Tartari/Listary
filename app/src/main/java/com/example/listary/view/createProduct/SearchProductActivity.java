@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.listary.R;
+import com.example.listary.view.RegisterProduct;
 import com.example.listary.view.loginForm.Login;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -54,6 +56,14 @@ public class SearchProductActivity extends AppCompatActivity {
             default:
                 return true;
         }
+    }
+
+    public void iconAddProduct(View view) {
+        Intent intent = new Intent(this, RegisterProduct.class);
+        Bundle bundle = new Bundle();
+        intent.putExtras(bundle);
+        startActivity(intent);
+
     }
 
 }
