@@ -43,8 +43,6 @@ public class PantryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pentry);
 
-
-
         edPantry = findViewById(R.id.edPantry);
 
         btnSavePantry = findViewById(R.id.btnSavePentry);
@@ -52,7 +50,6 @@ public class PantryActivity extends AppCompatActivity {
         btnSavePantry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 post();
             }
         });
@@ -69,8 +66,6 @@ public class PantryActivity extends AppCompatActivity {
                         String banco = document.getString("description");
                         edPantry.setText(banco);
                         edPantry.setSelection(edPantry.getText().length());
-
-
                     } else {
                         Log.d("n", "No such document");
                     }

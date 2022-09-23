@@ -40,6 +40,10 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
         setViewId();
     }
 
+    @Override
+    public void onBackPressed() {
+    }
+
     private void setViewId() {
         edEmailLogin = findViewById(R.id.edEmailLogin);
         edPasswordLogin = findViewById(R.id.edPasswordLogin);
