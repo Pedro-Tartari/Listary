@@ -11,6 +11,7 @@
         android:id="@+id/tvListaProduto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="NOVA LISTA"
         android:textAlignment="center"
         android:textColor="@color/Listary_Primary"
@@ -19,8 +20,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="69dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/edNomeListaNova"
@@ -33,7 +34,8 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/tvListaProduto" />
+        app:layout_constraintTop_toBottomOf="@+id/tvListaProduto"
+        android:paddingLeft="15dp"/>
 
     <EditText
         android:id="@+id/edNomeListaNova2"
@@ -48,7 +50,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/edNomeListaNova" />
+        app:layout_constraintTop_toBottomOf="@+id/edNomeListaNova"
+        android:paddingLeft="15dp"/>
 
     <ImageView
         android:id="@+id/imAdicionarProdutoLista"
@@ -95,13 +98,12 @@
         android:id="@+id/btSalvarLista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginBottom="36dp"
         android:text="SALVAR"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btSalvarLista2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -109,7 +111,7 @@
         android:id="@+id/btSalvarLista2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="12dp"
         android:layout_marginBottom="36dp"
         android:text="Carrinho"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -122,7 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.04"/>
+        app:layout_constraintGuide_percent="0.05" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
@@ -137,13 +139,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="  Quantidade"
+        android:hint="Quantidade"
         android:inputType="textPersonName"
         android:minHeight="40dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/edNomeListaNova2"
-        app:layout_constraintTop_toBottomOf="@+id/edNomeListaNova" />
+        app:layout_constraintTop_toBottomOf="@+id/edNomeListaNova"
+        android:paddingLeft="15dp"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"

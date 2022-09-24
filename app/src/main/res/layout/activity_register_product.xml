@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.80"/>
+        app:layout_constraintGuide_percent="0.95" />
 
     <TextView
         android:id="@+id/textView11"
@@ -38,7 +38,8 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        android:paddingLeft="15dp"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
@@ -58,7 +59,8 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5"
+        android:paddingLeft="15dp"/>
 
     <EditText
         android:id="@+id/editTextTextPersonName7"
@@ -71,7 +73,8 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6"
+        android:paddingLeft="15dp"/>
 
     <EditText
         android:id="@+id/editTextNumber"
@@ -79,18 +82,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
-        android:inputType="number"
         android:hint=" Preço"
+        android:inputType="number"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7"
+        android:paddingLeft="15dp"/>
 
     <Button
         android:id="@+id/button"
-        android:layout_width="94dp"
+        android:layout_width="122dp"
         android:layout_height="51dp"
-        android:layout_marginTop="312dp"
+        android:layout_marginEnd="16dp"
         android:backgroundTint="@color/Green"
         android:text="SALVAR"
         android:textStyle="bold"
@@ -98,19 +102,21 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
+        app:layout_constraintVertical_bias="0.708" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="122dp"
         android:layout_height="51dp"
-        android:layout_marginTop="312dp"
+        android:layout_marginStart="28dp"
         android:backgroundTint="@color/Red"
+        android:onClick="btCancelRegisterProduct"
         android:text="CANCELAR"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:onClick="btCancelRegisterProduct"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
+        app:layout_constraintVertical_bias="0.708" />
 </androidx.constraintlayout.widget.ConstraintLayout>
