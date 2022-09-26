@@ -1,4 +1,4 @@
-package com.example.listary.view;
+package com.example.listary.view.createProduct;
 
 import androidx.appcompat.app.AppCompatActivity;
 

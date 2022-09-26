@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Listary">
         <activity
-            android:name=".view.RegisterProduct"
+            android:name=".view.createProduct.RegisterProduct"
             android:exported="false" />
         <activity
             android:name=".view.Pantry.PantryActivity"

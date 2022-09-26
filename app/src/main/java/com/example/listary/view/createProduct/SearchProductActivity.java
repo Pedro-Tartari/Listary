@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.listary.R;
-import com.example.listary.view.RegisterProduct;
 import com.example.listary.view.loginForm.Login;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -63,7 +62,6 @@ public class SearchProductActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
         startActivity(intent);
-
     }
 
 }
