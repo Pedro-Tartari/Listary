@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvTitleMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -33,7 +33,7 @@
         android:textAlignment="center"
         app:cardCornerRadius="4dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleMenu"
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,7 +41,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/ivNewList"
                 android:layout_width="100dp"
                 android:layout_height="81dp"
                 android:layout_gravity="center"
@@ -65,7 +65,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/ivNewList"
                 app:layout_constraintVertical_bias="0.0"
                 tools:ignore="DuplicateIds" />
 
@@ -84,7 +84,7 @@
         android:textAlignment="center"
         app:cardCornerRadius="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleMenu"
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -103,11 +103,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imProduct"
+                app:layout_constraintTop_toBottomOf="@+id/ivProducts"
                 app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
-                android:id="@+id/imProduct"
+                android:id="@+id/ivProducts"
                 android:layout_width="100dp"
                 android:layout_height="81dp"
                 android:layout_gravity="center"
@@ -150,11 +150,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imHistorico"
+                app:layout_constraintTop_toBottomOf="@+id/ivHistoric"
                 app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
-                android:id="@+id/imHistorico"
+                android:id="@+id/ivHistoric"
                 android:layout_width="100dp"
                 android:layout_height="81dp"
                 android:layout_gravity="center"
@@ -198,11 +198,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imDespensa"
+                app:layout_constraintTop_toBottomOf="@+id/ivPantry"
                 app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
-                android:id="@+id/imDespensa"
+                android:id="@+id/ivPantry"
                 android:layout_width="100dp"
                 android:layout_height="81dp"
                 android:layout_gravity="center"
