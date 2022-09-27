@@ -5,10 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.loginForm.Login">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Listary"
@@ -25,12 +25,12 @@
         android:id="@+id/tvUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="28dp"
         android:text="Email"
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -41,8 +41,8 @@
 
     <EditText
         android:id="@+id/edEmailLogin"
-        android:layout_width="307dp"
-        android:layout_height="37dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:drawableEnd="@drawable/custom_user_icon"
         android:background="@drawable/border_custom"
@@ -63,9 +63,10 @@
         app:layout_constraintGuide_percent="0.9" />
 
     <TextView
-        android:id="@+id/tvSenha"
+        android:id="@+id/tvPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:text="Senha"
         android:textColor="@color/black"
         android:textSize="25dp"
@@ -74,29 +75,28 @@
 
     <EditText
         android:id="@+id/edPasswordLogin"
-        android:layout_width="307dp"
-        android:layout_height="37dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:drawableEnd="@drawable/custom_password_icon"
         android:background="@drawable/border_custom"
-        android:paddingLeft="15dp"
+        android:drawableEnd="@drawable/custom_password_icon"
         android:ems="10"
         android:hint="  Informe a senha"
         android:inputType="textPassword"
+        android:paddingLeft="15dp"
         app:layout_constraintEnd_toEndOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/tvSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPassword" />
 
     <Button
         android:id="@+id/btnLoginUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="Entrar"
+        android:layout_marginTop="68dp"
         android:onClick="onClick"
+        android:text="Entrar"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/edPasswordLogin" />
 
@@ -104,12 +104,11 @@
         android:id="@+id/register"
         android:layout_width="67dp"
         android:layout_height="22dp"
-        android:layout_marginStart="67dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="68dp"
         android:text="Registrar"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.816"
         app:layout_constraintStart_toEndOf="@+id/forgetPass"
         app:layout_constraintTop_toBottomOf="@+id/btnLoginUser" />
 
@@ -117,8 +116,8 @@
         android:id="@+id/forgetPass"
         android:layout_width="141dp"
         android:layout_height="20dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="68dp"
         android:text="Esqueceu? Recupere"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="@+id/guideline3"

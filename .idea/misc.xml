@@ -68,6 +68,17 @@
         <entry key="..\:/listary/app/src/main/res/layout/activity_register_product.xml" value="0.25" />
         <entry key="..\:/listary/app/src/main/res/layout/activity_reset_password.xml" value="0.20416666666666666" />
         <entry key="..\:/listary/app/src/main/res/layout/login_activity.xml" value="0.33" />
+        <entry key="app/src/main/res/drawable/ic_add_produto_lista.xml" value="0.1255" />
+        <entry key="app/src/main/res/layout/activity_create_products.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_historic.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/activity_itens_product.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/activity_menu_listary.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/activity_new_list.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/activity_pentry.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/activity_register_product.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/activity_reset_password.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/login_activity.xml" value="0.19270833333333334" />
       </map>
     </option>
   </component>

@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/tvListaProduto"
+        android:id="@+id/tvShoppingList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -24,9 +24,9 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/edNomeListaNova"
+        android:id="@+id/edShoppingListName"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="  Informe o nome da lista"
         android:inputType="textPersonName"
@@ -34,11 +34,11 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/tvListaProduto"
+        app:layout_constraintTop_toBottomOf="@+id/tvShoppingList"
         android:paddingLeft="15dp"/>
 
     <EditText
-        android:id="@+id/edNomeListaNova2"
+        android:id="@+id/edListProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -50,23 +50,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/edNomeListaNova"
+        app:layout_constraintTop_toBottomOf="@+id/edShoppingListName"
         android:paddingLeft="15dp"/>
 
     <ImageView
-        android:id="@+id/imAdicionarProdutoLista"
-        android:layout_width="55dp"
-        android:layout_height="54dp"
+        android:id="@+id/ivAddProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintHorizontal_bias="0.928"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_add_produto_lista"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvTotalPriceLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -74,41 +74,41 @@
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btSalvarLista"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tvTotalPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="  Valor Total"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btSalvarLista2"
+        app:layout_constraintBottom_toTopOf="@+id/btnCart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.928"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imAdicionarProdutoLista"
+        app:layout_constraintTop_toBottomOf="@+id/ivAddProduct"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btSalvarLista"
+        android:id="@+id/btnSaveList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
         android:text="SALVAR"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btSalvarLista2"
+        app:layout_constraintEnd_toStartOf="@+id/btnCart"
         app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btSalvarLista2"
+        android:id="@+id/btnCart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
@@ -134,8 +134,8 @@
         app:layout_constraintGuide_percent="0.95"/>
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="116dp"
+        android:id="@+id/edProductQuantity"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
@@ -144,8 +144,8 @@
         android:minHeight="40dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/edNomeListaNova2"
-        app:layout_constraintTop_toBottomOf="@+id/edNomeListaNova"
+        app:layout_constraintStart_toEndOf="@+id/edListProduct"
+        app:layout_constraintTop_toBottomOf="@+id/edShoppingListName"
         android:paddingLeft="15dp"/>
 
     <androidx.constraintlayout.widget.Guideline
@@ -156,12 +156,15 @@
         app:layout_constraintGuide_percent="0.90"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvShoppingList"
         android:layout_width="0dp"
-        android:layout_height="295dp"
-        app:layout_constraintBottom_toTopOf="@+id/imAdicionarProdutoLista"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/ivAddProduct"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/edNomeListaNova2" />
+        app:layout_constraintTop_toBottomOf="@+id/edListProduct"
+        app:layout_constraintVertical_bias="0.039" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
