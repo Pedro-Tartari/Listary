@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Listary">
         <activity
+            android:name=".ShoppingCart"
+            android:exported="false" />
+        <activity
             android:name=".view.createProduct.RegisterProduct"
             android:exported="false" />
         <activity

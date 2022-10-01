@@ -8,25 +8,25 @@
     android:id="@+id/layoutProductRecicler"
     tools:showIn="@layout/activity_create_products">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="2"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center">
-
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minWidth="180dp"
             android:id="@+id/tvItenProductName"
-            android:textSize="15dp"/>
+            android:textColor="@color/Listary_Primary"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:drawableStart="@drawable/ic_baseline_shopping_basket_24"/>
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:maxWidth="30dp"
             android:id="@+id/tvItenProductPrice"
-            android:textSize="15dp"/>
-
-    </LinearLayout>
+            android:textColor="@color/Listary_Primary"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
 </LinearLayout>
