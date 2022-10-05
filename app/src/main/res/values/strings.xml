@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Listary</string>
+    <string name="nova_lista">Nova Lista</string>
+    <string name="consultar_Listas">Consultar Listas</string>
+    <string name="despensa">Despensa</string>
+    <string name="logOut">Log Out</string>
 </resources>

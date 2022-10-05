@@ -10,22 +10,35 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Listary">
         <activity
-            android:name=".view.DespensaActivity"
+            android:name=".ShoppingCart"
             android:exported="false" />
         <activity
-            android:name=".view.HistoricoActivity"
+            android:name=".view.createProduct.RegisterProduct"
             android:exported="false" />
         <activity
-            android:name=".view.MenuListaryActivity"
+            android:name=".view.Pantry.PantryActivity"
             android:exported="false" />
         <activity
-            android:name=".view.BuscarProdutosActivity"
+            android:name=".view.historic.HistoricActivity"
             android:exported="false" />
         <activity
-            android:name=".view.NovaListaActivity"
+            android:name=".view.menu.MenuListaryActivity"
             android:exported="false" />
-        <activity android:name=".view.registerForm.Register"
-            android:exported="false"/>
+        <activity
+            android:name=".view.createProduct.SearchProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.newList.NewListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.loginForm.Login"
+            android:exported="false" />
+        <activity
+            android:name=".view.registerForm.Register"
+            android:exported="false" />
+        <activity
+            android:name=".view.resetPassword.ResetPasswordActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

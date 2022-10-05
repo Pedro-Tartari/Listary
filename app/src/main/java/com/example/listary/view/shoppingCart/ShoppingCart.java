@@ -1,16 +1,13 @@
-package com.example.listary.view;
+package com.example.listary.view.shoppingCart;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.listary.R;
-
-public class DespensaActivity extends AppCompatActivity {
+public class ShoppingCart extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_despensa);
     }
 }

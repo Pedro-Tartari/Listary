@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Listary"
@@ -25,30 +25,31 @@
         android:id="@+id/tvUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="56dp"
         android:text="Usuário"
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="43dp" />
+        app:layout_constraintGuide_percent="0.05"/>
 
     <EditText
 
-        android:drawableEnd="@drawable/custom_user_icon"
         android:id="@+id/edUserName"
-        android:layout_width="307dp"
-        android:layout_height="37dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:background="@drawable/border_custom"
+        android:drawableEnd="@drawable/custom_user_icon"
+        android:paddingLeft="15dp"
         android:ems="10"
-        android:hint="Informe o usuário"
+        android:hint="  Informe o usuário"
         android:inputType="textPersonName"
         android:textSize="15dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
@@ -61,14 +62,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="350dp" />
+        app:layout_constraintGuide_percent="0.95"/>
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:text="E-mail"
         android:textColor="@color/black"
         android:textSize="25dp"
@@ -77,25 +77,26 @@
 
     <EditText
         android:id="@+id/edEmail"
-        android:layout_width="307dp"
-        android:layout_height="37dp"
-        android:drawableEnd="@drawable/ic_baseline_email_24"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:background="@drawable/border_custom"
+        android:drawableEnd="@drawable/ic_baseline_email_24"
+        android:paddingLeft="15dp"
         android:ems="10"
-        android:hint="Informe o e-mail"
+        android:hint="  Informe o e-mail"
         android:inputType="textEmailAddress"
         android:textSize="15dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/tv" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
 
     <TextView
-        android:id="@+id/tvSenha"
+        android:id="@+id/tvPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:text="Senha"
         android:textColor="@color/black"
         android:textSize="25dp"
@@ -104,18 +105,20 @@
 
     <EditText
         android:id="@+id/edPassword"
-        android:layout_width="307dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="4dp"
-        android:drawableEnd="@drawable/custom_password_icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:background="@drawable/border_custom"
+        android:drawableEnd="@drawable/custom_password_icon"
+        android:paddingLeft="15dp"
         android:ems="10"
+        android:textSize="15dp"
         android:hint="Informe a senha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/tvSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPassword" />
 
     <Button
         android:id="@+id/btnRegister"
@@ -125,12 +128,9 @@
         android:minWidth="200dp"
         android:minHeight="50dp"
         android:text="CADASTRAR"
-        android:onClick="UserCad"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.579"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/edPassword" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
