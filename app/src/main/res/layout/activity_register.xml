@@ -7,6 +7,7 @@
     tools:context=".view.registerForm.Register">
 
 
+
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
@@ -132,5 +133,21 @@
         app:layout_constraintHorizontal_bias="0.579"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/edPassword" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="© RETRONIX 2022"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
