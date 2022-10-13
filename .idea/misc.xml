@@ -33,11 +33,14 @@
         <entry key="..\:/Users/fatim/AndroidStudioProjects/ListaryComBanco/listary/app/src/main/res/layout/login_activity.xml" value="0.25" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/listary/app/src/main/res/layout/activity_create_products.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/listary/app/src/main/res/layout/activity_historic.xml" value="0.365625" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/listary/app/src/main/res/layout/activity_itens_product.xml" value="0.358695652173913" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/listary/app/src/main/res/layout/activity_menu_listary.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/listary/app/src/main/res/layout/activity_new_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/listary/app/src/main/res/layout/activity_pentry.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/listary/app/src/main/res/layout/activity_register.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/listary/app/src/main/res/layout/activity_register_product.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/listary/app/src/main/res/layout/activity_shopping_cart.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/fatim/AndroidStudioProjects/listary/app/src/main/res/layout/activity_shopping_cart_item.xml" value="0.358695652173913" />
         <entry key="..\:/Users/fatim/AndroidStudioProjects/listary/app/src/main/res/layout/login_activity.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/phtar/AndroidStudioProjects/listary-TelasAtualizadaS/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_buscar_produtos.xml" value="0.2826086956521739" />
@@ -69,6 +72,7 @@
         <entry key="..\:/listary/app/src/main/res/layout/activity_reset_password.xml" value="0.20416666666666666" />
         <entry key="..\:/listary/app/src/main/res/layout/login_activity.xml" value="0.33" />
         <entry key="app/src/main/res/drawable/ic_add_produto_lista.xml" value="0.1255" />
+        <entry key="app/src/main/res/drawable/ic_baseline_shopping_basket_24.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_create_products.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_historic.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/activity_itens_product.xml" value="0.22" />
@@ -79,7 +83,7 @@
         <entry key="app/src/main/res/layout/activity_register_product.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/activity_reset_password.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/activity_shopping_cart.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_shopping_cart_item.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/activity_shopping_cart_item.xml" value="0.15" />
         <entry key="app/src/main/res/layout/login_activity.xml" value="0.19270833333333334" />
       </map>
     </option>

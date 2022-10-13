@@ -32,16 +32,17 @@ public class PantryActivity extends AppCompatActivity {
 
     private Button btnSavePantry;
     private EditText edPantry;
+    private String uid;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private DocumentReference pantryRf = db.document("pantry/UbkSlMbrFMiN6ITskOQW");
-    private FirebaseAuth auth;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pentry);
+        uid = user.getUid();
 
         edPantry = findViewById(R.id.edPantry);
 
@@ -56,7 +57,7 @@ public class PantryActivity extends AppCompatActivity {
     }
 
     private void show() {
-        DocumentReference docRef = db.collection("pentry").document(user.getUid()).collection("myNotes").document("FQpG5QWFiJ4xStsiDING");
+        DocumentReference docRef = db.collection("data").document(uid).collection("pantry").document("FQpG5QWFiJ4xStsiDING");
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -120,7 +121,7 @@ public class PantryActivity extends AppCompatActivity {
         if (description.isEmpty()){
             Toast.makeText(this, "Campo não pode estar vazio", Toast.LENGTH_LONG).show();
         } else{
-            DocumentReference documentReference = db.collection("pentry").document(user.getUid()).collection("myNotes").document("FQpG5QWFiJ4xStsiDING");
+            DocumentReference documentReference = db.collection("data").document(uid).collection("pantry").document("FQpG5QWFiJ4xStsiDING");
             documentReference.set(pantry)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
