@@ -3,7 +3,6 @@ package com.example.listary.view.createProduct;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,9 +10,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.listary.R;
-import com.example.listary.model.Pastry;
+import com.example.listary.controllers.ProductController;
 import com.example.listary.model.Product;
-import com.example.listary.view.Pantry.PantryActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,7 +21,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class RegisterProduct extends AppCompatActivity {
 
-    private EditText edRegisterProductName,edRegisterProductBrand,edRegisterProductLocal,edRegisterProductPrice;
+    private EditText edRegisterProductName,edRegisterProductBrand,
+            edRegisterProductLocal,edRegisterProductPrice;
+
     private Button btnSaveProduct;
 
     private String uid;
@@ -36,20 +36,19 @@ public class RegisterProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_product);
         uid = user.getUid();
-        setViewId();
+        setViewId(uid);
 
 
     }
 
-    private void post() {
+    /*private void post() {
         String name = edRegisterProductName.getText().toString();
         String brand = edRegisterProductBrand.getText().toString();
         String local = edRegisterProductLocal.getText().toString();
         Double price = Double.parseDouble(edRegisterProductPrice.getText().toString());
 
         Product product = new Product.ProductBuilder(
-                name,price,1
-        )
+                name,price,1)
                 .selectBrand(brand)
                 .selectLocation(local)
                 .build();
@@ -73,19 +72,21 @@ public class RegisterProduct extends AppCompatActivity {
                     });
         }
 
-    }
+    }*/
 
 
-    private void setViewId() {
+    private void setViewId(String uid) {
         edRegisterProductName = findViewById(R.id.edRegisterProductName);
         edRegisterProductBrand = findViewById(R.id.edRegisterProductBrand);
         edRegisterProductLocal = findViewById(R.id.edRegisterProductLocal);
         edRegisterProductPrice = findViewById(R.id.edRegisterProductPrice);
         btnSaveProduct = findViewById(R.id.btnSaveProduct);
+        ProductController productController = new ProductController();
         btnSaveProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                post();
+                productController.returnNewProduct(edRegisterProductName,edRegisterProductBrand,
+                        edRegisterProductLocal, edRegisterProductPrice, uid );
             }
         });
 
