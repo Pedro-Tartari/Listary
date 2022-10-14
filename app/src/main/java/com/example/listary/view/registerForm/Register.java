@@ -117,6 +117,8 @@ public class Register extends AppCompatActivity {
                                             }
                                         }
                                     });
+
+
                         } else {
                             Toast.makeText(Register.this, "Email ja cadastrado", Toast.LENGTH_LONG).show();
                         }

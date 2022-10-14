@@ -1,5 +1,8 @@
 package com.example.listary.controllers;
 
+import android.text.InputFilter;
+import android.text.Spanned;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,32 +25,32 @@ public class ProductController {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private long idValue;
 
-    public void returnNewProduct(EditText edRegisterProductName,EditText edRegisterProductBrand,
-                                    EditText edRegisterProductLocal, EditText edRegisterProductPrice,
-                                    String uID){
+    public void returnNewProduct(EditText edRegisterProductName, EditText edRegisterProductBrand,
+                                 EditText edRegisterProductLocal, EditText edRegisterProductPrice,
+                                 String uID) {
 
         String name = edRegisterProductName.getText().toString();
         String brand = edRegisterProductBrand.getText().toString();
         String local = edRegisterProductLocal.getText().toString();
         Double price = Double.parseDouble(edRegisterProductPrice.getText().toString());
 
-            Product product = new Product.ProductBuilder(
-                    name,price,0)
-                    .selectBrand(brand)
-                    .selectLocation(local)
-                    .build();
+        Product product = new Product.ProductBuilder(
+                name, price, 0)
+                .selectBrand(brand)
+                .selectLocation(local)
+                .build();
 
-            sendDataToFirestore(product, uID);
+        sendDataToFirestore(product, uID);
 
-        }
+    }
 
-    public void sendDataToFirestore(Product product, String uID){
+    public void sendDataToFirestore(Product product, String uID) {
 
         DocumentReference idReference = db.collection("data")
                 .document(uID).collection("reservedID")
                 .document("reservedProductId");
 
-         CollectionReference docRef =
+        CollectionReference docRef =
                 db.collection("data")
                         .document(uID)
                         .collection("product");
@@ -60,7 +63,7 @@ public class ProductController {
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
-                    idValue =  (long) document.get("id");
+                    idValue = (long) document.get("id");
                 }
             }
         });
@@ -73,5 +76,38 @@ public class ProductController {
                 idReference.update("id", FieldValue.increment(1));
             }
         });
+    }
+
+    public boolean verifyFields(EditText etRegisterProductName, EditText etRegisterProductPrice, Button btnSaveProduct) {
+
+        String blockedCharacters = "#|%*!=+-/?[]{},@%¨.;";
+
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence charSequence, int i, int i1, Spanned spanned, int i2, int i3) {
+                if (charSequence != null && blockedCharacters.contains(("" + charSequence))) {
+                    etRegisterProductName.setError("Caracteres Inválidos");
+                    return "";
+                }
+                return null;
+            }
+        };
+
+        etRegisterProductName.setFilters(new InputFilter[]{filter});
+
+        if (etRegisterProductPrice.getText().length() <= 0) {
+            etRegisterProductPrice.setError("Insira algum valor para o produto");
+            etRegisterProductName.requestFocus();
+            return false;
+        }
+
+        else if (etRegisterProductName.getText().length() <= 0) {
+            etRegisterProductName.setError("O nome não pode ser vazio");
+            etRegisterProductName.requestFocus();
+            return false;
+
+        } else {
+            return true;
+        }
     }
 }

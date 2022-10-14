@@ -3,6 +3,7 @@ package com.example.listary.view.createProduct;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -85,8 +86,15 @@ public class RegisterProduct extends AppCompatActivity {
         btnSaveProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                productController.returnNewProduct(edRegisterProductName,edRegisterProductBrand,
-                        edRegisterProductLocal, edRegisterProductPrice, uid );
+
+                if (productController.verifyFields(edRegisterProductName, edRegisterProductPrice, btnSaveProduct)) {
+                    productController.returnNewProduct(edRegisterProductName, edRegisterProductBrand,
+                            edRegisterProductLocal, edRegisterProductPrice, uid);
+
+
+                    Intent intent = new Intent(getApplicationContext(), SearchProductActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
