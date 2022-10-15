@@ -81,9 +81,11 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
     private boolean CheckAllFields() {
         email = edEmailLogin.getText().toString();
         password = edPasswordLogin.getText().toString();
-
+        int duration = Toast.LENGTH_SHORT;
         if (email.length() == 0) {
             edEmailLogin.setError("Esse campo é obrigatório");
+            Toast toast = Toast.makeText(this, "Esse Campo é Obrigatório", duration);
+            toast.show();
             return false;
         }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             edEmailLogin.setError("Informe um email válido");
@@ -92,6 +94,8 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
 
         if (password.length() == 0) {
             edPasswordLogin.setError("Esse campo é obrigatório");
+            Toast toast = Toast.makeText(this, "Esse Campo é Obrigatório", duration);
+            toast.show();
             return false;
         } else if (password.length() < 6) {
             edPasswordLogin.setError("A senha deve conter ao menos 6 caracteres");
