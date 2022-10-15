@@ -70,14 +70,18 @@ public class Register extends AppCompatActivity {
         userName = edUserName.getText().toString();
         email = edEmail.getText().toString();
         password = edPassword.getText().toString();
-
+        int duration = Toast.LENGTH_SHORT;
         if (userName.length() == 0) {
             edUserName.setError("Esse campo é obrigatório");
+            Toast toast = Toast.makeText(this, "Esse Campo é Obrigatório", duration);
+            toast.show();
             return false;
         }
 
         if (email.length() == 0) {
             edEmail.setError("Esse campo é obrigatório");
+            Toast toast = Toast.makeText(this, "Esse Campo é Obrigatório", duration);
+            toast.show();
             return false;
         }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             edEmail.setError("Informe um email válido");
@@ -86,6 +90,8 @@ public class Register extends AppCompatActivity {
 
         if (password.length() == 0) {
             edPassword.setError("Esse campo é obrigatório");
+            Toast toast = Toast.makeText(this, "Esse Campo é Obrigatório", duration);
+            toast.show();
             return false;
         } else if (password.length() < 6) {
             edPassword.setError("A senha deve conter ao menos 6 caracteres");
