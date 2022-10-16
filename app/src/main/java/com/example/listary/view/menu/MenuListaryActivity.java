@@ -77,18 +77,27 @@ public class MenuListaryActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
+        Intent intent;
+
         switch (item.getItemId()){
             case R.id.novaLista:
-                Toast.makeText(this, "Voce clicou em Novo lista", Toast.LENGTH_LONG).show();
+                intent = new Intent(this, NewListActivity.class);
+                startActivity(intent);
                 return true;
 
+            case R.id.consultarProduto:
+                intent = new Intent(this, SearchProductActivity.class);
+                startActivity(intent);
+                return true;
 
-            case R.id.consultarListas:
-                Toast.makeText(this, "Voce clicou em Consultar Listas", Toast.LENGTH_LONG).show();
+            case R.id.historic:
+                intent = new Intent(this, HistoricActivity.class);
+                startActivity(intent);
                 return true;
 
             case R.id.despensa:
-                Toast.makeText(this, "Voce clicou em Despensa", Toast.LENGTH_LONG).show();
+                intent = new Intent(this, PantryActivity.class);
+                startActivity(intent);
                 return true;
 
             case R.id.logOut:
