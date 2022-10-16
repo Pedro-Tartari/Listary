@@ -11,7 +11,11 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.listary.R;
+import com.example.listary.view.Pantry.PantryActivity;
+import com.example.listary.view.createProduct.SearchProductActivity;
+import com.example.listary.view.historic.HistoricActivity;
 import com.example.listary.view.loginForm.Login;
+import com.example.listary.view.menu.MenuListaryActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class NewListActivity extends AppCompatActivity {
@@ -26,7 +30,7 @@ public class NewListActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater formMenu = getMenuInflater();
-        formMenu.inflate(R.menu.activity_header, menu);
+        formMenu.inflate(R.menu.activity_header_new_list, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -34,18 +38,27 @@ public class NewListActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
+        Intent intent;
+
         switch (item.getItemId()){
-            case R.id.novaLista:
-                Toast.makeText(this, "Voce clicou em Novo lista", Toast.LENGTH_LONG).show();
+            case R.id.menuListary:
+                intent = new Intent(this, MenuListaryActivity.class);
+                startActivity(intent);
                 return true;
 
+            case R.id.consultarProduto:
+                intent = new Intent(this, SearchProductActivity.class);
+                startActivity(intent);
+                return true;
 
-            case R.id.consultarListas:
-                Toast.makeText(this, "Voce clicou em Consultar Listas", Toast.LENGTH_LONG).show();
+            case R.id.historic:
+                intent = new Intent(this, HistoricActivity.class);
+                startActivity(intent);
                 return true;
 
             case R.id.despensa:
-                Toast.makeText(this, "Voce clicou em Despensa", Toast.LENGTH_LONG).show();
+                intent = new Intent(this, PantryActivity.class);
+                startActivity(intent);
                 return true;
 
             case R.id.logOut:

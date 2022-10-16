@@ -4,21 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.listary.view.menu.MenuListaryActivity">
 
-
+    <item
+        android:id="@+id/menuListary"
+        android:title="@string/menu_listary"
+        android:orderInCategory="100"
+        />
     <item
         android:id="@+id/novaLista"
         android:title="@string/nova_lista"
-        android:orderInCategory="100"
-        />
-
-    <item
-        android:id="@+id/consultarProduto"
-        android:title="@string/consultar_Produto"
         android:orderInCategory="200"
         />
     <item
-        android:id="@+id/historic"
-        android:title="@string/historic"
+        android:id="@+id/consultarListas"
+        android:title="@string/consultar_Produto"
         android:orderInCategory="300"
         />
     <item
