@@ -113,6 +113,7 @@ public class SearchProductActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
         startActivity(intent);
+        finish();
     }
 
 }

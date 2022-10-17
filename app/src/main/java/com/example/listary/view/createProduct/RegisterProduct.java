@@ -94,6 +94,7 @@ public class RegisterProduct extends AppCompatActivity {
 
                     Intent intent = new Intent(getApplicationContext(), SearchProductActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         });
