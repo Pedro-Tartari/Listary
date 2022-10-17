@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         if (user != null){
             Toast.makeText(MainActivity.this, "Sucesso !", Toast.LENGTH_LONG).show();
             startActivity(new Intent(this, MenuListaryActivity.class));
+            finish();
         }else{
             startActivity(new Intent(this, Login.class));
             finish();

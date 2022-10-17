@@ -64,6 +64,7 @@ public class NewListActivity extends AppCompatActivity {
             case R.id.logOut:
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(this, Login.class));
+                finish();
             default:
                 return true;
         }
