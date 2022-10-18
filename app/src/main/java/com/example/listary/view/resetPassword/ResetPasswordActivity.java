@@ -58,11 +58,8 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
     private boolean CheckAllFields() {
         email = edResetEmail.getText().toString();
-        int duration = Toast.LENGTH_SHORT;
         if (email.length() == 0) {
             edResetEmail.setError("Esse campo é obrigatório");
-            Toast toast = Toast.makeText(this, "Esse Campo é Obrigatório", duration);
-            toast.show();
             return false;
         }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             edResetEmail.setError("Informe um email válido");

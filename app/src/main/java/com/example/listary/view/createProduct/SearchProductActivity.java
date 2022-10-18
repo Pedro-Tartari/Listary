@@ -12,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.listary.R;
 import com.example.listary.adapters.ProductsAdapter;
@@ -96,26 +95,31 @@ public class SearchProductActivity extends AppCompatActivity {
             case R.id.menuListary:
                 intent = new Intent(this, MenuListaryActivity.class);
                 startActivity(intent);
+                finish();
                 return true;
 
             case R.id.novaLista:
                 intent = new Intent(this, NewListActivity.class);
                 startActivity(intent);
+                finish();
                 return true;
 
             case R.id.historic:
                 intent = new Intent(this, HistoricActivity.class);
                 startActivity(intent);
+                finish();
                 return true;
 
             case R.id.despensa:
                 intent = new Intent(this, PantryActivity.class);
                 startActivity(intent);
+                finish();
                 return true;
 
             case R.id.logOut:
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(this, Login.class));
+                finish();
             default:
                 return true;
         }

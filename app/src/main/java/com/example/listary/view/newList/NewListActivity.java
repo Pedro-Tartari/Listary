@@ -44,21 +44,25 @@ public class NewListActivity extends AppCompatActivity {
             case R.id.menuListary:
                 intent = new Intent(this, MenuListaryActivity.class);
                 startActivity(intent);
+                finish();
                 return true;
 
             case R.id.consultarProduto:
                 intent = new Intent(this, SearchProductActivity.class);
                 startActivity(intent);
+                finish();
                 return true;
 
             case R.id.historic:
                 intent = new Intent(this, HistoricActivity.class);
                 startActivity(intent);
+                finish();
                 return true;
 
             case R.id.despensa:
                 intent = new Intent(this, PantryActivity.class);
                 startActivity(intent);
+                finish();
                 return true;
 
             case R.id.logOut:

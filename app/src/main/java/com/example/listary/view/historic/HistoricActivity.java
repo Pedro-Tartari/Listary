@@ -45,26 +45,31 @@ public class HistoricActivity extends AppCompatActivity {
             case R.id.menuListary:
                 intent = new Intent(this, MenuListaryActivity.class);
                 startActivity(intent);
+                finish();
                 return true;
 
             case R.id.novaLista:
                 intent = new Intent(this, NewListActivity.class);
                 startActivity(intent);
+                finish();
                 return true;
 
             case R.id.consultarProduto:
                 intent = new Intent(this, SearchProductActivity.class);
                 startActivity(intent);
+                finish();
                 return true;
 
             case R.id.despensa:
                 intent = new Intent(this, PantryActivity.class);
                 startActivity(intent);
+                finish();
                 return true;
 
             case R.id.logOut:
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(this, Login.class));
+                finish();
             default:
                 return true;
         }
