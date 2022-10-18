@@ -2,7 +2,7 @@ package com.example.listary.view.loginForm;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Patterns;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,8 +12,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.listary.MainActivity;
+
 import com.example.listary.R;
+import com.example.listary.controllers.LoginController;
 import com.example.listary.view.menu.MenuListaryActivity;
 import com.example.listary.view.registerForm.Register;
 import com.example.listary.view.resetPassword.ResetPasswordActivity;
@@ -21,7 +22,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 
 public class Login extends AppCompatActivity implements  View.OnClickListener{
 
@@ -29,8 +30,8 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
     private EditText edEmailLogin,edPasswordLogin;
     private Button btnLoginUser;
     private FirebaseAuth auth;
-    private String email,password;
     private boolean isAllFieldsChecked = false;
+    private LoginController loginController = new LoginController();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,50 +63,25 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()){
 
-
             case R.id.register:
                 startActivity(new Intent(this, Register.class));
+                finish();
                 break;
             case R.id.btnLoginUser:
-                isAllFieldsChecked = CheckAllFields();
-                if (isAllFieldsChecked) {
+
+                if (loginController.checkAllFields(edEmailLogin,edPasswordLogin)) {
                     signIn();
                 }
                 break;
             case R.id.forgetPass:
                 startActivity(new Intent(this, ResetPasswordActivity.class));
+                finish();
                 break;
         }
     }
 
-    private boolean CheckAllFields() {
-        email = edEmailLogin.getText().toString();
-        password = edPasswordLogin.getText().toString();
-        int duration = Toast.LENGTH_SHORT;
-        if (email.length() == 0) {
-            edEmailLogin.setError("Esse campo é obrigatório");
-            Toast toast = Toast.makeText(this, "Esse Campo é Obrigatório", duration);
-            toast.show();
-            return false;
-        }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            edEmailLogin.setError("Informe um email válido");
-            return false;
-        }
-
-        if (password.length() == 0) {
-            edPasswordLogin.setError("Esse campo é obrigatório");
-            Toast toast = Toast.makeText(this, "Esse Campo é Obrigatório", duration);
-            toast.show();
-            return false;
-        } else if (password.length() < 6) {
-            edPasswordLogin.setError("A senha deve conter ao menos 6 caracteres");
-            return false;
-        }
-        return true;
-    }
-
     private void signIn() {
-        auth.signInWithEmailAndPassword(email, password)
+        auth.signInWithEmailAndPassword(loginController.getEmail(), loginController.getPassword())
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {

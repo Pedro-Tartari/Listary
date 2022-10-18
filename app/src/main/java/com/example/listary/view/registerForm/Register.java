@@ -2,8 +2,7 @@ package com.example.listary.view.registerForm;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.Patterns;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,8 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.listary.MainActivity;
 import com.example.listary.R;
+import com.example.listary.controllers.RegisterController;
 import com.example.listary.model.User;
 import com.example.listary.view.loginForm.Login;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,16 +22,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.regex.Pattern;
 
 public class Register extends AppCompatActivity {
 
     private FirebaseAuth auth;
     private EditText edUserName,edEmail,edPassword;
     private Button btnRegister;
-    private String userName, email, password;
-    private boolean isAllFieldsChecked = false;
     private FirebaseFirestore db;
+    private RegisterController registerController = new RegisterController();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +44,9 @@ public class Register extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                isAllFieldsChecked = CheckAllFields();
 
-                if (isAllFieldsChecked) {
-                    creatUser();
+                if (registerController.checkAllFields(edUserName, edEmail, edPassword)) {
+                    createUser();
 
                 }
             }
@@ -66,43 +62,9 @@ public class Register extends AppCompatActivity {
         btnRegister = findViewById(R.id.btnRegister);
     }
 
-    private boolean CheckAllFields() {
-        userName = edUserName.getText().toString();
-        email = edEmail.getText().toString();
-        password = edPassword.getText().toString();
-        int duration = Toast.LENGTH_SHORT;
-        if (userName.length() == 0) {
-            edUserName.setError("Esse campo é obrigatório");
-            Toast toast = Toast.makeText(this, "Esse Campo é Obrigatório", duration);
-            toast.show();
-            return false;
-        }
 
-        if (email.length() == 0) {
-            edEmail.setError("Esse campo é obrigatório");
-            Toast toast = Toast.makeText(this, "Esse Campo é Obrigatório", duration);
-            toast.show();
-            return false;
-        }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            edEmail.setError("Informe um email válido");
-            return false;
-        }
-
-        if (password.length() == 0) {
-            edPassword.setError("Esse campo é obrigatório");
-            Toast toast = Toast.makeText(this, "Esse Campo é Obrigatório", duration);
-            toast.show();
-            return false;
-        } else if (password.length() < 6) {
-            edPassword.setError("A senha deve conter ao menos 6 caracteres");
-            return false;
-        }
-
-        return true;
-    }
-
-    private void creatUser() {
-        auth.fetchSignInMethodsForEmail(email)
+    private void createUser() {
+        auth.fetchSignInMethodsForEmail(registerController.getEmail())
                 .addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
                     @Override
                     public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
@@ -110,12 +72,12 @@ public class Register extends AppCompatActivity {
                         boolean isNewUser = task.getResult().getSignInMethods().isEmpty();
 
                         if (isNewUser) {
-                            auth.createUserWithEmailAndPassword(email,password)
+                            auth.createUserWithEmailAndPassword(registerController.getEmail(),registerController.getPassword())
                                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                         @Override
                                         public void onComplete(@NonNull Task<AuthResult> task) {
                                             if (task.isSuccessful()){
-                                                User user = new User(userName, email, password);
+                                                User user = new User(registerController.getUserName(), registerController.getEmail(), registerController.getPassword());
                                                 db.collection("users")
                                                         .add(user);
                                                 FirebaseAuth.getInstance().signOut();
