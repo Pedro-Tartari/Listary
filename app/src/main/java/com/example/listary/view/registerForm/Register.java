@@ -82,6 +82,7 @@ public class Register extends AppCompatActivity {
                                                         .add(user);
                                                 FirebaseAuth.getInstance().signOut();
                                                 startActivity(new Intent(Register.this, Login.class));
+                                                finish();
                                             }
                                         }
                                     });
