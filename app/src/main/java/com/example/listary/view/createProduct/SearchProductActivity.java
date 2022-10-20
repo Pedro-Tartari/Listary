@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,6 +31,7 @@ import com.google.firebase.firestore.Query;
 public class SearchProductActivity extends AppCompatActivity {
 
     private ProductsAdapter listAdapter;
+    public static Activity self_intent;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference docRef =
@@ -40,6 +42,7 @@ public class SearchProductActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        self_intent = this;
         setContentView(R.layout.activity_create_products);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,

@@ -1,14 +1,17 @@
 package com.example.listary.view.menu;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.listary.R;
 import com.example.listary.controllers.MenuController;
@@ -19,6 +22,8 @@ import com.example.listary.view.loginForm.Login;
 import com.example.listary.view.newList.NewListActivity;
 import com.example.listary.view.historic.HistoricActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -29,6 +34,32 @@ public class MenuListaryActivity extends AppCompatActivity {
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private MenuController menuController = new MenuController();
+    private AlertDialog alertDialog;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setCancelable(false);
+        alert.setTitle("Listary");
+        alert.setMessage("Você tem certeza que deseja sair do aplicativo?");
+        alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+        alert.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                alertDialog.dismiss();
+            }
+        });
+        alertDialog = alert.create();
+        alertDialog.show();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +107,7 @@ public class MenuListaryActivity extends AppCompatActivity {
             case R.id.logOut:
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(MenuListaryActivity.this, Login.class));
+                finish();
             default:
                 return true;
         }
