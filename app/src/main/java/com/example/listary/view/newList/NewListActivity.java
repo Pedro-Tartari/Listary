@@ -44,24 +44,28 @@ public class NewListActivity extends AppCompatActivity {
                     .collection("product");
 
     private AutoCompleteTextView ac_tv_Product;
-    private List<ProductItem> productItemsList = new ArrayList<>();
+    private AutoCompleteProductAdapter autoCompleteProductAdapter;
 
-    private AutoCompleteProductAdapter adapter;
     private RecyclerView rvShoppingList;
+    private RecycleViewerListAdapter recycleViewerListAdapter;
 
+    private List<ProductItem> productItemsList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_list);
 
-        ac_tv_Product = findViewById(R.id.ac_tv_Product);
-        rvShoppingList = findViewById(R.id.rvShoppingList);
-
         getDataFromFire();
 
-        adapter = new AutoCompleteProductAdapter(this, productItemsList);
-        ac_tv_Product.setAdapter(adapter);
+        ac_tv_Product = findViewById(R.id.ac_tv_Product);
+        rvShoppingList = findViewById(R.id.rvShoppingList);
+        rvShoppingList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+        autoCompleteProductAdapter = new AutoCompleteProductAdapter(this, productItemsList);
+        ac_tv_Product.setAdapter(autoCompleteProductAdapter);
+
+        recycleViewerListAdapter = new RecycleViewerListAdapter(productItemsList);
 
         ac_tv_Product.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -72,12 +76,10 @@ public class NewListActivity extends AppCompatActivity {
     }
 
     private void addItemToRecycle(int position) {
-        RecyclerView recyclerView = findViewById(R.id.rvShoppingList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        RecycleViewerListAdapter adapter = new RecycleViewerListAdapter(productItemsList);
-        recyclerView.setAdapter(adapter);
-    }
+        rvShoppingList.setAdapter(recycleViewerListAdapter);
+       Log.e("ItemCount", String.valueOf(recycleViewerListAdapter.getItemCount()));
 
+    }
 
     private void getDataFromFire() {
         docRef.get()
@@ -91,10 +93,9 @@ public class NewListActivity extends AppCompatActivity {
                                 String name = document.getString("name");
                                 String local = document.getString("location");
 
-
                                 productItemsList.add(new ProductItem(name, local));
 
-                                adapter.updateList(productItemsList);
+                                autoCompleteProductAdapter.updateList(productItemsList);
                             }
                         } else {
                             Log.d("deu errado", "Error getting documents: ", task.getException());

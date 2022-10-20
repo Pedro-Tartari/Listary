@@ -13,7 +13,7 @@ import com.example.listary.model.ProductItem;
 
 import java.util.List;
 
-public class RecycleViewerListAdapter extends RecyclerView.Adapter<RecycleList>{
+public class RecycleViewerListAdapter extends RecyclerView.Adapter<RecycleViewerListAdapter.ViewHolder> {
 
     List<ProductItem> items;
 
@@ -23,42 +23,36 @@ public class RecycleViewerListAdapter extends RecyclerView.Adapter<RecycleList>{
 
     @NonNull
     @Override
-    public RecycleList onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.activity_list_recycle, parent, false);
-        return new RecycleList(view).linkAdapter(this);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecycleList holder, int position) {
-        ProductItem productItem = items.get(position);
-        holder.tvRecycleName.setText(productItem.getProductName());
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.tvRecycleName.setText(items.get(position).getProductName());
     }
 
     @Override
     public int getItemCount() {
         return items.size();
     }
-}
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView tvRecycleName, tvRecycleValue, tvRecycleLocal;
 
 
-class RecycleList extends RecyclerView.ViewHolder{
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
 
-    TextView tvRecycleName, tvRecycleValue, tvRecycleLocal;
-    private RecycleViewerListAdapter adapter;
+            tvRecycleName = itemView.findViewById(R.id.tvRecycleName);
+            tvRecycleValue = itemView.findViewById(R.id.tvRecycleValue);
+            tvRecycleLocal = itemView.findViewById(R.id.tvRecycleLocal);
 
-    public RecycleList(@NonNull View itemView) {
-        super(itemView);
-
-        tvRecycleName = itemView.findViewById(R.id.tvRecycleName);
-        tvRecycleValue = itemView.findViewById(R.id.tvRecycleValue);
-        tvRecycleLocal = itemView.findViewById(R.id.tvRecycleLocal);
-
-
-    }
-
-    public RecycleList linkAdapter(RecycleViewerListAdapter adapter){
-        this. adapter = adapter;
-        return this;
+        }
     }
 }
+
+
