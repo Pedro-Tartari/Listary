@@ -77,10 +77,10 @@
 
     <Button
         android:id="@+id/btnLoginUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="105dp"
+        android:layout_height="42dp"
         android:layout_marginTop="24dp"
-        android:backgroundTint="@color/DarkOrchid"
+        android:background="@drawable/botao_customizado"
         android:onClick="onClick"
         android:text="Entrar"
         android:textAlignment="center"

@@ -34,6 +34,7 @@
         android:layout_marginTop="56dp"
         android:minHeight="50dp"
         android:text="  SALVAR  "
+        android:background="@drawable/botao_customizado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edPantry" />
