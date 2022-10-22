@@ -91,7 +91,7 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
                             startActivity(new Intent(Login.this, MenuListaryActivity.class));
                             finish();
                         }else{
-                            Toast.makeText(Login.this, "Erro ao encontrar", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Login.this, "E-mail e/ou Senha Inválida !", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
