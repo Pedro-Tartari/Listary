@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.listary">
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +14,7 @@
         android:theme="@style/Theme.Listary">
 
         <activity
-            android:name=".ShoppingCart"
+            android:name=".view.shoppingCart.ShoppingCart"
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity

@@ -27,7 +27,7 @@ public class ProductController {
 
     public void returnNewProduct(EditText edRegisterProductName, EditText edRegisterProductBrand,
                                  EditText edRegisterProductLocal, EditText edRegisterProductPrice,
-                                 String uID) {
+                                 String uID, Integer updateOption, String productId) {
 
         String name = edRegisterProductName.getText().toString();
         String brand = edRegisterProductBrand.getText().toString();
@@ -40,8 +40,22 @@ public class ProductController {
                 .selectLocation(local)
                 .build();
 
-        sendDataToFirestore(product, uID);
+        if(updateOption == 0) {
+            sendDataToFirestore(product, uID);
+        }else{
+            updateDataToFirestore(product, uID, productId);
+        }
 
+
+    }
+
+    private void updateDataToFirestore(Product product, String uID, String productId) {
+
+        DocumentReference productReference = db.collection("data")
+                .document(uID).collection("product").document(productId);
+
+        productReference.update("name", product.getName(), "productBrand", product.getProductBrand(),
+                "location", product.getLocation(), "price", product.getPrice());
     }
 
     public void sendDataToFirestore(Product product, String uID) {
@@ -95,17 +109,17 @@ public class ProductController {
 
         etRegisterProductName.setFilters(new InputFilter[]{filter});
 
-        if (etRegisterProductPrice.getText().length() <= 0) {
-            etRegisterProductPrice.setError("Insira algum valor para o produto");
-            etRegisterProductName.requestFocus();
-            return false;
-        }
-
-        else if (etRegisterProductName.getText().length() <= 0) {
+        if (etRegisterProductName.getText().length() <= 0) {
             etRegisterProductName.setError("O nome não pode ser vazio");
             etRegisterProductName.requestFocus();
             return false;
 
+        }
+
+        else if (etRegisterProductPrice.getText().length() <= 0) {
+            etRegisterProductPrice.setError("Insira algum valor para o produto");
+            etRegisterProductName.requestFocus();
+            return false;
         } else {
             return true;
         }
