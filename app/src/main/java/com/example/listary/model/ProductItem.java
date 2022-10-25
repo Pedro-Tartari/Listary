@@ -1,4 +1,4 @@
-package com.example.listary.view.newList;
+package com.example.listary.model;
 
 public class ProductItem {
 

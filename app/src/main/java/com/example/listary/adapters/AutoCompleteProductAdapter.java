@@ -1,4 +1,4 @@
-package com.example.listary.view.newList;
+package com.example.listary.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.listary.R;
+import com.example.listary.model.ProductItem;
 
 import java.util.ArrayList;
 import java.util.List;

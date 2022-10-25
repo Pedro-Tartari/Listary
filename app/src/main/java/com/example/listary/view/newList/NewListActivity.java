@@ -2,7 +2,6 @@ package com.example.listary.view.newList;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,12 +11,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
-import android.widget.Toast;
 
 import com.example.listary.R;
-import com.example.listary.adapters.ProductsAdapter;
+import com.example.listary.adapters.AutoCompleteProductAdapter;
+import com.example.listary.model.ProductItem;
 import com.example.listary.view.Pantry.PantryActivity;
 import com.example.listary.view.createProduct.SearchProductActivity;
 import com.example.listary.view.historic.HistoricActivity;
@@ -26,7 +26,6 @@ import com.example.listary.view.menu.MenuListaryActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -38,8 +37,6 @@ import java.util.List;
 public class NewListActivity extends AppCompatActivity {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    //    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//    private String uid;
 
     private CollectionReference docRef =
             db.collection("data")
@@ -47,30 +44,51 @@ public class NewListActivity extends AppCompatActivity {
                     .collection("product");
 
     private AutoCompleteTextView ac_tv_Product;
+    private AutoCompleteProductAdapter autoCompleteProductAdapter;
 
-    List<ProductItem> productItemsList = new ArrayList<>();
+    private RecyclerView rvShoppingList;
+    private RecycleViewerListAdapter recycleViewerListAdapter;
 
-    AutoCompleteProductAdapter adapter;
+    private List<ProductItem> productItemsList = new ArrayList<>();
+
+    List<ProductItem> teste = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_list);
 
-        ac_tv_Product = findViewById(R.id.ac_tv_Product);
-
         getDataFromFire();
 
-        adapter = new AutoCompleteProductAdapter(this, productItemsList);
-        ac_tv_Product.setAdapter(adapter);
+        ac_tv_Product = findViewById(R.id.ac_tv_Product);
+        rvShoppingList = findViewById(R.id.rvShoppingList);
+        rvShoppingList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
+        autoCompleteProductAdapter = new AutoCompleteProductAdapter(this, productItemsList);
+        ac_tv_Product.setAdapter(autoCompleteProductAdapter);
+
+//        recycleViewerListAdapter = new RecycleViewerListAdapter(productItemsList);
+
+        ac_tv_Product.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                addItemToRecycle(position);
+            }
+        });
+
+        recycleViewerListAdapter = new RecycleViewerListAdapter(teste);
+        rvShoppingList.setAdapter(recycleViewerListAdapter);
     }
 
-    private void fillList() {
+    private void addItemToRecycle(int position) {
 
-        System.out.println("tteste" + productItemsList.toString());
+        teste.add(productItemsList.get(position));
+
+
+
+       Log.e("ItemCount", String.valueOf(recycleViewerListAdapter.getItemCount()));
 
     }
-
 
     private void getDataFromFire() {
         docRef.get()
@@ -84,10 +102,9 @@ public class NewListActivity extends AppCompatActivity {
                                 String name = document.getString("name");
                                 String local = document.getString("location");
 
-
                                 productItemsList.add(new ProductItem(name, local));
 
-                                adapter.updateList(productItemsList);
+                                autoCompleteProductAdapter.updateList(productItemsList);
                             }
                         } else {
                             Log.d("deu errado", "Error getting documents: ", task.getException());
