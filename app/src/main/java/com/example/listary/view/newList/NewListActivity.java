@@ -51,6 +51,8 @@ public class NewListActivity extends AppCompatActivity {
 
     private List<ProductItem> productItemsList = new ArrayList<>();
 
+    List<ProductItem> teste = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +67,7 @@ public class NewListActivity extends AppCompatActivity {
         autoCompleteProductAdapter = new AutoCompleteProductAdapter(this, productItemsList);
         ac_tv_Product.setAdapter(autoCompleteProductAdapter);
 
-        recycleViewerListAdapter = new RecycleViewerListAdapter(productItemsList);
+//        recycleViewerListAdapter = new RecycleViewerListAdapter(productItemsList);
 
         ac_tv_Product.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -73,10 +75,17 @@ public class NewListActivity extends AppCompatActivity {
                 addItemToRecycle(position);
             }
         });
+
+        recycleViewerListAdapter = new RecycleViewerListAdapter(teste);
+        rvShoppingList.setAdapter(recycleViewerListAdapter);
     }
 
     private void addItemToRecycle(int position) {
-        rvShoppingList.setAdapter(recycleViewerListAdapter);
+
+        teste.add(productItemsList.get(position));
+
+
+
        Log.e("ItemCount", String.valueOf(recycleViewerListAdapter.getItemCount()));
 
     }
