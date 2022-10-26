@@ -2,11 +2,17 @@ package com.example.listary.model;
 
 public class ProductItem {
 
-    private String productName, ProductLocal;
+    private String productName, productLocal;
+    private double productPrice;
 
-    public ProductItem(String productName, String productLocal) {
+    public ProductItem(String productName, String productLocal, double productPrice) {
         this.productName = productName;
-        ProductLocal = productLocal;
+        this.productLocal = productLocal;
+        this.productPrice = productPrice;
+    }
+
+    public double getProductPrice() {
+        return productPrice;
     }
 
     public String getProductName() {
@@ -14,14 +20,14 @@ public class ProductItem {
     }
 
     public String getProductLocal() {
-        return ProductLocal;
+        return productLocal;
     }
 
     @Override
     public String toString() {
         return "ProductItem{" +
                 "productName='" + productName + '\'' +
-                ", ProductLocal='" + ProductLocal + '\'' +
+                ", ProductLocal='" + productLocal + '\'' +
                 '}';
     }
 }
