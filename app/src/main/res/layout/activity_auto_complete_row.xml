@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:paddingStart="8dp"
-        android:text="Primato"
+        android:text="Mercado"
         />
 
 

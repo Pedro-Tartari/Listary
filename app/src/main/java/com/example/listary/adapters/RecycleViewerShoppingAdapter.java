@@ -1,4 +1,4 @@
-package com.example.listary.view.newList;
+package com.example.listary.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +13,11 @@ import com.example.listary.model.ProductItem;
 
 import java.util.List;
 
-public class RecycleViewerListAdapter extends RecyclerView.Adapter<RecycleViewerListAdapter.ViewHolder> {
+public class RecycleViewerShoppingAdapter extends RecyclerView.Adapter<RecycleViewerShoppingAdapter.ViewHolder> {
 
     List<ProductItem> items;
 
-    public RecycleViewerListAdapter(List<ProductItem> items) {
+    public RecycleViewerShoppingAdapter(List<ProductItem> items) {
         this.items = items;
     }
 
@@ -32,6 +32,9 @@ public class RecycleViewerListAdapter extends RecyclerView.Adapter<RecycleViewer
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvRecycleName.setText(items.get(position).getProductName());
+        holder.tvRecycleLocal.setText(items.get(position).getProductLocal());
+        holder.tvRecycleValue.setText(Double.toString( items.get(position).getProductPrice()));
+
     }
 
     @Override

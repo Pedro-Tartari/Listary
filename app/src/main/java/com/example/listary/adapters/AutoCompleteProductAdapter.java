@@ -30,7 +30,7 @@ public class AutoCompleteProductAdapter extends ArrayAdapter<ProductItem> {
     public void updateList(@NonNull List<ProductItem> newList) {
         productListFull = new ArrayList<>(newList);
         clear();
-        addAll(productListFull); // Adapter is now aware of the updated list
+        addAll(productListFull);
     }
 
     @NonNull
@@ -43,7 +43,7 @@ public class AutoCompleteProductAdapter extends ArrayAdapter<ProductItem> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if (convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_custom_search, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_auto_complete_row, parent, false);
         }
 
         TextView textViewName = convertView.findViewById(R.id.tvCustomName);

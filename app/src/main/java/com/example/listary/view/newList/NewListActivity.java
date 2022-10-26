@@ -17,6 +17,7 @@ import android.widget.AutoCompleteTextView;
 
 import com.example.listary.R;
 import com.example.listary.adapters.AutoCompleteProductAdapter;
+import com.example.listary.adapters.RecycleViewerShoppingAdapter;
 import com.example.listary.model.ProductItem;
 import com.example.listary.view.Pantry.PantryActivity;
 import com.example.listary.view.createProduct.SearchProductActivity;
@@ -36,59 +37,54 @@ import java.util.List;
 
 public class NewListActivity extends AppCompatActivity {
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    //FireBase
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference docRef =
             db.collection("data")
                     .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
                     .collection("product");
 
-    private AutoCompleteTextView ac_tv_Product;
+
+    //AutoComplete
+    private AutoCompleteTextView acProduct;
     private AutoCompleteProductAdapter autoCompleteProductAdapter;
+    private List<ProductItem> acProductList = new ArrayList<>();
 
-    private RecyclerView rvShoppingList;
-    private RecycleViewerListAdapter recycleViewerListAdapter;
-
-    private List<ProductItem> productItemsList = new ArrayList<>();
-
-    List<ProductItem> teste = new ArrayList<>();
+    //Recyle
+    private RecyclerView rvNewShoppingList;
+    private RecycleViewerShoppingAdapter recycleViewerShoppingAdapter;
+    private List<ProductItem> rvSelectedProductList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_list);
 
+        setViewId();
+
         getDataFromFire();
 
-        ac_tv_Product = findViewById(R.id.ac_tv_Product);
-        rvShoppingList = findViewById(R.id.rvShoppingList);
-        rvShoppingList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-
-        autoCompleteProductAdapter = new AutoCompleteProductAdapter(this, productItemsList);
-        ac_tv_Product.setAdapter(autoCompleteProductAdapter);
-
-//        recycleViewerListAdapter = new RecycleViewerListAdapter(productItemsList);
-
-        ac_tv_Product.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        autoCompleteProductAdapter = new AutoCompleteProductAdapter(this, acProductList);
+        acProduct.setAdapter(autoCompleteProductAdapter);
+        acProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                addItemToRecycle(position);
+                rvSelectedProductList.add(acProductList.get(position));
             }
         });
 
-        recycleViewerListAdapter = new RecycleViewerListAdapter(teste);
-        rvShoppingList.setAdapter(recycleViewerListAdapter);
+        //Aplica adapter no Recyle e mostra a lista selecionada
+        rvNewShoppingList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recycleViewerShoppingAdapter = new RecycleViewerShoppingAdapter(rvSelectedProductList);
+        rvNewShoppingList.setAdapter(recycleViewerShoppingAdapter);
     }
 
-    private void addItemToRecycle(int position) {
-
-        teste.add(productItemsList.get(position));
-
-
-
-       Log.e("ItemCount", String.valueOf(recycleViewerListAdapter.getItemCount()));
-
+    private void setViewId() {
+        acProduct = findViewById(R.id.acProduct);
+        rvNewShoppingList = findViewById(R.id.rvNewShoppingList);
     }
+
 
     private void getDataFromFire() {
         docRef.get()
@@ -98,16 +94,16 @@ public class NewListActivity extends AppCompatActivity {
                         if (isFinishing() || isDestroyed()) return;
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d("Deu certo", document.getId() + " => " + document.getData());
+                                Log.d("DB success", document.getId() + " => " + document.getData());
                                 String name = document.getString("name");
                                 String local = document.getString("location");
+                                Double price = document.getDouble("price");
 
-                                productItemsList.add(new ProductItem(name, local));
-
-                                autoCompleteProductAdapter.updateList(productItemsList);
+                                acProductList.add(new ProductItem(name, local, price));
+                                autoCompleteProductAdapter.updateList(acProductList);
                             }
                         } else {
-                            Log.d("deu errado", "Error getting documents: ", task.getException());
+                            Log.d("DB Error", "Error getting documents: ", task.getException());
                         }
                     }
                 });
@@ -116,10 +112,8 @@ public class NewListActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         MenuInflater formMenu = getMenuInflater();
         formMenu.inflate(R.menu.activity_header_new_list, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
 
