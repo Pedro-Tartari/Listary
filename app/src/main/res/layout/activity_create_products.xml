@@ -51,12 +51,26 @@
         android:id="@+id/btnAddNewProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="16dp"
         android:onClick="iconAddProduct"
         android:text="CADASTRAR PRODUTO"
+        android:background="@drawable/botao_customizado"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintStart_toStartOf="@+id/guideline9" />
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome"
+        android:textColor="@color/Listary_Primary"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/edSearchProduct"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toBottomOf="@+id/rvProducts"
         app:layout_constraintVertical_bias="1.0" />

@@ -109,17 +109,17 @@ public class ProductController {
 
         etRegisterProductName.setFilters(new InputFilter[]{filter});
 
-        if (etRegisterProductPrice.getText().length() <= 0) {
-            etRegisterProductPrice.setError("Insira algum valor para o produto");
-            etRegisterProductName.requestFocus();
-            return false;
-        }
-
-        else if (etRegisterProductName.getText().length() <= 0) {
+        if (etRegisterProductName.getText().length() <= 0) {
             etRegisterProductName.setError("O nome não pode ser vazio");
             etRegisterProductName.requestFocus();
             return false;
 
+        }
+
+        else if (etRegisterProductPrice.getText().length() <= 0) {
+            etRegisterProductPrice.setError("Insira algum valor para o produto");
+            etRegisterProductName.requestFocus();
+            return false;
         } else {
             return true;
         }
