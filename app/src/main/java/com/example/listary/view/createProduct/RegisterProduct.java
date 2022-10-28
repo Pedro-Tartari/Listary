@@ -39,6 +39,7 @@ public class RegisterProduct extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setTitle(getResources().getString(R.string.cadastrar_produto));
         setContentView(R.layout.activity_register_product);
         uid = user.getUid();
 

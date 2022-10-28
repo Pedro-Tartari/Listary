@@ -7,36 +7,19 @@
     tools:context=".view.newList.NewListActivity">
 
 
-    <TextView
-        android:id="@+id/tvShoppingList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="NOVA LISTA"
-        android:textAlignment="center"
-        android:textColor="@color/Listary_Primary"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
     <EditText
         android:id="@+id/edShoppingListName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Informe o nome da lista"
+        android:layout_marginTop="40dp"
+        android:hint="  Informe o nome da lista"
         android:inputType="textPersonName"
         android:minHeight="40dp"
         android:paddingLeft="15dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/tvShoppingList" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <AutoCompleteTextView
         android:id="@+id/acProduct"

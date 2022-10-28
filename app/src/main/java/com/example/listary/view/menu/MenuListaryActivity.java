@@ -75,6 +75,8 @@ public class MenuListaryActivity extends AppCompatActivity {
         MenuInflater formMenu = getMenuInflater();
         formMenu.inflate(R.menu.activity_header, menu);
 
+        this.setTitle(getResources().getString(R.string.menu_listary));
+
         return super.onCreateOptionsMenu(menu);
     }
 

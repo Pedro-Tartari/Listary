@@ -61,6 +61,7 @@ public class NewListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_list);
 
+        this.setTitle(getResources().getString(R.string.nova_lista));
         setViewId();
 
         getDataFromFire();

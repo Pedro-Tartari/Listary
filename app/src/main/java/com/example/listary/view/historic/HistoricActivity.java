@@ -25,6 +25,8 @@ public class HistoricActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historic);
+
+        this.setTitle(getResources().getString(R.string.historic));
     }
 
     @Override

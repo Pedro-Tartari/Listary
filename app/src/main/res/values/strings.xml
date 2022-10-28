@@ -6,4 +6,5 @@
     <string name="historic">Historico</string>
     <string name="despensa">Despensa</string>
     <string name="logOut">Log Out</string>
+    <string name="cadastrar_produto">Cadastrar Produto</string>
 </resources>

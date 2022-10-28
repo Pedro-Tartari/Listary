@@ -42,6 +42,7 @@ public class SearchProductActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setTitle(getResources().getString(R.string.consultar_Produto));
         self_intent = this;
         setContentView(R.layout.activity_create_products);
 
@@ -65,6 +66,7 @@ public class SearchProductActivity extends AppCompatActivity {
         listAdapter = new ProductsAdapter(options);
         recyclerView.setAdapter(listAdapter);
         listAdapter.notifyDataSetChanged();
+
 
     }
 
