@@ -36,12 +36,20 @@ public class RegisterProduct extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+    private ProductController productController = new ProductController();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setTitle(getResources().getString(R.string.cadastrar_produto));
         setContentView(R.layout.activity_register_product);
         uid = user.getUid();
+
+        edRegisterProductName = findViewById(R.id.edRegisterProductName);
+        edRegisterProductBrand = findViewById(R.id.edRegisterProductBrand);
+        edRegisterProductLocal = findViewById(R.id.edRegisterProductLocal);
+        edRegisterProductPrice = findViewById(R.id.edRegisterProductPrice);
+        btnSaveProduct = findViewById(R.id.btnSaveProduct);
 
         Bundle data = getIntent().getExtras();
         String documentId = (String) data.get("documentId");
@@ -57,12 +65,7 @@ public class RegisterProduct extends AppCompatActivity {
     }
 
     private void setViewId(String uid, Integer updateOption) {
-        edRegisterProductName = findViewById(R.id.edRegisterProductName);
-        edRegisterProductBrand = findViewById(R.id.edRegisterProductBrand);
-        edRegisterProductLocal = findViewById(R.id.edRegisterProductLocal);
-        edRegisterProductPrice = findViewById(R.id.edRegisterProductPrice);
-        btnSaveProduct = findViewById(R.id.btnSaveProduct);
-        ProductController productController = new ProductController();
+
         btnSaveProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,12 +87,6 @@ public class RegisterProduct extends AppCompatActivity {
     }
 
     private void setViewForUpdate(String uid, String documentId, Integer updateOption) {
-        edRegisterProductName = findViewById(R.id.edRegisterProductName);
-        edRegisterProductBrand = findViewById(R.id.edRegisterProductBrand);
-        edRegisterProductLocal = findViewById(R.id.edRegisterProductLocal);
-        edRegisterProductPrice = findViewById(R.id.edRegisterProductPrice);
-        btnSaveProduct = findViewById(R.id.btnSaveProduct);
-        ProductController productController = new ProductController();
 
         DocumentReference docRef =
                 db.collection("data")
