@@ -37,14 +37,12 @@ import java.util.List;
 
 public class NewListActivity extends AppCompatActivity {
 
-
     //FireBase
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference docRef =
             db.collection("data")
                     .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
                     .collection("product");
-
 
     //AutoComplete
     private AutoCompleteTextView acProduct;
@@ -75,7 +73,7 @@ public class NewListActivity extends AppCompatActivity {
             }
         });
 
-        //Aplica adapter no Recyle e mostra a lista selecionada
+        //Aplica adapter no Recyle e mostra a lista selecionadaq
         rvNewShoppingList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recycleViewerShoppingAdapter = new RecycleViewerShoppingAdapter(rvSelectedProductList);
         rvNewShoppingList.setAdapter(recycleViewerShoppingAdapter);
@@ -85,7 +83,6 @@ public class NewListActivity extends AppCompatActivity {
         acProduct = findViewById(R.id.acProduct);
         rvNewShoppingList = findViewById(R.id.rvNewShoppingList);
     }
-
 
     private void getDataFromFire() {
         docRef.get()

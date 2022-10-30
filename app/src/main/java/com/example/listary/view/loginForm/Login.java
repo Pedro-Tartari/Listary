@@ -43,6 +43,7 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
 
     @Override
     public void onBackPressed() {
+        finish();
     }
 
     private void setViewId() {
@@ -71,6 +72,7 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
 
                 if (loginController.checkAllFields(edEmailLogin,edPasswordLogin)) {
                     signIn();
+                    finish();
                 }
                 break;
             case R.id.forgetPass:

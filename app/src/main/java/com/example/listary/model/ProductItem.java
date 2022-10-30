@@ -3,7 +3,8 @@ package com.example.listary.model;
 public class ProductItem {
 
     private String productName, productLocal;
-    private double productPrice;
+    private double productPrice, productQuantity;
+    private double productTotalPrice;
 
     public ProductItem(String productName, String productLocal, double productPrice) {
         this.productName = productName;
@@ -21,6 +22,22 @@ public class ProductItem {
 
     public String getProductLocal() {
         return productLocal;
+    }
+
+    public double getProductQuantity() {
+        return productQuantity;
+    }
+
+    public void setProductQuantity(double productQuantity) {
+        this.productQuantity = productQuantity;
+    }
+
+    public double getProductTotalPrice() {
+        return productTotalPrice;
+    }
+
+    public void setProductTotalPrice(double productTotalPrice) {
+        this.productTotalPrice = productTotalPrice;
     }
 
     @Override
