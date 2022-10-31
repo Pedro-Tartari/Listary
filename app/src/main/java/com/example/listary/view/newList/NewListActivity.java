@@ -77,6 +77,8 @@ public class NewListActivity extends AppCompatActivity {
         rvNewShoppingList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recycleViewerShoppingAdapter = new RecycleViewerShoppingAdapter(rvSelectedProductList);
         rvNewShoppingList.setAdapter(recycleViewerShoppingAdapter);
+
+
     }
 
     private void setViewId() {

@@ -43,7 +43,7 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
 
     @Override
     public void onBackPressed() {
-        finish();
+        this.finishAffinity();
     }
 
     private void setViewId() {
