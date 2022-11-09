@@ -81,12 +81,12 @@
         <entry key="app/src/main/res/layout/activity_menu_listary.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/activity_new_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_pentry.xml" value="0.19270833333333334" />
-        <entry key="app/src/main/res/layout/activity_register.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_register_product.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/activity_reset_password.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/activity_shopping_cart.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_shopping_cart_item.xml" value="0.15" />
-        <entry key="app/src/main/res/layout/login_activity.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/login_activity.xml" value="0.1" />
         <entry key="app/src/main/res/menu/activity_header.xml" value="0.13055555555555556" />
         <entry key="app/src/main/res/menu/activity_header_new_list.xml" value="0.19270833333333334" />
       </map>

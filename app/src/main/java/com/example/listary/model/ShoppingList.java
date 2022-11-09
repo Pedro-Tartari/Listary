@@ -1,10 +1,11 @@
 package com.example.listary.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ShoppingList {
 
-    private ArrayList<Product> productList = new ArrayList<>();
+    private List<Product> productList;
     private String name;
     private int id;
     private float totalPrice;
@@ -12,18 +13,19 @@ public class ShoppingList {
     public ShoppingList() {
     }
 
-    public ShoppingList(String name, Float totalPrice, int id) {
+    public ShoppingList(String name, List productList, Float totalPrice, int id) {
         this.name = name;
+        this.productList = productList;
         this.totalPrice = totalPrice;
         this.id = id;
 
     }
 
-    public ArrayList<Product> getProductList() {
+    public List<Product> getProductList() {
         return productList;
     }
 
-    public void setProductList(ArrayList<Product> productList) {
+    public void setProductList(List<Product> productList) {
         this.productList = productList;
     }
 
@@ -50,4 +52,6 @@ public class ShoppingList {
     public void setTotalPrice(float totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+
 }

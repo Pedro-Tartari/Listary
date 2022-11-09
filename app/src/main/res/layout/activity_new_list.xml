@@ -85,6 +85,7 @@
         android:layout_marginBottom="12dp"
         android:background="@drawable/botao_customizado"
         android:text="  SALVAR    "
+        android:onClick="sendListToFirestore"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnCart"
         app:layout_constraintHorizontal_bias="0.0"
