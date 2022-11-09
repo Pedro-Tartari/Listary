@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.listary.R;
+import com.example.listary.listners.OnAlterQuantityItem;
 import com.example.listary.model.ProductItem;
 
 import java.util.ArrayList;
@@ -21,12 +22,13 @@ import java.util.List;
 
 public class RecycleViewerShoppingAdapter extends RecyclerView.Adapter<RecycleViewerShoppingAdapter.ViewHolder> {
 
-    List<ProductItem> items;
-    private double productQuantity;
-    private List<Double> productTotalPrice = new ArrayList<>();
+    private List<ProductItem> items;
 
-    public RecycleViewerShoppingAdapter(List<ProductItem> items) {
+    private OnAlterQuantityItem onAlterQuantityItem;
+
+    public RecycleViewerShoppingAdapter(List<ProductItem> items, OnAlterQuantityItem onAlterQuantityItem) {
         this.items = items;
+        this.onAlterQuantityItem = onAlterQuantityItem;
     }
 
     @NonNull
@@ -43,42 +45,21 @@ public class RecycleViewerShoppingAdapter extends RecyclerView.Adapter<RecycleVi
         holder.tvRecycleLocal.setText(items.get(position).getProductLocal());
         holder.tvRecycleValue.setText(Double.toString( items.get(position).getProductPrice()));
 
-//        holder.edRecycleQuantity.setText("0");
-//        productQuantity = Double.parseDouble(holder.edRecycleQuantity.getText().toString());
-
-//        items.get(position).setProductQuantity(productQuantity);
-//        productTotalPrice = (items.get(position).getProductPrice() * items.get(position).getProductQuantity());
-        /* NAO SEI SE VAI PRECISAR DESSE COMANDO COMENTADO
-        holder.edRecycleQuantity.setText(String.valueOf(items.get(position).getProductQuantity()));
-         */
-
         holder.edRecycleQuantity.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                double teste = 0;
                 if (!holder.edRecycleQuantity.getText().toString().isEmpty()) {
-                    productQuantity = Double.parseDouble(holder.edRecycleQuantity.getText().toString());
-                    items.get(holder.getAdapterPosition()).setProductQuantity(productQuantity);
-                    productTotalPrice.add(items.get(holder.getAdapterPosition()).getProductPrice() * items.get(holder.getAdapterPosition()).getProductQuantity());
-                    Log.e("Resultado", "" + productTotalPrice);
-                    for (int i = 0; i < productTotalPrice.size(); i++) {
-
-                         teste += productTotalPrice.get(i);
-                        Log.e("Resultados", "" + teste);
-                    }
+                    onAlterQuantityItem.onAlterQuantityItem(
+                            holder.getBindingAdapterPosition(), Double.parseDouble(holder.edRecycleQuantity.getText().toString()));
                 }
-
-
             }
         });
     }

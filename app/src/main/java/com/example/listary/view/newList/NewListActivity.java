@@ -14,10 +14,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
+import android.widget.TextView;
 
 import com.example.listary.R;
 import com.example.listary.adapters.AutoCompleteProductAdapter;
 import com.example.listary.adapters.RecycleViewerShoppingAdapter;
+import com.example.listary.listners.OnAlterQuantityItem;
 import com.example.listary.model.ProductItem;
 import com.example.listary.view.Pantry.PantryActivity;
 import com.example.listary.view.createProduct.SearchProductActivity;
@@ -35,7 +37,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewListActivity extends AppCompatActivity {
+public class NewListActivity extends AppCompatActivity implements OnAlterQuantityItem {
 
     //FireBase
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -54,10 +56,15 @@ public class NewListActivity extends AppCompatActivity {
     private RecycleViewerShoppingAdapter recycleViewerShoppingAdapter;
     private List<ProductItem> rvSelectedProductList = new ArrayList<>();
 
+    //View
+    private TextView tvListTotalPrice;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_list);
+
+        tvListTotalPrice = findViewById(R.id.tvTotalPrice);
 
         this.setTitle(getResources().getString(R.string.nova_lista));
         setViewId();
@@ -70,14 +77,17 @@ public class NewListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 rvSelectedProductList.add(acProductList.get(position));
+                atualizaLista();
             }
         });
+        atualizaLista();
+    }
 
+    public void atualizaLista(){
         //Aplica adapter no Recyle e mostra a lista selecionadaq
         rvNewShoppingList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        recycleViewerShoppingAdapter = new RecycleViewerShoppingAdapter(rvSelectedProductList);
+        recycleViewerShoppingAdapter = new RecycleViewerShoppingAdapter(rvSelectedProductList, this);
         rvNewShoppingList.setAdapter(recycleViewerShoppingAdapter);
-
 
     }
 
@@ -114,6 +124,7 @@ public class NewListActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater formMenu = getMenuInflater();
         formMenu.inflate(R.menu.activity_header_new_list, menu);
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -154,5 +165,20 @@ public class NewListActivity extends AppCompatActivity {
             default:
                 return true;
         }
+    }
+
+    @Override
+    public void onAlterQuantityItem(int position, double quantity) {
+        ProductItem prdItem = rvSelectedProductList.get(position);
+        prdItem.setProductQuantity(quantity);
+        prdItem.setProductTotalPrice(prdItem.getProductPrice() * prdItem.getProductQuantity());
+        rvSelectedProductList.set(position, prdItem);
+
+        double valorTotal = 0;
+        for (ProductItem item:rvSelectedProductList) {
+            valorTotal += item.getProductPrice() * item.getProductQuantity();
+        }
+
+        tvListTotalPrice.setText(String.valueOf(valorTotal));
     }
 }

@@ -41,11 +41,10 @@
         android:id="@+id/ivAddProduct"
         android:layout_width="58dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="96dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline15"
         app:srcCompat="@drawable/ic_add_produto_lista"
         tools:ignore="MissingConstraints" />
 
@@ -53,56 +52,58 @@
         android:id="@+id/tvTotalPriceLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
         android:text="TOTAL"
         android:textColor="@color/black"
-        android:textSize="15dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="@+id/guideline2" />
 
     <TextView
         android:id="@+id/tvTotalPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="28dp"
         android:hint="Valor Total"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline15"
         app:layout_constraintTop_toBottomOf="@+id/ivAddProduct"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnSaveList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
-        android:text="SALVAR"
         android:background="@drawable/botao_customizado"
+        android:text="  SALVAR    "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnCart"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
-        app:layout_constraintVertical_bias="0.923" />
+        app:layout_constraintVertical_bias="0.692" />
 
     <Button
         android:id="@+id/btnCart"
-        android:layout_width="0dp"
-        android:layout_height="51dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="4dp"
-        android:text="Carrinho"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/botao_customizado"
+        android:text="Carrinho"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+        app:layout_constraintTop_toTopOf="@+id/guideline7"
+        app:layout_constraintVertical_bias="0.733" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -127,14 +128,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvNewShoppingList"
-        android:layout_width="0dp"
-        android:layout_height="353dp"
-        app:layout_constraintBottom_toTopOf="@+id/ivAddProduct"
+        android:layout_width="360dp"
+        android:layout_height="412dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/acProduct"
-        app:layout_constraintVertical_bias="0.236" />
+        app:layout_constraintVertical_bias="0.13" />
 
-     
+
 </androidx.constraintlayout.widget.ConstraintLayout>
