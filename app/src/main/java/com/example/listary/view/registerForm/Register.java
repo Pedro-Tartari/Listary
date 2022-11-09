@@ -44,17 +44,22 @@ public class Register extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if (registerController.checkAllFields(edUserName, edEmail, edPassword)) {
                     createUser();
-
                 }
             }
 
         });
 
     }
-    
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(Register.this, Login.class));
+        finish();
+    }
+
     private void setViewId() {
         edUserName = findViewById(R.id.edUserName);
         edEmail = findViewById(R.id.edEmail);

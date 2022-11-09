@@ -45,8 +45,6 @@ public class ProductController {
         }else{
             updateDataToFirestore(product, uID, productId);
         }
-
-
     }
 
     private void updateDataToFirestore(Product product, String uID, String productId) {

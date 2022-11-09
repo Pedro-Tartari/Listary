@@ -1,5 +1,9 @@
 package com.example.listary.adapters;
 
+import android.nfc.Tag;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,18 +14,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.listary.R;
+import com.example.listary.listners.OnAlterQuantityItem;
 import com.example.listary.model.ProductItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecycleViewerShoppingAdapter extends RecyclerView.Adapter<RecycleViewerShoppingAdapter.ViewHolder> {
 
-    List<ProductItem> items;
-    private double productQuantity;
-    private double productTotalPrice;
+    private List<ProductItem> items;
 
-    public RecycleViewerShoppingAdapter(List<ProductItem> items) {
+    private OnAlterQuantityItem onAlterQuantityItem;
+
+    public RecycleViewerShoppingAdapter(List<ProductItem> items, OnAlterQuantityItem onAlterQuantityItem) {
         this.items = items;
+        this.onAlterQuantityItem = onAlterQuantityItem;
     }
 
     @NonNull
@@ -37,13 +44,24 @@ public class RecycleViewerShoppingAdapter extends RecyclerView.Adapter<RecycleVi
         holder.tvRecycleName.setText(items.get(position).getProductName());
         holder.tvRecycleLocal.setText(items.get(position).getProductLocal());
         holder.tvRecycleValue.setText(Double.toString( items.get(position).getProductPrice()));
-        productQuantity = Double.parseDouble(holder.edRecycleQuantity.getText().toString());
-        items.get(position).setProductQuantity(productQuantity);
-        productTotalPrice = (items.get(position).getProductPrice() * items.get(position).getProductQuantity());
-        /* NAO SEI SE VAI PRECISAR DESSE COMANDO COMENTADO
-        holder.edRecycleQuantity.setText(String.valueOf(items.get(position).getProductQuantity()));
-         */
 
+        holder.edRecycleQuantity.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (!holder.edRecycleQuantity.getText().toString().isEmpty()) {
+                    onAlterQuantityItem.onAlterQuantityItem(
+                            holder.getBindingAdapterPosition(), Double.parseDouble(holder.edRecycleQuantity.getText().toString()));
+                }
+            }
+        });
     }
 
     @Override
