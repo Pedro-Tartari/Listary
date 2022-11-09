@@ -1,5 +1,6 @@
 package com.example.listary.view.resetPassword;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -11,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.listary.R;
+import com.example.listary.view.loginForm.Login;
+import com.example.listary.view.registerForm.Register;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +27,12 @@ public class ResetPasswordActivity extends AppCompatActivity {
     private String email;
     private boolean isAllFieldsChecked = false;
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(ResetPasswordActivity.this, Login.class));
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

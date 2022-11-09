@@ -39,6 +39,13 @@ public class MenuController {
 
                                 ReservedId reservedId = new ReservedId(0);
                                 idReference.set(reservedId);
+
+                                DocumentReference idListReference = db.collection("data")
+                                        .document(uID).collection("reservedID")
+                                        .document("reservedListId");
+
+                                ReservedId reservedListId = new ReservedId(0);
+                                idListReference.set(reservedListId);
                             }
                         } else {
                             Log.d("FTAG", "Error getting documents: ", task.getException());
