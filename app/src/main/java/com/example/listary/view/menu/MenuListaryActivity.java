@@ -86,26 +86,6 @@ public class MenuListaryActivity extends AppCompatActivity {
         Intent intent;
 
         switch (item.getItemId()){
-            case R.id.novaLista:
-                intent = new Intent(this, NewListActivity.class);
-                startActivity(intent);
-                return true;
-
-            case R.id.consultarProduto:
-                intent = new Intent(this, SearchProductActivity.class);
-                startActivity(intent);
-                return true;
-
-            case R.id.historic:
-                intent = new Intent(this, HistoricActivity.class);
-                startActivity(intent);
-                return true;
-
-            case R.id.despensa:
-                intent = new Intent(this, PantryActivity.class);
-                startActivity(intent);
-                return true;
-
             case R.id.logOut:
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(MenuListaryActivity.this, Login.class));
