@@ -15,9 +15,9 @@
         android:orderInCategory="200"
         />
     <item
-        android:id="@+id/consultarListas"
+        android:id="@+id/consultarProduto"
         android:title="@string/consultar_Produto"
-        android:orderInCategory="300"
+        android:orderInCategory="200"
         />
     <item
         android:id="@+id/despensa"

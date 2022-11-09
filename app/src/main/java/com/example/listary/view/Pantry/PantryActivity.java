@@ -92,7 +92,7 @@ public class PantryActivity extends AppCompatActivity {
                 finish();
                 return true;
 
-            case R.id.consultarListas:
+            case R.id.consultarProduto:
                 intent = new Intent(this, SearchProductActivity.class);
                 startActivity(intent);
                 finish();
