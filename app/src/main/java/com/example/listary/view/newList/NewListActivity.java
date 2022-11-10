@@ -108,8 +108,9 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
                                 String name = document.getString("name");
                                 String local = document.getString("location");
                                 Double price = document.getDouble("price");
+                                String id = document.getId();
 
-                                acProductList.add(new ProductItem(name, local, price));
+                                acProductList.add(new ProductItem(name, local, price, id));
                                 autoCompleteProductAdapter.updateList(acProductList);
                             }
                         } else {

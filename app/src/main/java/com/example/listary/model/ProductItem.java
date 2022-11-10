@@ -5,11 +5,17 @@ public class ProductItem {
     private String productName, productLocal;
     private double productPrice, productQuantity;
     private double productTotalPrice;
+    private String id;
 
-    public ProductItem(String productName, String productLocal, double productPrice) {
+    public ProductItem(String productName, String productLocal, double productPrice, String id) {
         this.productName = productName;
         this.productLocal = productLocal;
         this.productPrice = productPrice;
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public double getProductPrice() {
