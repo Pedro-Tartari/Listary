@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 
 import com.example.listary.R;
@@ -39,6 +41,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SearchProductActivity extends AppCompatActivity {
@@ -58,12 +61,17 @@ public class SearchProductActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     private SearchAdapter searchAdapter;
 
+    private SwipeRefreshLayout swRecycleProd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setTitle(getResources().getString(R.string.consultar_Produto));
         self_intent = this;
         setContentView(R.layout.activity_create_products);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        mRecyclerView = findViewById(R.id.rvProducts);
+        mRecyclerView.setHasFixedSize(true);
 
 
         getDataFromFire();
@@ -86,30 +94,9 @@ public class SearchProductActivity extends AppCompatActivity {
                 filter(editable.toString());
 
             }
+
+
         });
-
-
-
-//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,
-//
-//                DividerItemDecoration.VERTICAL);
-//
-//        RecyclerView recyclerView = findViewById(R.id.rvProducts);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.addItemDecoration(dividerItemDecoration);
-//
-//        Query query = docRef.orderBy("name",
-//                Query.Direction.DESCENDING);
-//
-//        FirestoreRecyclerOptions<Product> options =
-//                new FirestoreRecyclerOptions.Builder<Product>()
-//                        .setQuery(query, Product.class)
-//                        .build();
-//
-//        listAdapter = new ProductsAdapter(options);
-//        recyclerView.setAdapter(listAdapter);
-//        listAdapter.notifyDataSetChanged();
 
     }
 
@@ -126,13 +113,9 @@ public class SearchProductActivity extends AppCompatActivity {
         searchAdapter.filterList(filteredList);
     }
 
-    public void buildRecyclerView() {
-        mRecyclerView = findViewById(R.id.rvProducts);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        searchAdapter = new SearchAdapter(acProductList);
-
-        mRecyclerView.setLayoutManager(mLayoutManager);
+    private void buildRecyclerView() {
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        searchAdapter = new SearchAdapter(acProductList, this);
         mRecyclerView.setAdapter(searchAdapter);
     }
 
@@ -159,6 +142,11 @@ public class SearchProductActivity extends AppCompatActivity {
                 });
     }
 
+    public void updaterRecycle(){
+        acProductList.clear();
+        getDataFromFire();
+        buildRecyclerView();
+    }
 
 
     @Override
