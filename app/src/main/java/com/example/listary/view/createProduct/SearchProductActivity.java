@@ -5,32 +5,48 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.EditText;
 
 import com.example.listary.R;
 import com.example.listary.adapters.ProductsAdapter;
+import com.example.listary.adapters.SearchAdapter;
 import com.example.listary.model.Product;
+import com.example.listary.model.ProductItem;
 import com.example.listary.view.Pantry.PantryActivity;
 import com.example.listary.view.historic.HistoricActivity;
 import com.example.listary.view.loginForm.Login;
 import com.example.listary.view.menu.MenuListaryActivity;
 import com.example.listary.view.newList.NewListActivity;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class SearchProductActivity extends AppCompatActivity {
 
-    private ProductsAdapter listAdapter;
+    private SearchAdapter listAdapter;
     public static Activity self_intent;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -39,48 +55,99 @@ public class SearchProductActivity extends AppCompatActivity {
                     .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
                     .collection("product");
 
+    private EditText edSearchProduct;
+    private List<ProductItem> acProductList = new ArrayList<>();
+    private RecyclerView mRecyclerView;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private SearchAdapter searchAdapter;
+
+    private SwipeRefreshLayout swRecycleProd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setTitle(getResources().getString(R.string.consultar_Produto));
         self_intent = this;
         setContentView(R.layout.activity_create_products);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        mRecyclerView = findViewById(R.id.rvProducts);
+        mRecyclerView.setHasFixedSize(true);
 
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,
 
-                DividerItemDecoration.VERTICAL);
+        getDataFromFire();
+        buildRecyclerView();
 
-        RecyclerView recyclerView = findViewById(R.id.rvProducts);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(dividerItemDecoration);
+        edSearchProduct = findViewById(R.id.edSearchProduct);
+        edSearchProduct.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-        Query query = docRef.orderBy("name",
-                Query.Direction.DESCENDING);
+            }
 
-        FirestoreRecyclerOptions<Product> options =
-                new FirestoreRecyclerOptions.Builder<Product>()
-                        .setQuery(query, Product.class)
-                        .build();
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-        listAdapter = new ProductsAdapter(options);
-        recyclerView.setAdapter(listAdapter);
-        listAdapter.notifyDataSetChanged();
+            }
 
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter(editable.toString());
+
+            }
+
+
+        });
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        listAdapter.startListening();
+
+    private void filter(String text) {
+        ArrayList<ProductItem> filteredList = new ArrayList<>();
+
+        for (ProductItem item : acProductList) {
+            if (item.getProductName().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+
+        searchAdapter.filterList(filteredList);
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        listAdapter.stopListening();
+    private void buildRecyclerView() {
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        searchAdapter = new SearchAdapter(acProductList, this);
+        mRecyclerView.setAdapter(searchAdapter);
     }
+
+    private void getDataFromFire() {
+        docRef.get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (isFinishing() || isDestroyed()) return;
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("DB success", document.getId() + " => " + document.getData());
+                                String name = document.getString("name");
+                                String local = document.getString("location");
+                                Double price = document.getDouble("price");
+                                String id = document.getId();
+
+                                acProductList.add(new ProductItem(name, local, price, id));
+                            }
+                        } else {
+                            Log.d("DB Error", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
+
+    public void updaterRecycle(){
+        acProductList.clear();
+        getDataFromFire();
+        buildRecyclerView();
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
