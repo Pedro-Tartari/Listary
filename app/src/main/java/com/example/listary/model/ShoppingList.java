@@ -1,6 +1,7 @@
 package com.example.listary.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ShoppingList {
@@ -9,15 +10,17 @@ public class ShoppingList {
     private String name;
     private int id;
     private float totalPrice;
+    private String date;
 
     public ShoppingList() {
     }
 
-    public ShoppingList(String name, List productList, Float totalPrice, int id) {
+    public ShoppingList(String name, List productList, Float totalPrice, int id, String date) {
         this.name = name;
         this.productList = productList;
         this.totalPrice = totalPrice;
         this.id = id;
+        this.date = date;
 
     }
 
@@ -53,5 +56,11 @@ public class ShoppingList {
         this.totalPrice = totalPrice;
     }
 
+    public String getDate() {
+        return date;
+    }
 
+    public void setDate(String date) {
+        this.date = date;
+    }
 }
