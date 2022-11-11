@@ -1,11 +1,13 @@
 package com.example.listary.view.newList;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -37,10 +39,17 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.santalu.maskara.widget.MaskEditText;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class NewListActivity extends AppCompatActivity implements OnAlterQuantityItem {
 
     //FireBase
@@ -64,10 +73,16 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
     //View
     private TextView tvListTotalPrice;
     private EditText edShoppingListName;
+    private MaskEditText edShoppingListDate;
     private Button btnSaveList;
 
     //Controller
     private ShoppingListController shoppingListController = new ShoppingListController();
+
+    //Date
+    //private Date currentTime = Calendar.getInstance().getTime();
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private LocalDate currentTime = LocalDate.now();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +120,8 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
         tvListTotalPrice = findViewById(R.id.tvTotalPrice);
         btnSaveList = findViewById(R.id.btnSaveList);
         edShoppingListName = findViewById(R.id.edShoppingListName);
+        edShoppingListDate = findViewById(R.id.edShoppingListDate);
+        edShoppingListDate.setText(currentTime.format(formatter));
     }
 
     private void getDataFromFire() {
@@ -195,8 +212,13 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
     }
 
     public void sendListToFirestore(View view) {
+        if (shoppingListController.verifyFields(edShoppingListName, edShoppingListDate)) {
+            shoppingListController.returnNewShoppingList(edShoppingListName,
+                    rvSelectedProductList, Float.parseFloat(tvListTotalPrice.getText().toString()), user.getUid(), 0, "null",
+                    edShoppingListDate);
 
-        shoppingListController.returnNewShoppingList(edShoppingListName,
-                rvSelectedProductList, Float.parseFloat(tvListTotalPrice.getText().toString()), user.getUid(), 0, "null");
+            startActivity(new Intent(NewListActivity.this, MenuListaryActivity.class));
+            finish();
+        }
     }
 }
