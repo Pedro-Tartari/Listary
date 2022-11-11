@@ -14,11 +14,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.listary.R;
 import com.example.listary.adapters.AutoCompleteProductAdapter;
 import com.example.listary.adapters.RecycleViewerShoppingAdapter;
+import com.example.listary.controllers.ShoppingListController;
 import com.example.listary.listners.OnAlterQuantityItem;
 import com.example.listary.model.ProductItem;
 import com.example.listary.view.Pantry.PantryActivity;
@@ -29,6 +32,7 @@ import com.example.listary.view.menu.MenuListaryActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -45,6 +49,7 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
             db.collection("data")
                     .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
                     .collection("product");
+   private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     //AutoComplete
     private AutoCompleteTextView acProduct;
@@ -58,13 +63,16 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
 
     //View
     private TextView tvListTotalPrice;
+    private EditText edShoppingListName;
+    private Button btnSaveList;
+
+    //Controller
+    private ShoppingListController shoppingListController = new ShoppingListController();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_list);
-
-        tvListTotalPrice = findViewById(R.id.tvTotalPrice);
 
         this.setTitle(getResources().getString(R.string.nova_lista));
         setViewId();
@@ -94,6 +102,9 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
     private void setViewId() {
         acProduct = findViewById(R.id.acProduct);
         rvNewShoppingList = findViewById(R.id.rvNewShoppingList);
+        tvListTotalPrice = findViewById(R.id.tvTotalPrice);
+        btnSaveList = findViewById(R.id.btnSaveList);
+        edShoppingListName = findViewById(R.id.edShoppingListName);
     }
 
     private void getDataFromFire() {
@@ -181,5 +192,12 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
         }
 
         tvListTotalPrice.setText(String.valueOf(valorTotal));
+        Log.e("Produto","" + rvSelectedProductList.get(0));
+    }
+
+    public void sendListToFirestore(View view) {
+
+        shoppingListController.returnNewShoppingList(edShoppingListName,
+                rvSelectedProductList, Float.parseFloat(tvListTotalPrice.getText().toString()), user.getUid(), 0, "null");
     }
 }

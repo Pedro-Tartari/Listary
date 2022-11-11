@@ -49,9 +49,10 @@ public class ProductItem {
     @Override
     public String toString() {
         return "ProductItem{" +
-                "productName='" + productName + '\'' +
-                ", ProductLocal='" + productLocal + '\'' +
-                '}';
+                "ProductName= " + productName +
+                "ProductLocal= " + productLocal +
+                "ProductQuantity= " + productQuantity +
+                "ProductPrice= " + productPrice;
     }
 }
 
