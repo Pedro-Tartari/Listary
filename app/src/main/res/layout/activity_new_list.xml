@@ -57,10 +57,12 @@
         android:id="@+id/ivAddProduct"
         android:layout_width="58dp"
         android:layout_height="55dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="4dp"
         android:layout_marginBottom="96dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/rvNewShoppingList"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_add_produto_lista"
         tools:ignore="MissingConstraints" />
 
@@ -145,8 +147,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvNewShoppingList"
-        android:layout_width="360dp"
-        android:layout_height="412dp"
+        android:layout_width="361dp"
+        android:layout_height="367dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="0.285"
