@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <EditText
         android:id="@+id/edSearchProduct"
-        android:layout_width="0dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/border_custom"
+        android:layout_width="266dp"
+        android:layout_height="40dp"
 
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border_custom"
         android:hint="    Informe o produto"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
@@ -19,49 +20,31 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/guideline15" />
 
-
-
+    <ImageView
+        android:id="@+id/ivAddProduct"
+        android:layout_width="53dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="8dp"
+        android:onClick="iconAddProduct"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/edSearchProduct"
+        app:layout_constraintTop_toTopOf="@+id/guideline15"
+        app:srcCompat="@drawable/ic_add_produto_lista"
+        tools:ignore="MissingConstraints" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvProducts"
-        android:layout_width="326dp"
-        android:layout_height="473dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="334dp"
+        android:layout_height="532dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toBottomOf="@+id/edSearchProduct"
         tools:listitem="@layout/activity_itens_product" />
-
-    <Button
-        android:id="@+id/btnAddNewProduct"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/botao_customizado"
-        android:onClick="iconAddProduct"
-        android:text="CADASTRAR PRODUTO"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.375"
-        app:layout_constraintStart_toStartOf="@+id/guideline9" />
-
-    <TextView
-        android:id="@+id/tvProductName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nome"
-        android:textColor="@color/Listary_Primary"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/edSearchProduct"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline9"
-        app:layout_constraintTop_toBottomOf="@+id/rvProducts"
-        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
@@ -77,6 +60,12 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.91" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="36dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
