@@ -7,6 +7,9 @@ public class ProductItem {
     private double productTotalPrice;
     private String id;
 
+    public ProductItem() {
+    }
+
     public ProductItem(String productName, String productLocal, double productPrice, String id) {
         this.productName = productName;
         this.productLocal = productLocal;
