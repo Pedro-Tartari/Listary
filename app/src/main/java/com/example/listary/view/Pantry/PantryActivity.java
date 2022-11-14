@@ -60,7 +60,7 @@ public class PantryActivity extends AppCompatActivity {
         btnSavePantry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pantryController.post(edPantry, uid);
+                pantryController.post(edPantry, uid, view.getContext());
             }
         });
     }

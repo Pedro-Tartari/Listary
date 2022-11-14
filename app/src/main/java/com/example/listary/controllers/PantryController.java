@@ -1,5 +1,6 @@
 package com.example.listary.controllers;
 
+import android.content.Context;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -45,7 +46,7 @@ public class PantryController {
         });
     }
 
-    public void post(EditText edPantry, String uID) {
+    public void post(EditText edPantry, String uID, Context context) {
         String description = edPantry.getText().toString();
         Pastry pantry = new Pastry(
                 description
@@ -59,13 +60,13 @@ public class PantryController {
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(null, "Sucesso", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Sucesso", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(null, "Erro", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Erro", Toast.LENGTH_SHORT).show();
                         }
                     });
         }
