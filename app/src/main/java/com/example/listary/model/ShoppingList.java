@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ShoppingList {
 
-    private List<Product> productList;
+    private List<ProductItem> productList;
     private String name;
     private int id;
     private float totalPrice;
@@ -24,11 +24,11 @@ public class ShoppingList {
 
     }
 
-    public List<Product> getProductList() {
+    public List<ProductItem> getProductList() {
         return productList;
     }
 
-    public void setProductList(List<Product> productList) {
+    public void setProductList(List<ProductItem> productList) {
         this.productList = productList;
     }
 
