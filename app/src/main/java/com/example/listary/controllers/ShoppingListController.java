@@ -22,12 +22,15 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ShoppingListController {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private long idValue;
+    private Map<String, Object> data = new HashMap<>();
 
     public void returnNewShoppingList(EditText listName, List productList, Float totalPrice,
                                       String uID, Integer updateOption, String listId, MaskEditText listDate){
@@ -69,10 +72,6 @@ public class ShoppingListController {
                         .document(uID)
                         .collection("shoppingList");
 
-
-        DocumentReference shoppingListReference = db.collection("data")
-                .document(uID).collection("shoppingList").document();
-
         idReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -83,13 +82,12 @@ public class ShoppingListController {
             }
         });
 
-        shoppingListReference.set(shoppingList).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                String id = shoppingListReference.getId();
-                docRef.document(id).update("id", FieldValue.increment(idValue));
-                idReference.update("id", FieldValue.increment(1));
-            }
+        data.put("shoppingList", shoppingList);
+        docRef.add(data).addOnSuccessListener(documentReference -> {
+            String id = documentReference.getId();
+            docRef.document(id).update("shoppingList.id", FieldValue.increment(idValue));
+            idReference.update("id", FieldValue.increment(1));
+
         });
     }
 

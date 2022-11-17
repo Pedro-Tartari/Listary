@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import com.example.listary.R;
 import com.example.listary.adapters.HistoricAdapter;
 import com.example.listary.model.ShoppingList;
+import com.example.listary.model.ShoppingListDocument;
 import com.example.listary.view.Pantry.PantryActivity;
 import com.example.listary.view.createProduct.SearchProductActivity;
 import com.example.listary.view.loginForm.Login;
@@ -56,12 +57,12 @@ public class HistoricActivity extends AppCompatActivity {
         rvHistoric.setHasFixedSize(true);
         rvHistoric.addItemDecoration(dividerItemDecoration);
 
-        Query query = docRef.orderBy("name",
+        Query query = docRef.orderBy("shoppingList",
                 Query.Direction.DESCENDING);
 
-        FirestoreRecyclerOptions<ShoppingList> options =
-                new FirestoreRecyclerOptions.Builder<ShoppingList>()
-                        .setQuery(query, ShoppingList.class)
+        FirestoreRecyclerOptions<ShoppingListDocument> options =
+                new FirestoreRecyclerOptions.Builder<ShoppingListDocument>()
+                        .setQuery(query, ShoppingListDocument.class)
                         .build();
 
         historicAdapter = new HistoricAdapter(options);

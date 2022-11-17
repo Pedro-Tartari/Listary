@@ -48,7 +48,6 @@
         <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_custom_search.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_despensa.xml" value="0.2826086956521739" />
         <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_historic.xml" value="0.22056159420289856" />
-        <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_historic_item.xml" value="0.38333333333333336" />
         <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_historico.xml" value="0.2826086956521739" />
         <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_itens_product.xml" value="0.33" />
         <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_list_recycle.xml" value="0.33" />
@@ -61,8 +60,6 @@
         <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_register.xml" value="0.19947916666666668" />
         <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_reset_password.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_search_products.xml" value="0.19947916666666668" />
-        <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_shopping_cart.xml" value="0.19947916666666668" />
-        <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/activity_shopping_cart_item.xml" value="0.2563405797101449" />
         <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/layout/login_activity.xml" value="0.1" />
         <entry key="..\:/Users/phtar/Documents/GitHub/listary/app/src/main/res/menu/activity_header.xml" value="0.1" />
         <entry key="..\:/listary/app/src/main/res/drawable/border_custom.xml" value="0.161" />
@@ -83,7 +80,7 @@
         <entry key="app/src/main/res/layout/activity_historic.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/activity_historic_item.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/layout/activity_historic_view_list.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_historic_view_list_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_historic_view_list_item.xml" value="0.12" />
         <entry key="app/src/main/res/layout/activity_itens_product.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_list_recycle.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_menu_listary.xml" value="0.19270833333333334" />

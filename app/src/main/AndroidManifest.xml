@@ -17,6 +17,10 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".view.historic.HistoricView"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".view.shoppingCart.ShoppingCart"
             android:exported="false"
             android:screenOrientation="portrait" />
