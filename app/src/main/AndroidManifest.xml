@@ -13,8 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Listary">
         <activity
-            android:name=".view.historic.HistoricView"
-            android:exported="false" />
+            android:name=".view.historic.HistoricActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.shoppingCart.ShoppingCart"
             android:exported="false"
@@ -25,10 +26,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.Pantry.PantryActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.historic.HistoricActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

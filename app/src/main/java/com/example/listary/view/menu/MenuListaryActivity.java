@@ -13,19 +13,16 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.listary.R;
 import com.example.listary.controllers.MenuController;
 
 import com.example.listary.view.Pantry.PantryActivity;
 import com.example.listary.view.createProduct.SearchProductActivity;
+import com.example.listary.view.historic.HistoricActivity;
 import com.example.listary.view.loginForm.Login;
 import com.example.listary.view.newList.NewListActivity;
-import com.example.listary.view.historic.HistoricActivity;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
