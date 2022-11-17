@@ -26,16 +26,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:hint="Data"
+        android:inputType="number"
         android:minHeight="40dp"
         android:paddingLeft="15dp"
-        android:inputType="number"
-        app:mask="__/__/____"
-        app:maskStyle="completable"
-        app:maskCharacter="_"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/edShoppingListName"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:mask="__/__/____"
+        app:maskCharacter="_"
+        app:maskStyle="completable" />
 
     <AutoCompleteTextView
         android:id="@+id/acProduct"
@@ -57,44 +57,40 @@
         android:id="@+id/ivAddProduct"
         android:layout_width="58dp"
         android:layout_height="55dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="96dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/rvNewShoppingList"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_add_produto_lista"
         tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/tvTotalPriceLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:text="TOTAL"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="@+id/guideline2" />
 
     <TextView
         android:id="@+id/tvTotalPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="28dp"
         android:hint="Valor Total"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/ivAddProduct"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/ivAddProduct" />
+
+    <TextView
+        android:id="@+id/tvTotalPriceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:text="TOTAL"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/rvNewShoppingList" />
 
     <Button
         android:id="@+id/btnSaveList"
@@ -108,8 +104,7 @@
         app:layout_constraintEnd_toStartOf="@+id/btnCart"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="@+id/guideline7"
-        app:layout_constraintVertical_bias="0.692" />
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
     <Button
         android:id="@+id/btnCart"
@@ -121,8 +116,7 @@
         android:text="Carrinho"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline7"
-        app:layout_constraintVertical_bias="0.733" />
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -138,23 +132,21 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.96" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvNewShoppingList"
+        android:layout_width="361dp"
+        android:layout_height="367dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/acProduct" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.90" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvNewShoppingList"
-        android:layout_width="361dp"
-        android:layout_height="367dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintHorizontal_bias="0.285"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/acProduct"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintGuide_begin="628dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
