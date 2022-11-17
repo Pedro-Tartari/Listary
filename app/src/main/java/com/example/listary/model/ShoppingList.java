@@ -24,6 +24,12 @@ public class ShoppingList {
 
     }
 
+    public ShoppingList(String name, List<ProductItem> productList) {
+        this.name = name;
+        this.productList = productList;
+
+    }
+
     public List<ProductItem> getProductList() {
         return productList;
     }

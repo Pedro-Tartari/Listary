@@ -40,7 +40,7 @@ import java.util.List;
 
 public class SearchProductActivity extends AppCompatActivity {
 
-    private SearchAdapter listAdapter;
+
     public static Activity self_intent;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -52,10 +52,7 @@ public class SearchProductActivity extends AppCompatActivity {
     private EditText edSearchProduct;
     private List<ProductItem> acProductList = new ArrayList<>();
     private RecyclerView mRecyclerView;
-    private RecyclerView.LayoutManager mLayoutManager;
     private SearchAdapter searchAdapter;
-
-    private SwipeRefreshLayout swRecycleProd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

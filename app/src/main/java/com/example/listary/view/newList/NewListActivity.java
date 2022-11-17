@@ -31,6 +31,7 @@ import com.example.listary.view.createProduct.SearchProductActivity;
 import com.example.listary.view.historic.HistoricActivity;
 import com.example.listary.view.loginForm.Login;
 import com.example.listary.view.menu.MenuListaryActivity;
+import com.example.listary.view.shoppingCart.ShoppingCart;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -216,6 +217,17 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
                     edShoppingListDate);
 
             startActivity(new Intent(NewListActivity.this, MenuListaryActivity.class));
+            finish();
+        }
+    }
+
+    public void toCart(View view) {
+        if (shoppingListController.verifyFields(edShoppingListName, edShoppingListDate)) {
+            shoppingListController.returnNewShoppingList(edShoppingListName,
+                    rvSelectedProductList, Float.parseFloat(tvListTotalPrice.getText().toString()), user.getUid(), 0, "null",
+                    edShoppingListDate);
+
+            startActivity(new Intent(NewListActivity.this, ShoppingCart.class));
             finish();
         }
     }

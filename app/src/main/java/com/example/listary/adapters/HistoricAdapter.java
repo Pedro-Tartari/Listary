@@ -14,7 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.listary.R;
 import com.example.listary.model.ShoppingList;
+
 import com.example.listary.view.historic.HistoricView;
+
+import com.example.listary.view.createProduct.RegisterProduct;
+import com.example.listary.view.createProduct.SearchProductActivity;
+import com.example.listary.view.historic.HistoricActivity;
+
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -28,6 +34,10 @@ public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingList, Hist
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private AlertDialog alertDialog;
+
+    private AlertDialog alertDialog;
+
+    private int updateOption = 0;
 
     public HistoricAdapter(@NonNull FirestoreRecyclerOptions<ShoppingList> options) {
         super(options);
@@ -44,6 +54,8 @@ public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingList, Hist
                 Intent viewHistoricList  = new Intent(holder.itemView.getContext(), HistoricView.class);
                 holder.itemView.getContext().startActivity(viewHistoricList);
 
+                int position = holder.getBindingAdapterPosition();
+                updateList(position, holder);
             }
         });
 
@@ -52,10 +64,14 @@ public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingList, Hist
             public boolean onLongClick(View view) {
                 int position = holder.getBindingAdapterPosition();
                 deleteHistoricList(position, holder);
+
+                deleteList(position, holder);
+
                 return true;
             }
         });
     }
+
 
     private void deleteHistoricList(int position, ViewHolder holder) {
 
@@ -64,11 +80,28 @@ public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingList, Hist
                         .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
                         .collection("shoppingList");
 
+    private void updateList(int position, ViewHolder holder) {
+
+        updateOption = 1;
+        String documentId = getSnapshots().getSnapshot(position).getId();
+        Intent updateList  = new Intent(holder.itemView.getContext(), ShoppingList.class);
+        updateList.putExtra("updateOption", updateOption);
+        updateList.putExtra("documentId", documentId);
+        holder.itemView.getContext().startActivity(updateList);
+        HistoricActivity.self_intent.finish();
+    }
+
+    private void deleteList(int position, ViewHolder holder) {
+
         String documentId = getSnapshots().getSnapshot(position).getId();
         AlertDialog.Builder alert = new AlertDialog.Builder(holder.itemView.getContext());
         alert.setCancelable(false);
         alert.setTitle("Excluir Lista");
+
         alert.setMessage("Você tem certeza que quer excluir essa lista do histórico?");
+
+        alert.setMessage("Você tem certeza que deseja excluir essa lista?");
+
         alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

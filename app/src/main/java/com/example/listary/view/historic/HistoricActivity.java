@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -32,6 +33,7 @@ public class HistoricActivity extends AppCompatActivity {
 
     private RecyclerView rvHistoric;
     private HistoricAdapter historicAdapter;
+    public static Activity self_intent;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference docRef =
@@ -43,6 +45,7 @@ public class HistoricActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historic);
+        self_intent = this;
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,
 

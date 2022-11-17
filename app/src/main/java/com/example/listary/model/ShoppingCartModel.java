@@ -1,15 +1,15 @@
 package com.example.listary.model;
 
-public class ShoppingCart {
+public class ShoppingCartModel {
 
     private ShoppingList shoppingList;
     private double totalPrice;
     private int id;
 
-    public ShoppingCart() {
+    public ShoppingCartModel() {
     }
 
-    public ShoppingCart(ShoppingList shoppingList, double totalPrice, int id) {
+    public ShoppingCartModel(ShoppingList shoppingList, double totalPrice, int id) {
         this.shoppingList = shoppingList;
         this.totalPrice = totalPrice;
         this.id = id;
