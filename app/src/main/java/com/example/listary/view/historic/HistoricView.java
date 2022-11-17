@@ -11,15 +11,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.listary.R;
-import com.example.listary.adapters.HistoricAdapter;
 import com.example.listary.adapters.HistoricViewAdapter;
 import com.example.listary.model.ShoppingList;
-import com.example.listary.model.ShoppingListRecord;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 
 public class HistoricView extends AppCompatActivity {
 
