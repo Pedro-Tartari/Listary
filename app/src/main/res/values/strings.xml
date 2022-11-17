@@ -3,6 +3,7 @@
     <string name="menu_listary">Menu Listary</string>
     <string name="nova_lista">Nova Lista</string>
     <string name="consultar_Produto">Consultar Produto</string>
+    <string name="carrinho">Carrinho</string>
     <string name="historic">Historico</string>
     <string name="despensa">Despensa</string>
     <string name="logOut">Log Out</string>
