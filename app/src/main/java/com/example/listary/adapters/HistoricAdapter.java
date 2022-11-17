@@ -14,9 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.listary.R;
 import com.example.listary.model.ShoppingList;
+
+import com.example.listary.view.historic.HistoricView;
+
 import com.example.listary.view.createProduct.RegisterProduct;
 import com.example.listary.view.createProduct.SearchProductActivity;
 import com.example.listary.view.historic.HistoricActivity;
+
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -28,10 +32,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingList, HistoricAdapter.ViewHolder> {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference docRef =
-            db.collection("data")
-                    .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                    .collection("shoppingList");
+
+    private AlertDialog alertDialog;
 
     private AlertDialog alertDialog;
 
@@ -48,6 +50,10 @@ public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingList, Hist
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Intent viewHistoricList  = new Intent(holder.itemView.getContext(), HistoricView.class);
+                holder.itemView.getContext().startActivity(viewHistoricList);
+
                 int position = holder.getBindingAdapterPosition();
                 updateList(position, holder);
             }
@@ -57,11 +63,22 @@ public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingList, Hist
             @Override
             public boolean onLongClick(View view) {
                 int position = holder.getBindingAdapterPosition();
+                deleteHistoricList(position, holder);
+
                 deleteList(position, holder);
+
                 return true;
             }
         });
     }
+
+
+    private void deleteHistoricList(int position, ViewHolder holder) {
+
+        CollectionReference docRef =
+                db.collection("data")
+                        .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .collection("shoppingList");
 
     private void updateList(int position, ViewHolder holder) {
 
@@ -80,7 +97,11 @@ public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingList, Hist
         AlertDialog.Builder alert = new AlertDialog.Builder(holder.itemView.getContext());
         alert.setCancelable(false);
         alert.setTitle("Excluir Lista");
+
+        alert.setMessage("Você tem certeza que quer excluir essa lista do histórico?");
+
         alert.setMessage("Você tem certeza que deseja excluir essa lista?");
+
         alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
