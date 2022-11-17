@@ -10,7 +10,6 @@
         android:id="@+id/edSearchProduct"
         android:layout_width="266dp"
         android:layout_height="40dp"
-
         android:layout_marginTop="20dp"
         android:background="@drawable/border_custom"
         android:hint="    Informe o produto"

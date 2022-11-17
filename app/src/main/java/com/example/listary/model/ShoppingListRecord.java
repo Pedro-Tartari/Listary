@@ -1,10 +1,12 @@
 package com.example.listary.model;
 
+import com.google.firebase.firestore.PropertyName;
+
 import java.util.ArrayList;
 
 public class ShoppingListRecord {
 
-    private ArrayList<ShoppingList> shoppingListsRecord = new ArrayList<>();
+    public ArrayList<ShoppingList> shoppingListsRecord;
 
     public ShoppingListRecord() {
     }
@@ -13,10 +15,12 @@ public class ShoppingListRecord {
         this.shoppingListsRecord = shoppingListsRecord;
     }
 
+    @PropertyName("shoppingList")
     public ArrayList<ShoppingList> getShoppingListsRecord() {
         return shoppingListsRecord;
     }
 
+    @PropertyName("shoppingList")
     public void setShoppingListsRecord(ArrayList<ShoppingList> shoppingListsRecord) {
         this.shoppingListsRecord = shoppingListsRecord;
     }
