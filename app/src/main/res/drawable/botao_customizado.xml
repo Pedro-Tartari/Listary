@@ -3,10 +3,10 @@
     android:shape="rectangle">
 
     <gradient
-        android:startColor="@color/DarkOrchid"
-        android:endColor="@color/DarkOrchid"/>
+        android:startColor="@color/floatButton"
+        android:endColor="@color/floatButton"/>
 
-        <corners android:radius="32dp"/>
+        <corners android:radius="20dp"/>
 
 <!--        <stroke android:width="5dp"-->
 <!--            android:color="#FFFFFF"/>-->
