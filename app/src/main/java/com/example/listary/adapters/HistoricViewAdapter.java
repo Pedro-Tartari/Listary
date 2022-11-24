@@ -38,6 +38,9 @@ public class HistoricViewAdapter extends RecyclerView.Adapter<HistoricViewAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             holder.productName.setText(shoppingList.get(position).getProductName());
+            holder.productLocal.setText(shoppingList.get(position).getProductLocal());
+            holder.productPrice.setText(String.valueOf(shoppingList.get(position).getProductPrice()));
+            holder.productQuantity.setText(String.valueOf(shoppingList.get(position).getProductQuantity()));
     }
 
     @Override
