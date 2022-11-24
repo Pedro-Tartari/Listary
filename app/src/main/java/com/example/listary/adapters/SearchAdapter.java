@@ -57,6 +57,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         ProductItem currentItem = productArrayList.get(position);
         holder.productNameItem.setText(currentItem.getProductName());
         holder.productPriceItem.setText(String.valueOf(currentItem.getProductPrice()));
+        holder.tvCadProdLocal.setText(currentItem.getProductLocal());
+        holder.tvCadProdMarca.setText(currentItem.getProductBrand());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,12 +91,15 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
         private TextView productNameItem;
         private  TextView productPriceItem;
+        private TextView tvCadProdLocal;
+        private TextView tvCadProdMarca;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            tvCadProdLocal = itemView.findViewById(R.id.tvCadProdLocal);
             productNameItem =  itemView.findViewById(R.id.tvItenProductName);
             productPriceItem =   itemView.findViewById(R.id.tvItenProductPrice);
+            tvCadProdMarca = itemView.findViewById(R.id.tvCadProdMarca);
 
         }
     }
