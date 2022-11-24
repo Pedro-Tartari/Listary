@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.listary.R;
 import com.example.listary.model.ShoppingList;
 
+import com.example.listary.model.ShoppingListDocument;
 import com.example.listary.view.historic.HistoricView;
 
 import com.example.listary.view.createProduct.RegisterProduct;
@@ -29,7 +30,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingList, HistoricAdapter.ViewHolder> {
+public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingListDocument, HistoricAdapter.ViewHolder> {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -37,22 +38,36 @@ public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingList, Hist
 
     private int updateOption = 0;
 
-    public HistoricAdapter(@NonNull FirestoreRecyclerOptions<ShoppingList> options) {
+    public HistoricAdapter(@NonNull FirestoreRecyclerOptions<ShoppingListDocument> options) {
         super(options);
     }
 
+    @NonNull
     @Override
-    protected void onBindViewHolder(@NonNull HistoricAdapter.ViewHolder holder, int position, @NonNull ShoppingList model) {
-        holder.historicListName.setText("Lista: " + model.getName());
+    public HistoricAdapter.ViewHolder onCreateViewHolder (@NonNull ViewGroup parent,int viewType)
+    {
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View view = layoutInflater.inflate(R.layout.activity_historic_item, parent, false);
+        return new HistoricAdapter.ViewHolder(view);
+
+    }
+
+    @Override
+    protected void onBindViewHolder(@NonNull HistoricAdapter.ViewHolder holder, int position, @NonNull ShoppingListDocument model) {
+        holder.historicListName.setText(model.shoppingList.getName());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent viewHistoricList = new Intent(holder.itemView.getContext(), HistoricView.class);
-                holder.itemView.getContext().startActivity(viewHistoricList);
-
                 int position = holder.getBindingAdapterPosition();
+                String documentId = getSnapshots().getSnapshot(position).getId();
+
+                Intent viewHistoricList = new Intent(holder.itemView.getContext(), HistoricView.class);
+                viewHistoricList.putExtra("documentId",documentId);
+                holder.itemView.getContext().startActivity(viewHistoricList);
+                HistoricActivity.self_intent.finish();
+
             }
         });
 
@@ -112,17 +127,6 @@ public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingList, Hist
             alertDialog = alert.create();
             alertDialog.show();
         }
-
-        @NonNull
-        @Override
-        public HistoricAdapter.ViewHolder onCreateViewHolder (@NonNull ViewGroup parent,int viewType)
-        {
-            LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-            View view = layoutInflater.inflate(R.layout.activity_historic_item, parent, false);
-            return new HistoricAdapter.ViewHolder(view);
-
-        }
-
 
         class ViewHolder extends RecyclerView.ViewHolder {
 

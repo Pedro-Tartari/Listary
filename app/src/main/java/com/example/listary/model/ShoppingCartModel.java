@@ -1,5 +1,7 @@
 package com.example.listary.model;
 
+import com.google.firebase.firestore.PropertyName;
+
 public class ShoppingCartModel {
 
     private ShoppingList shoppingList;
@@ -15,6 +17,7 @@ public class ShoppingCartModel {
         this.id = id;
     }
 
+    @PropertyName("shoppingList")
     public ShoppingList getShoppingList() {
         return shoppingList;
     }

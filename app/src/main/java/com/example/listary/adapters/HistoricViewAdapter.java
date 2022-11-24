@@ -1,38 +1,51 @@
 package com.example.listary.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.listary.R;
-import com.example.listary.model.ShoppingList;
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.example.listary.model.ProductItem;
 
-public class HistoricViewAdapter extends FirestoreRecyclerAdapter<ShoppingList, HistoricViewAdapter.ViewHolder> {
 
-    public HistoricViewAdapter(@NonNull FirestoreRecyclerOptions<ShoppingList> options) {
-        super(options);
-    }
+import java.util.ArrayList;
+import java.util.List;
 
-    @Override
-    protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull ShoppingList model) {
-        holder.productName.setText(model.getProductList().get(position).getProductName());
-       /* holder.productLocal.setText(model.getProductList().get(position).getProductLocal());
-        holder.productPrice.setText(String.valueOf(model.getProductList().get(position).getProductPrice()));
-        holder.productQuantity.setText(String.valueOf(model.getProductList().get(position).getProductQuantity()));*/
+public class HistoricViewAdapter extends RecyclerView.Adapter<HistoricViewAdapter.ViewHolder> {
+
+    private List<ProductItem> shoppingList;
+    private Context context;
+
+    public HistoricViewAdapter(Context context, List shoppingList) {
+        this.context = context;
+        this.shoppingList = shoppingList;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public HistoricViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.activity_historic_view_list_item, parent, false);
-        return new HistoricViewAdapter.ViewHolder(view);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+            holder.productName.setText(shoppingList.get(position).getProductName());
+            holder.productLocal.setText(shoppingList.get(position).getProductLocal());
+            holder.productPrice.setText(String.valueOf(shoppingList.get(position).getProductPrice()));
+            holder.productQuantity.setText(String.valueOf(shoppingList.get(position).getProductQuantity()));
+    }
+
+    @Override
+    public int getItemCount() {
+        return shoppingList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
