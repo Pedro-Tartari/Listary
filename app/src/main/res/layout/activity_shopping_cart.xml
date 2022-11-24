@@ -12,7 +12,7 @@
         android:layout_marginTop="20dp"
         android:text="NOME_DA_LISTA"
         android:textAlignment="center"
-        android:textColor="@color/Listary_Primary"
+        android:textColor="@color/product_name_bold"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

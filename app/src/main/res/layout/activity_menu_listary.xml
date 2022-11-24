@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/primary_Background">
 
     <TextView
         android:id="@+id/tvTitleMenu"
@@ -14,7 +15,7 @@
         android:layout_marginTop="96dp"
         android:gravity="center"
         android:textAlignment="center"
-        android:textColor="@color/Listary_Primary"
+        android:textColor="@color/product_name_bold"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +39,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/primary_Background">
 
             <ImageView
                 android:id="@+id/ivNewList"
@@ -89,7 +91,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/buttons">
 
             <TextView
                 android:layout_width="match_parent"
@@ -137,7 +140,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/buttons">
 
             <TextView
                 android:layout_width="match_parent"
@@ -185,7 +189,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/buttons">
 
             <TextView
                 android:layout_width="match_parent"

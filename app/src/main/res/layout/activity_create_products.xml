@@ -3,46 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/primary_Background">
 
 
     <EditText
         android:id="@+id/edSearchProduct"
-        android:layout_width="266dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:background="@drawable/border_custom"
-        android:hint="    Informe o produto"
+        android:hint=" Pesquise o produto"
         android:inputType="textPersonName"
-        android:paddingLeft="10dp"
+        android:padding="10dp"
         android:textSize="20dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline15" />
 
-    <ImageView
-        android:id="@+id/ivAddProduct"
-        android:layout_width="53dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="8dp"
-        android:onClick="iconAddProduct"
-        app:layout_constraintEnd_toStartOf="@+id/guideline10"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/edSearchProduct"
-        app:layout_constraintTop_toTopOf="@+id/guideline15"
-        app:srcCompat="@drawable/ic_add_produto_lista"
-        tools:ignore="MissingConstraints" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvProducts"
-        android:layout_width="334dp"
-        android:layout_height="532dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toBottomOf="@+id/edSearchProduct"
+        app:layout_constraintVertical_bias="0.072"
         tools:listitem="@layout/activity_itens_product" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -57,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.91" />
+        app:layout_constraintGuide_percent="0.90" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline15"
@@ -65,6 +55,20 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="36dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="63dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="296dp"
+        android:clickable="true"
+        android:onClick="iconAddProduct"
+        app:backgroundTint="@color/floatButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline9"
+        app:layout_constraintTop_toTopOf="@+id/guideline15"
+        app:layout_constraintVertical_bias="0.945"
+        app:srcCompat="@drawable/ic_add_produto_lista" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

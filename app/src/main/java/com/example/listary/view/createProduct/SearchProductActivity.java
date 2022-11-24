@@ -122,9 +122,10 @@ public class SearchProductActivity extends AppCompatActivity {
                                 String name = document.getString("name");
                                 String local = document.getString("location");
                                 Double price = document.getDouble("price");
+                                String brand = document.getString("productBrand");
                                 String id = document.getId();
 
-                                acProductList.add(new ProductItem(name, local, price, id));
+                                acProductList.add(new ProductItem(name, local, brand ,price, id));
                             }
                         } else {
                             Log.d("DB Error", "Error getting documents: ", task.getException());

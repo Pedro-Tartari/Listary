@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.createProduct.RegisterProduct">
+    tools:context=".view.createProduct.RegisterProduct"
+    android:background="@color/primary_Background">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
@@ -20,6 +21,8 @@
         android:layout_marginTop="40dp"
         android:ems="10"
         android:hint=" Nome do Produto"
+        android:padding="10dp"
+        android:background="@drawable/border_custom"
         android:inputType="textPersonName"
         android:paddingStart="15dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
@@ -36,11 +39,13 @@
 
     <EditText
         android:id="@+id/edRegisterProductBrand"
+        android:background="@drawable/border_custom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:padding="10dp"
         android:hint=" Marca"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="0.0"
@@ -50,11 +55,13 @@
 
     <EditText
         android:id="@+id/edRegisterProductLocal"
+        android:background="@drawable/border_custom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:padding="10dp"
         android:hint=" Local de Venda"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="0.0"
@@ -64,11 +71,13 @@
 
     <EditText
         android:id="@+id/edRegisterProductPrice"
+        android:background="@drawable/border_custom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint=" Preço"
+        android:padding="10dp"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="0.0"
@@ -82,8 +91,8 @@
         android:layout_height="wrap_content"
         android:minHeight="50dp"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/Green"
-        android:text="  SALVAR    "
+        android:backgroundTint="@color/save_button"
+        android:text="SALVAR"
         app:cornerRadius="32dp"
         android:textAlignment="center"
         android:textStyle="bold"
@@ -100,7 +109,7 @@
         android:layout_height="wrap_content"
         android:minHeight="50dp"
         android:layout_marginStart="24dp"
-        android:backgroundTint="@color/Red"
+        android:backgroundTint="@color/cancel_button"
         android:onClick="btCancelRegisterProduct"
         android:textAlignment="center"
         android:text="CANCELAR"

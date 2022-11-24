@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="Listary_Primary">#3F51B5</color>
 
+
+<!--    Listary-->
+    <color name="primary_Background">#323859</color>
+    <color name="buttons">#323859</color>
+    <color name="floatButton">#F2A766</color>
+    <color name="product_name_bold">#000000</color>
+    <color name="product_name_simple">#262625</color>
+    <color name="recycle_item">#BABDBF</color>
+    <color name="text_color_header">#F2A766</color>
+    <color name="save_button">#61CC5D</color>
+    <color name="cancel_button">#CA2424</color>
+
+
+<!--    Android-->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
