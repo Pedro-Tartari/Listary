@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.historic.HistoricActivity">
+    tools:context=".view.historic.HistoricActivity"
+    android:background="@color/primary_Background">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline12"
@@ -26,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="Histórico"
-        android:textColor="@color/design_default_color_primary"
+        android:textColor="@color/floatButton"
         android:textSize="50dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"

@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/white"
+    android:background="@color/primary_Background"
     tools:context=".view.loginForm.Login">
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email"
-        android:textColor="@color/black"
+        android:textColor="@color/recycle_item"
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/ivHistoricViewItem" />
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="Senha"
-        android:textColor="@color/black"
+        android:textColor="@color/recycle_item"
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/edEmailLogin" />
@@ -90,6 +90,7 @@
         android:background="@drawable/botao_customizado"
         android:onClick="onClick"
         android:text="Entrar"
+        android:textColor="@color/black"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
