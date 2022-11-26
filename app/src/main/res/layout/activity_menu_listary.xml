@@ -216,7 +216,7 @@
                 android:layout_width="100dp"
                 android:layout_height="81dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_despensa"
+                android:src="@drawable/ic_product"
                 android:onClick="openPantry"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
