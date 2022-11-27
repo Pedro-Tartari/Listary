@@ -1,6 +1,5 @@
 package com.example.listary.interfaces;
 
-import com.example.listary.model.Product;
 
 public interface DatabaseInterface <ModelClass> {
 
