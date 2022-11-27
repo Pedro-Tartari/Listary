@@ -29,7 +29,7 @@ import com.example.listary.model.ProductItem;
 import com.example.listary.view.Pantry.PantryActivity;
 import com.example.listary.view.createProduct.SearchProductActivity;
 import com.example.listary.view.historic.HistoricActivity;
-import com.example.listary.view.loginForm.Login;
+import com.example.listary.view.loginForm.LoginActivity;
 import com.example.listary.view.menu.MenuListaryActivity;
 import com.example.listary.view.shoppingCart.ShoppingCart;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -188,7 +188,7 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
 
             case R.id.logOut:
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(this, Login.class));
+                startActivity(new Intent(this, LoginActivity.class));
                 finish();
             default:
                 return true;

@@ -9,28 +9,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.listary.R;
 import com.example.listary.controllers.LoginController;
 import com.example.listary.view.menu.MenuListaryActivity;
-import com.example.listary.view.registerForm.Register;
+import com.example.listary.view.registerForm.RegisterActivity;
 import com.example.listary.view.resetPassword.ResetPasswordActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 
 
-public class Login extends AppCompatActivity implements  View.OnClickListener{
+public class LoginActivity extends AppCompatActivity implements  View.OnClickListener{
 
     private TextView register, forgetPass;
     private EditText edEmailLogin,edPasswordLogin;
     private Button btnLoginUser;
-    private FirebaseAuth auth;
-    private boolean isAllFieldsChecked = false;
+
     private LoginController loginController = new LoginController();
 
     @Override
@@ -38,7 +32,6 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
         getSupportActionBar().hide();
-        auth = FirebaseAuth.getInstance();
         setViewId();
     }
 
@@ -66,7 +59,7 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
         switch (view.getId()){
 
             case R.id.register:
-                startActivity(new Intent(this, Register.class));
+                startActivity(new Intent(this, RegisterActivity.class));
                 finish();
                 break;
             case R.id.btnLoginUser:
@@ -84,31 +77,14 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
     }
 
     private void signIn() {
-        auth.signInWithEmailAndPassword(loginController.getEmail(), loginController.getPassword())
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            //Colar aqui a validação no email
-                            Toast.makeText(Login.this, "Sucesso !", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(Login.this, MenuListaryActivity.class));
-                            finish();
-                        }else{
-                            Toast.makeText(Login.this, "E-mail e/ou Senha Inválida !", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
+            if(loginController.signInFirestore(loginController.getEmail(), loginController.getPassword())){
+                startActivity(new Intent(LoginActivity.this, MenuListaryActivity.class));
+                finish();
+            }
+            else{
+                Toast.makeText(LoginActivity.this, "E-mail e/ou Senha Inválida !", Toast.LENGTH_LONG).show();
+            }
     }
 }
-
-// envia um email para o cadastrado pedindo a validação
-
-//    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//                            if (user.isEmailVerified()){
-//                                    startActivity(new Intent(MainActivity.this, MenuListaryActivity.class));
-//        }else{
-//        user.sendEmailVerification();
-//        Toast.makeText(MainActivity.this, "Verifique seu email", Toast.LENGTH_LONG).show();
-//        }
 
 

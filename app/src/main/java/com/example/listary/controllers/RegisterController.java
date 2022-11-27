@@ -2,15 +2,23 @@ package com.example.listary.controllers;
 import android.util.Patterns;
 
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
+
+import com.example.listary.model.Firestore;
+import com.example.listary.model.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.auth.SignInMethodQueryResult;
 
 public class RegisterController {
 
-    private FirebaseAuth auth;
     private String userName, email, password;
-    private FirebaseFirestore db;
+    private Firestore firestore = new Firestore();
+    private boolean result;
 
     public boolean checkAllFields(EditText edUserName, EditText edEmail, EditText edPassword) {
 
@@ -43,15 +51,38 @@ public class RegisterController {
         return true;
     }
 
-    public String getUserName() {
-        return userName;
-    }
+    public boolean createUserFirestore(){
+        firestore.getAuth().fetchSignInMethodsForEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
 
-    public String getEmail() {
-        return email;
-    }
+                        boolean isNewUser = task.getResult().getSignInMethods().isEmpty();
 
-    public String getPassword() {
-        return password;
+                        if (isNewUser) {
+                            firestore.getAuth().createUserWithEmailAndPassword(email, password)
+                                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<AuthResult> task) {
+                                            if (task.isSuccessful()){
+                                                User user = new User(userName, email, password);
+                                                firestore.getDb().collection("users")
+                                                        .add(user);
+                                                FirebaseAuth.getInstance().signOut();
+                                                result = true;
+
+                                            }
+                                        }
+                                    });
+
+                        }
+                        else {
+                            result = false;
+
+                        }
+
+                    }
+                });
+        return result;
     }
 }

@@ -45,11 +45,11 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.loginForm.Login"
+            android:name=".view.loginForm.LoginActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.registerForm.Register"
+            android:name=".view.registerForm.RegisterActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

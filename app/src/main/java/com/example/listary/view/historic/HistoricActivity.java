@@ -17,11 +17,10 @@ import android.view.MenuItem;
 
 import com.example.listary.R;
 import com.example.listary.adapters.HistoricAdapter;
-import com.example.listary.model.ShoppingList;
 import com.example.listary.model.ShoppingListDocument;
 import com.example.listary.view.Pantry.PantryActivity;
 import com.example.listary.view.createProduct.SearchProductActivity;
-import com.example.listary.view.loginForm.Login;
+import com.example.listary.view.loginForm.LoginActivity;
 import com.example.listary.view.menu.MenuListaryActivity;
 import com.example.listary.view.newList.NewListActivity;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -126,7 +125,7 @@ public class HistoricActivity extends AppCompatActivity {
 
             case R.id.logOut:
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(this, Login.class));
+                startActivity(new Intent(this, LoginActivity.class));
                 finish();
             default:
                 return true;

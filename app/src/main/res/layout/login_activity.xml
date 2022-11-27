@@ -7,13 +7,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_Background"
-    tools:context=".view.loginForm.Login">
+    tools:context=".view.loginForm.LoginActivity">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="@color/white"
-    tools:context=".view.loginForm.Login">
+    tools:context=".view.loginForm.LoginActivity">
 
     <TextView
         android:id="@+id/tvUserName"

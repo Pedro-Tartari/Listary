@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -24,7 +23,7 @@ import com.example.listary.adapters.SearchAdapter;
 import com.example.listary.model.ProductItem;
 import com.example.listary.view.Pantry.PantryActivity;
 import com.example.listary.view.historic.HistoricActivity;
-import com.example.listary.view.loginForm.Login;
+import com.example.listary.view.loginForm.LoginActivity;
 import com.example.listary.view.menu.MenuListaryActivity;
 import com.example.listary.view.newList.NewListActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -182,7 +181,7 @@ public class SearchProductActivity extends AppCompatActivity {
 
             case R.id.logOut:
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(this, Login.class));
+                startActivity(new Intent(this, LoginActivity.class));
                 finish();
             default:
                 return true;

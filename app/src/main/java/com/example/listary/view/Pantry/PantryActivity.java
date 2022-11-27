@@ -18,7 +18,7 @@ import com.example.listary.R;
 import com.example.listary.controllers.PantryController;
 import com.example.listary.view.createProduct.SearchProductActivity;
 import com.example.listary.view.historic.HistoricActivity;
-import com.example.listary.view.loginForm.Login;
+import com.example.listary.view.loginForm.LoginActivity;
 import com.example.listary.view.menu.MenuListaryActivity;
 import com.example.listary.view.newList.NewListActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -99,7 +99,7 @@ public class PantryActivity extends AppCompatActivity {
 
             case R.id.logOut:
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(this, Login.class));
+                startActivity(new Intent(this, LoginActivity.class));
                 finish();
             default:
                 return true;
