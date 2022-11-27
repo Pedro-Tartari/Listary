@@ -18,7 +18,6 @@ public class HistoricController {
 
     private Firestore connection = new Firestore();
     private String listName;
-    private DocumentReference idRef;
     private CollectionReference docRef = connection.getDb().collection("data")
             .document(connection.getUserId()).collection("shoppingList");
 
@@ -47,10 +46,6 @@ public class HistoricController {
 
     public String getListName() {
         return listName;
-    }
-
-    public DocumentReference getIdRef() {
-        return idRef;
     }
 
     public CollectionReference getDocRef() {
