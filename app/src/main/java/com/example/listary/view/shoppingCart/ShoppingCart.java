@@ -10,9 +10,7 @@ import android.util.Log;
 
 import com.example.listary.R;
 import com.example.listary.adapters.CartAdapter;
-import com.example.listary.adapters.SearchAdapter;
 import com.example.listary.model.ProductItem;
-import com.example.listary.model.ShoppingCartModel;
 import com.example.listary.model.ShoppingList;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

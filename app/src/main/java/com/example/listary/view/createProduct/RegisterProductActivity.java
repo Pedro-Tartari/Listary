@@ -13,28 +13,24 @@ import android.widget.EditText;
 import com.example.listary.R;
 import com.example.listary.controllers.ProductController;
 
+import com.example.listary.model.Firestore;
 import com.example.listary.model.Product;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 
-public class RegisterProduct extends AppCompatActivity {
+public class RegisterProductActivity extends AppCompatActivity {
 
     private EditText edRegisterProductName,edRegisterProductBrand,
             edRegisterProductLocal,edRegisterProductPrice;
 
     private Button btnSaveProduct;
 
-    private String uid;
+    private Firestore connection = new Firestore();
 
     private int updateOption = 0;
-
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     private ProductController productController = new ProductController();
 
@@ -43,7 +39,6 @@ public class RegisterProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.setTitle(getResources().getString(R.string.cadastrar_produto));
         setContentView(R.layout.activity_register_product);
-        uid = user.getUid();
 
         edRegisterProductName = findViewById(R.id.edRegisterProductName);
         edRegisterProductBrand = findViewById(R.id.edRegisterProductBrand);
@@ -56,10 +51,10 @@ public class RegisterProduct extends AppCompatActivity {
         updateOption = data.getInt("updateOption");
 
         if(updateOption == 0){
-            setViewId(uid, updateOption);
+            setViewId(connection.getUserId(), updateOption);
         }
         else{
-            setViewForUpdate(uid, documentId, updateOption);
+            setViewForUpdate(connection.getUserId(), documentId, updateOption);
         }
 
     }
@@ -89,7 +84,7 @@ public class RegisterProduct extends AppCompatActivity {
     private void setViewForUpdate(String uid, String documentId, Integer updateOption) {
 
         DocumentReference docRef =
-                db.collection("data")
+                connection.getDb().collection("data")
                         .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
                         .collection("product")
                         .document(documentId);

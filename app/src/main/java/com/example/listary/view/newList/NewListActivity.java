@@ -24,13 +24,13 @@ import com.example.listary.R;
 import com.example.listary.adapters.AutoCompleteProductAdapter;
 import com.example.listary.adapters.RecycleViewerShoppingAdapter;
 import com.example.listary.controllers.ShoppingListController;
-import com.example.listary.listners.OnAlterQuantityItem;
+import com.example.listary.listeners.OnAlterQuantityItem;
 import com.example.listary.model.ProductItem;
 import com.example.listary.view.Pantry.PantryActivity;
 import com.example.listary.view.createProduct.SearchProductActivity;
 import com.example.listary.view.historic.HistoricActivity;
 import com.example.listary.view.loginForm.LoginActivity;
-import com.example.listary.view.menu.MenuListaryActivity;
+import com.example.listary.view.menu.MenuActivity;
 import com.example.listary.view.shoppingCart.ShoppingCart;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -163,7 +163,7 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
 
         switch (item.getItemId()) {
             case R.id.menuListary:
-                intent = new Intent(this, MenuListaryActivity.class);
+                intent = new Intent(this, MenuActivity.class);
                 startActivity(intent);
                 finish();
                 return true;
@@ -217,7 +217,7 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
                     rvSelectedProductList, Float.parseFloat(tvListTotalPrice.getText().toString()), user.getUid(), 0, "null",
                     edShoppingListDate);
 
-            startActivity(new Intent(NewListActivity.this, MenuListaryActivity.class));
+            startActivity(new Intent(NewListActivity.this, MenuActivity.class));
             finish();
         }
     }

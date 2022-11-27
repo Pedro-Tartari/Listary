@@ -19,7 +19,7 @@ import com.example.listary.controllers.PantryController;
 import com.example.listary.view.createProduct.SearchProductActivity;
 import com.example.listary.view.historic.HistoricActivity;
 import com.example.listary.view.loginForm.LoginActivity;
-import com.example.listary.view.menu.MenuListaryActivity;
+import com.example.listary.view.menu.MenuActivity;
 import com.example.listary.view.newList.NewListActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -74,7 +74,7 @@ public class PantryActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.menuListary:
-                intent = new Intent(this, MenuListaryActivity.class);
+                intent = new Intent(this, MenuActivity.class);
                 startActivity(intent);
                 finish();
                 return true;

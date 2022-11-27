@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.listary.R;
 import com.example.listary.model.Product;
-import com.example.listary.view.createProduct.RegisterProduct;
+import com.example.listary.view.createProduct.RegisterProductActivity;
 import com.example.listary.view.createProduct.SearchProductActivity;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -128,7 +128,7 @@ public class ProductsAdapter extends FirestoreRecyclerAdapter<Product, ProductsA
 
         updateOption = 1;
         String documentId = getSnapshots().getSnapshot(position).getId();
-        Intent updateProduct  = new Intent(holder.itemView.getContext(), RegisterProduct.class);
+        Intent updateProduct  = new Intent(holder.itemView.getContext(), RegisterProductActivity.class);
         updateProduct.putExtra("updateOption", updateOption);
         updateProduct.putExtra("documentId", documentId);
         holder.itemView.getContext().startActivity(updateProduct);

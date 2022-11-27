@@ -1,16 +1,17 @@
 package com.example.listary.view.createProduct;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,51 +21,45 @@ import android.widget.EditText;
 
 import com.example.listary.R;
 import com.example.listary.adapters.SearchAdapter;
+import com.example.listary.controllers.ProductController;
+import com.example.listary.interfaces.Callback;
 import com.example.listary.model.ProductItem;
 import com.example.listary.view.Pantry.PantryActivity;
 import com.example.listary.view.historic.HistoricActivity;
 import com.example.listary.view.loginForm.LoginActivity;
-import com.example.listary.view.menu.MenuListaryActivity;
+import com.example.listary.view.menu.MenuActivity;
 import com.example.listary.view.newList.NewListActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+
+import com.google.firebase.auth.FirebaseAuth;;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SearchProductActivity extends AppCompatActivity {
 
-
     public static Activity self_intent;
-
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference docRef =
-            db.collection("data")
-                    .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                    .collection("product");
 
     private EditText edSearchProduct;
     private List<ProductItem> acProductList = new ArrayList<>();
-    private RecyclerView mRecyclerView;
+    private RecyclerView acRecyclerView;
     private SearchAdapter searchAdapter;
+
+    ProductController productController = new ProductController();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setTitle(getResources().getString(R.string.consultar_Produto));
-        self_intent = this;
         setContentView(R.layout.activity_create_products);
+
+        this.setTitle(getResources().getString(R.string.consultar_Produto));
+
+        self_intent = this;
+
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-        mRecyclerView = findViewById(R.id.rvProducts);
-        mRecyclerView.setHasFixedSize(true);
+        acRecyclerView = findViewById(R.id.rvProducts);
+        acRecyclerView.setHasFixedSize(true);
 
-
-        getDataFromFire();
+        getDataFromFirestore();
         buildRecyclerView();
 
         edSearchProduct = findViewById(R.id.edSearchProduct);
@@ -85,11 +80,9 @@ public class SearchProductActivity extends AppCompatActivity {
 
             }
 
-
         });
 
     }
-
 
     private void filter(String text) {
         ArrayList<ProductItem> filteredList = new ArrayList<>();
@@ -104,38 +97,24 @@ public class SearchProductActivity extends AppCompatActivity {
     }
 
     private void buildRecyclerView() {
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        acRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         searchAdapter = new SearchAdapter(acProductList, this);
-        mRecyclerView.setAdapter(searchAdapter);
+        acRecyclerView.setAdapter(searchAdapter);
     }
 
-    private void getDataFromFire() {
-        docRef.get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (isFinishing() || isDestroyed()) return;
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d("DB success", document.getId() + " => " + document.getData());
-                                String name = document.getString("name");
-                                String local = document.getString("location");
-                                Double price = document.getDouble("price");
-                                String brand = document.getString("productBrand");
-                                String id = document.getId();
+    private void getDataFromFirestore() {
+        productController.getDataFromDatabase(new Callback(){
+            @Override
+            public void onCallback(Object modelClass) {
+                acProductList.add((ProductItem) modelClass);
+            }
 
-                                acProductList.add(new ProductItem(name, local, brand ,price, id));
-                            }
-                        } else {
-                            Log.d("DB Error", "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
+        });
     }
 
     public void updaterRecycle(){
         acProductList.clear();
-        getDataFromFire();
+        getDataFromFirestore();
         buildRecyclerView();
     }
 
@@ -149,6 +128,7 @@ public class SearchProductActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -156,7 +136,7 @@ public class SearchProductActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.menuListary:
-                intent = new Intent(this, MenuListaryActivity.class);
+                intent = new Intent(this, MenuActivity.class);
                 startActivity(intent);
                 finish();
                 return true;
@@ -189,7 +169,7 @@ public class SearchProductActivity extends AppCompatActivity {
     }
 
     public void iconAddProduct(View view) {
-        Intent intent = new Intent(this, RegisterProduct.class);
+        Intent intent = new Intent(this, RegisterProductActivity.class);
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
         startActivity(intent);

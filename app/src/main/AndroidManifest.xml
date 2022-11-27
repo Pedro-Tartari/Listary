@@ -17,7 +17,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.historic.HistoricView"
+            android:name=".view.historic.HistoricViewActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -25,7 +25,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.createProduct.RegisterProduct"
+            android:name=".view.createProduct.RegisterProductActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -33,7 +33,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.menu.MenuListaryActivity"
+            android:name=".view.menu.MenuActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

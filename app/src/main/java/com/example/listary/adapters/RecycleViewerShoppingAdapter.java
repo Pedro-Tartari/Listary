@@ -1,9 +1,7 @@
 package com.example.listary.adapters;
 
-import android.nfc.Tag;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.listary.R;
-import com.example.listary.listners.OnAlterQuantityItem;
+import com.example.listary.listeners.OnAlterQuantityItem;
 import com.example.listary.model.ProductItem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecycleViewerShoppingAdapter extends RecyclerView.Adapter<RecycleViewerShoppingAdapter.ViewHolder> {

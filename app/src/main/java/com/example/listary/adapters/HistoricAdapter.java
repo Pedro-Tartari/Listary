@@ -13,13 +13,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.listary.R;
-import com.example.listary.model.ShoppingList;
 
 import com.example.listary.model.ShoppingListDocument;
-import com.example.listary.view.historic.HistoricView;
+import com.example.listary.view.historic.HistoricViewActivity;
 
-import com.example.listary.view.createProduct.RegisterProduct;
-import com.example.listary.view.createProduct.SearchProductActivity;
 import com.example.listary.view.historic.HistoricActivity;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -63,7 +60,7 @@ public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingListDocume
                 int position = holder.getBindingAdapterPosition();
                 String documentId = getSnapshots().getSnapshot(position).getId();
 
-                Intent viewHistoricList = new Intent(holder.itemView.getContext(), HistoricView.class);
+                Intent viewHistoricList = new Intent(holder.itemView.getContext(), HistoricViewActivity.class);
                 viewHistoricList.putExtra("documentId",documentId);
                 holder.itemView.getContext().startActivity(viewHistoricList);
                 HistoricActivity.self_intent.finish();

@@ -2,16 +2,16 @@ package com.example.listary.model;
 
 import com.google.firebase.firestore.PropertyName;
 
-public class ShoppingCartModel {
+public class ShoppingCartDocument {
 
     private ShoppingList shoppingList;
     private double totalPrice;
     private int id;
 
-    public ShoppingCartModel() {
+    public ShoppingCartDocument() {
     }
 
-    public ShoppingCartModel(ShoppingList shoppingList, double totalPrice, int id) {
+    public ShoppingCartDocument(ShoppingList shoppingList, double totalPrice, int id) {
         this.shoppingList = shoppingList;
         this.totalPrice = totalPrice;
         this.id = id;

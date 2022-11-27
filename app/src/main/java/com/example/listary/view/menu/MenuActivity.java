@@ -17,6 +17,7 @@ import android.view.View;
 import com.example.listary.R;
 import com.example.listary.controllers.MenuController;
 
+import com.example.listary.model.Firestore;
 import com.example.listary.view.Pantry.PantryActivity;
 import com.example.listary.view.createProduct.SearchProductActivity;
 import com.example.listary.view.historic.HistoricActivity;
@@ -24,14 +25,10 @@ import com.example.listary.view.loginForm.LoginActivity;
 import com.example.listary.view.newList.NewListActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
 
-public class MenuListaryActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity {
 
-    private String uID;
-    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private Firestore connection = new Firestore();
     private MenuController menuController = new MenuController();
     private AlertDialog alertDialog;
 
@@ -64,9 +61,8 @@ public class MenuListaryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_listary);
-        uID = user.getUid();
 
-        menuController.verifyReservedId(uID);
+        menuController.verifyReservedId(connection.getUserId());
     }
 
     @Override
@@ -83,12 +79,10 @@ public class MenuListaryActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        Intent intent;
-
         switch (item.getItemId()){
             case R.id.logOut:
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MenuListaryActivity.this, LoginActivity.class));
+                startActivity(new Intent(MenuActivity.this, LoginActivity.class));
                 finish();
             default:
                 return true;
@@ -101,6 +95,7 @@ public class MenuListaryActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void openNewList(View view) {
         Intent intent = new Intent(this, NewListActivity.class);
         startActivity(intent);

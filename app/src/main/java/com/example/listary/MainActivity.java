@@ -7,31 +7,27 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 
+import com.example.listary.model.Firestore;
 import com.example.listary.view.loginForm.LoginActivity;
-import com.example.listary.view.menu.MenuListaryActivity;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.example.listary.view.menu.MenuActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseAuth auth;
+    private Firestore user = new Firestore();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        auth = FirebaseAuth.getInstance();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null){
+        if (user.getUser() != null){
             Toast.makeText(MainActivity.this, "Sucesso !", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(this, MenuListaryActivity.class));
+            startActivity(new Intent(this, MenuActivity.class));
             finish();
         }else{
             startActivity(new Intent(this, LoginActivity.class));

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,9 +13,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.listary.R;
-import com.example.listary.model.Product;
 import com.example.listary.model.ProductItem;
-import com.example.listary.view.createProduct.RegisterProduct;
+import com.example.listary.view.createProduct.RegisterProductActivity;
 import com.example.listary.view.createProduct.SearchProductActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -24,7 +22,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
@@ -160,7 +157,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         ProductItem currentItem = productArrayList.get(position);
         updateOption = 1;
         String documentId = currentItem.getId();
-        Intent updateProduct  = new Intent(holder.itemView.getContext(), RegisterProduct.class);
+        Intent updateProduct  = new Intent(holder.itemView.getContext(), RegisterProductActivity.class);
         updateProduct.putExtra("updateOption", updateOption);
         updateProduct.putExtra("documentId", documentId);
         holder.itemView.getContext().startActivity(updateProduct);

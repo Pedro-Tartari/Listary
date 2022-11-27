@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.listary.R;
 import com.example.listary.controllers.LoginController;
-import com.example.listary.view.menu.MenuListaryActivity;
+import com.example.listary.view.menu.MenuActivity;
 import com.example.listary.view.registerForm.RegisterActivity;
 import com.example.listary.view.resetPassword.ResetPasswordActivity;
 
@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
 
     private void signIn() {
             if(loginController.signInFirestore(loginController.getEmail(), loginController.getPassword())){
-                startActivity(new Intent(LoginActivity.this, MenuListaryActivity.class));
+                startActivity(new Intent(LoginActivity.this, MenuActivity.class));
                 finish();
             }
             else{

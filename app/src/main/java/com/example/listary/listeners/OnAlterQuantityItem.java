@@ -1,4 +1,4 @@
-package com.example.listary.listners;
+package com.example.listary.listeners;
 
 public interface OnAlterQuantityItem {
 

@@ -17,16 +17,15 @@ import android.view.MenuItem;
 
 import com.example.listary.R;
 import com.example.listary.adapters.HistoricAdapter;
+import com.example.listary.controllers.HistoricController;
 import com.example.listary.model.ShoppingListDocument;
 import com.example.listary.view.Pantry.PantryActivity;
 import com.example.listary.view.createProduct.SearchProductActivity;
 import com.example.listary.view.loginForm.LoginActivity;
-import com.example.listary.view.menu.MenuListaryActivity;
+import com.example.listary.view.menu.MenuActivity;
 import com.example.listary.view.newList.NewListActivity;
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.Query;
 
 public class HistoricActivity extends AppCompatActivity {
@@ -34,12 +33,7 @@ public class HistoricActivity extends AppCompatActivity {
     private RecyclerView rvHistoric;
     private HistoricAdapter historicAdapter;
     public static Activity self_intent;
-
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference docRef =
-            db.collection("data")
-                    .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                    .collection("shoppingList");
+    private HistoricController historicController = new HistoricController();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +50,7 @@ public class HistoricActivity extends AppCompatActivity {
         rvHistoric.setHasFixedSize(true);
         rvHistoric.addItemDecoration(dividerItemDecoration);
 
-        Query query = docRef.orderBy("shoppingList",
+        Query query = historicController.getDocRef().orderBy("shoppingList",
                 Query.Direction.DESCENDING);
 
         FirestoreRecyclerOptions<ShoppingListDocument> options =
@@ -100,7 +94,7 @@ public class HistoricActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.menuListary:
-                intent = new Intent(this, MenuListaryActivity.class);
+                intent = new Intent(this, MenuActivity.class);
                 startActivity(intent);
                 finish();
                 return true;
@@ -131,6 +125,5 @@ public class HistoricActivity extends AppCompatActivity {
                 return true;
         }
     }
-
 
 }
