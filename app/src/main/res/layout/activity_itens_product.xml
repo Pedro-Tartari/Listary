@@ -21,7 +21,6 @@
         android:paddingEnd="10dp"
         android:text="Produto"
         android:textColor="@color/product_name_bold"
-
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -95,7 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="154dp" />
+        app:layout_constraintGuide_end="165dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

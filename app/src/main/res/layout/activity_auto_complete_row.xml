@@ -1,29 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:padding="4dp"
-    android:orientation="vertical">
+    app:circularflow_radiusInDP="10dp"
+    android:layout_marginBottom="2dp">
 
     <TextView
         android:id="@+id/tvCustomName"
-        android:layout_width="match_parent"
+        android:layout_width="89dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_weight="1"
+        android:paddingEnd="10dp"
+        android:text="Produto"
+        android:textColor="@color/floatButton"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline17"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:paddingStart="8dp"
-        android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:text="Feijão"
-        />
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
     <TextView
         android:id="@+id/tvCustomLocal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="89dp"
+        android:layout_height="24dp"
         android:layout_gravity="center_vertical"
+        android:layout_weight="1"
         android:paddingStart="8dp"
         android:text="Mercado"
-        />
+        android:textColor="@color/product_name_simple"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCustomName"
+        app:layout_constraintStart_toEndOf="@+id/tvCustomName"
+        app:layout_constraintTop_toTopOf="@+id/tvCustomName"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tvRecycleBrand"
+        android:layout_width="70dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="20dp"
+        android:layout_weight="2"
+        android:paddingStart="8dp"
+        android:text="Marca"
+        android:textColor="@color/product_name_simple"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/tvCustomLocal"
+        app:layout_constraintTop_toTopOf="@+id/tvCustomLocal" />
 
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

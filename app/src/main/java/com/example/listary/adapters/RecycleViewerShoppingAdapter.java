@@ -44,6 +44,7 @@ public class RecycleViewerShoppingAdapter extends RecyclerView.Adapter<RecycleVi
         holder.tvRecycleName.setText(items.get(position).getProductName());
         holder.tvRecycleLocal.setText(items.get(position).getProductLocal());
         holder.tvRecycleValue.setText(Double.toString( items.get(position).getProductPrice()));
+        holder.tvRecycleBrand.setText(items.get(position).getProductBrand());
 
         holder.edRecycleQuantity.addTextChangedListener(new TextWatcher() {
             @Override
@@ -71,7 +72,7 @@ public class RecycleViewerShoppingAdapter extends RecyclerView.Adapter<RecycleVi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tvRecycleName, tvRecycleValue, tvRecycleLocal;
+        private TextView tvRecycleName, tvRecycleValue, tvRecycleLocal, tvRecycleBrand;
         private EditText edRecycleQuantity;
 
         public ViewHolder(@NonNull View itemView) {
@@ -81,6 +82,7 @@ public class RecycleViewerShoppingAdapter extends RecyclerView.Adapter<RecycleVi
             tvRecycleValue = itemView.findViewById(R.id.tvRecycleValue);
             tvRecycleLocal = itemView.findViewById(R.id.tvRecycleLocal);
             edRecycleQuantity = itemView.findViewById(R.id.edRecycleQuantity);
+            tvRecycleBrand = itemView.findViewById(R.id.tvRecycleBrand);
 
         }
     }

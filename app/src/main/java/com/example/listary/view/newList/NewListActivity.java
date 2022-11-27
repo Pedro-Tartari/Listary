@@ -27,6 +27,7 @@ import com.example.listary.controllers.ShoppingListController;
 import com.example.listary.listners.OnAlterQuantityItem;
 import com.example.listary.model.ProductItem;
 import com.example.listary.view.Pantry.PantryActivity;
+import com.example.listary.view.createProduct.RegisterProduct;
 import com.example.listary.view.createProduct.SearchProductActivity;
 import com.example.listary.view.historic.HistoricActivity;
 import com.example.listary.view.loginForm.Login;
@@ -99,6 +100,7 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 rvSelectedProductList.add(acProductList.get(position));
                 atualizaLista();
+                acProduct.getText().clear();
             }
         });
         atualizaLista();
@@ -231,5 +233,13 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
             startActivity(new Intent(NewListActivity.this, ShoppingCart.class));
             finish();
         }
+    }
+
+    public void iconAddProductFromList(View view) {
+        Intent intent = new Intent(this, RegisterProduct.class);
+        Bundle bundle = new Bundle();
+        intent.putExtras(bundle);
+        startActivity(intent);
+        finish();
     }
 }
