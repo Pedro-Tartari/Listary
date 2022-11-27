@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,11 +27,12 @@ import com.example.listary.view.newList.NewListActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Firestore connection = new Firestore();
     private MenuController menuController = new MenuController();
     private AlertDialog alertDialog;
+    private CardView cvNewList,cvHistoric,cvProduct,cvPantry;
 
     @Override
     public void onBackPressed() {
@@ -60,7 +62,7 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_listary);
+        setContentView(R.layout.activity_menu);
 
         menuController.verifyReservedId(connection.getUserId());
     }
@@ -69,6 +71,15 @@ public class MenuActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater formMenu = getMenuInflater();
         formMenu.inflate(R.menu.activity_header, menu);
+        cvNewList= findViewById(R.id.cvNewList);
+        cvHistoric= findViewById(R.id.cvHistoric);
+        cvProduct= findViewById(R.id.cvProduct);
+        cvPantry= findViewById(R.id.cvPantry);
+
+        cvNewList.setOnClickListener(this);
+        cvHistoric.setOnClickListener(this);
+        cvProduct.setOnClickListener(this);
+        cvPantry.setOnClickListener(this);
 
         this.setTitle(getResources().getString(R.string.menu_listary));
 
@@ -89,11 +100,7 @@ public class MenuActivity extends AppCompatActivity {
         }
     }
 
-    public void openSearchProduct(View view) {
-        Intent intent = new Intent(this, SearchProductActivity.class);
-        startActivity(intent);
 
-    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void openNewList(View view) {
@@ -102,15 +109,26 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
-    public void openHistoric(View view) {
-        Intent intent = new Intent(this, HistoricActivity.class);
-        startActivity(intent);
+    @Override
+    public void onClick(View view) {
+        Intent intent;
+        switch (view.getId()){
 
-    }
+            case R.id.cvNewList: intent = new Intent(this, NewListActivity.class);
+                startActivity(intent);
+                break;
 
-    public void  openPantry(View view) {
-        Intent intent = new Intent(this, PantryActivity.class);
-        startActivity(intent);
+            case R.id.cvHistoric: intent = new Intent(this, HistoricActivity.class);
+                startActivity(intent);
+                break;
 
+            case R.id.cvProduct: intent = new Intent(this, SearchProductActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.cvPantry: intent = new Intent(this, PantryActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }
