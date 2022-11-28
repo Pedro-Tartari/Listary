@@ -91,6 +91,8 @@
         <entry key="app/src/main/res/layout/activity_historic_view_list_item.xml" value="0.12" />
         <entry key="app/src/main/res/layout/activity_itens_product.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_list_recycle.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.11197916666666667" />
         <entry key="app/src/main/res/layout/activity_menu_listary.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/activity_new_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_pentry.xml" value="0.19270833333333334" />

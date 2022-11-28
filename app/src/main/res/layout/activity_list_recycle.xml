@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_marginBottom="10dp"
-    android:background="@drawable/border_custom"
+    android:background="@drawable/custom_border"
     android:padding="10dp"
     tools:showIn="@layout/activity_new_list">
 

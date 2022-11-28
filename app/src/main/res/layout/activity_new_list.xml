@@ -7,7 +7,6 @@
     android:background="@color/primary_Background"
     tools:context=".view.newList.NewListActivity">
 
-
     <EditText
         android:id="@+id/edShoppingListName"
         android:layout_width="213dp"
@@ -58,8 +57,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edShoppingListName"
         app:layout_constraintTop_toBottomOf="@+id/edShoppingListName" />
-
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButtonList"
@@ -180,6 +177,5 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvTotalPriceLabel"
         app:layout_constraintTop_toTopOf="@+id/tvTotalPriceLabel" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
