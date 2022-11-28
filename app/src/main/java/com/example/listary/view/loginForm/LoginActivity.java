@@ -3,20 +3,27 @@ package com.example.listary.view.loginForm;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.listary.R;
 import com.example.listary.controllers.LoginController;
+import com.example.listary.model.Firestore;
 import com.example.listary.view.menu.MenuActivity;
 import com.example.listary.view.registerForm.RegisterActivity;
 import com.example.listary.view.resetPassword.ResetPasswordActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class LoginActivity extends AppCompatActivity implements  View.OnClickListener{
@@ -24,6 +31,7 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
     private TextView register, forgetPass;
     private EditText edEmailLogin,edPasswordLogin;
     private Button btnLoginUser;
+    private FirebaseAuth mAuth;
 
     private LoginController loginController = new LoginController();
 
@@ -32,6 +40,7 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
+        mAuth = FirebaseAuth.getInstance();
         setViewId();
     }
 
@@ -65,8 +74,19 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
             case R.id.btnLoginUser:
 
                 if (loginController.checkAllFields(edEmailLogin,edPasswordLogin)) {
-                    signIn();
-                    finish();
+                    mAuth.signInWithEmailAndPassword(edEmailLogin.getText().toString(), edPasswordLogin.getText().toString())
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()){
+                                        startActivity(new Intent(LoginActivity.this, MenuActivity.class));
+                                        finish();
+                                    }
+                                    else{
+                                        Toast.makeText(LoginActivity.this, "Erro ao tentar se conectar!", Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
                 }
                 break;
             case R.id.forgetPass:
@@ -74,16 +94,6 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
                 finish();
                 break;
         }
-    }
-
-    private void signIn() {
-            if(loginController.signInFirestore(loginController.getEmail(), loginController.getPassword())){
-                startActivity(new Intent(LoginActivity.this, MenuActivity.class));
-                finish();
-            }
-            else{
-                Toast.makeText(LoginActivity.this, "E-mail e/ou Senha Inválida !", Toast.LENGTH_LONG).show();
-            }
     }
 }
 

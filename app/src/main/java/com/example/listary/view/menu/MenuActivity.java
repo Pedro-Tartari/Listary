@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -29,7 +30,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Firestore connection = new Firestore();
     private MenuController menuController = new MenuController();
     private AlertDialog alertDialog;
     private CardView cvNewList,cvHistoric,cvProduct,cvPantry;
@@ -64,7 +64,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        menuController.verifyReservedId(connection.getUserId());
+        menuController.verifyReservedId();
     }
 
     @Override
@@ -109,6 +109,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onClick(View view) {
         Intent intent;

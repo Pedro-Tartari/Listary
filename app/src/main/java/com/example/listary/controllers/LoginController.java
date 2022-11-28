@@ -1,5 +1,6 @@
 package com.example.listary.controllers;
 
+import android.util.Log;
 import android.util.Patterns;
 import android.widget.EditText;
 
@@ -10,10 +11,11 @@ import com.example.listary.model.Firestore;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginController {
 
-    private Firestore firestore = new Firestore();
+    private Firestore connection = new Firestore();
     private String email,password;
     private boolean result;
 
@@ -41,12 +43,14 @@ public class LoginController {
         return true;
     }
 
-    public boolean signInFirestore(String email, String password){
-        firestore.getAuth().signInWithEmailAndPassword(email, password)
+    /*public boolean signInFirestore(String email, String password){
+        Log.d("LTM", "Entrou no método");
+        mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
+
                             result = true;
                         }
                         else{
@@ -54,14 +58,7 @@ public class LoginController {
                         }
                     }
                 });
+        Log.d("LTM", "BOOLEAN" + result);
         return result;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
+    }*/
 }
