@@ -61,7 +61,7 @@
         android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/rvNewShoppingList"
-        app:srcCompat="@drawable/ic_add_produto_lista"
+        app:srcCompat="@drawable/custom_add_product_list"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -97,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
-        android:background="@drawable/botao_customizado"
+        android:background="@drawable/custom_button"
         android:onClick="sendListToFirestore"
         android:text="  SALVAR    "
         app:layout_constraintBottom_toBottomOf="parent"
@@ -112,7 +112,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="12dp"
-        android:background="@drawable/botao_customizado"
+        android:background="@drawable/custom_button"
         android:onClick="toCart"
         android:text="Carrinho"
         app:layout_constraintBottom_toBottomOf="parent"

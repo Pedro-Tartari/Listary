@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
-        android:background="@drawable/botao_customizado"
+        android:background="@drawable/custom_button"
         android:minWidth="200dp"
         android:minHeight="50dp"
         android:text="FINALIZAR"

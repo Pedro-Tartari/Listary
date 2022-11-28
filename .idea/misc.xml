@@ -74,8 +74,16 @@
         <entry key="..\:/listary/app/src/main/res/layout/activity_register_product.xml" value="0.25" />
         <entry key="..\:/listary/app/src/main/res/layout/activity_reset_password.xml" value="0.20416666666666666" />
         <entry key="..\:/listary/app/src/main/res/layout/login_activity.xml" value="0.33" />
+        <entry key="app/src/debug/res/drawable/ic_cart_background.xml" value="0.2005" />
+        <entry key="app/src/debug/res/drawable/ic_cart_foreground.xml" value="0.2005" />
         <entry key="app/src/main/res/drawable/ic_add_produto_lista.xml" value="0.1255" />
         <entry key="app/src/main/res/drawable/ic_baseline_shopping_basket_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_card_newlist.xml" value="0.2005" />
+        <entry key="app/src/main/res/drawable/ic_check_item.xml" value="0.2005" />
+        <entry key="app/src/main/res/drawable/ic_despensa.xml" value="0.2005" />
+        <entry key="app/src/main/res/drawable/ic_history.xml" value="0.2005" />
+        <entry key="app/src/main/res/drawable/ic_shopping_cart.xml" value="0.2005" />
+        <entry key="app/src/main/res/drawable/logo_color.xml" value="0.2005" />
         <entry key="app/src/main/res/layout/activity_create_products.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_historic.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/activity_historic_item.xml" value="0.19166666666666668" />

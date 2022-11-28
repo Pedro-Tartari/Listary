@@ -20,7 +20,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_baseline_historic_item_icon" />
+            android:src="@drawable/custom_historic_item_icon" />
 
         <TextView
             android:id="@+id/tvHistoricListName"

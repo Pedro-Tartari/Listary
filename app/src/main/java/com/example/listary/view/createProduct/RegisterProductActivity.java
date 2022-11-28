@@ -67,7 +67,7 @@ public class RegisterProductActivity extends AppCompatActivity {
 
                 if (productController.verifyFields(edRegisterProductName, edRegisterProductPrice, btnSaveProduct)) {
                     productController.returnNewProduct(edRegisterProductName, edRegisterProductBrand,
-                            edRegisterProductLocal, edRegisterProductPrice, uid, updateOption, "null");
+                            edRegisterProductLocal, edRegisterProductPrice, updateOption, "null");
 
                     Intent intent = new Intent(getApplicationContext(), SearchProductActivity.class);
                     startActivity(intent);
@@ -113,7 +113,7 @@ public class RegisterProductActivity extends AppCompatActivity {
 
                 if (productController.verifyFields(edRegisterProductName, edRegisterProductPrice, btnSaveProduct)) {
                     productController.returnNewProduct(edRegisterProductName, edRegisterProductBrand,
-                            edRegisterProductLocal, edRegisterProductPrice, uid, updateOption, documentId);
+                            edRegisterProductLocal, edRegisterProductPrice, updateOption, documentId);
 
                     Intent intent = new Intent(getApplicationContext(), SearchProductActivity.class);
                     startActivity(intent);

@@ -37,7 +37,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:background="@drawable/border_custom"
+        android:background="@drawable/custom_border"
         android:drawableEnd="@drawable/custom_user_icon"
         android:padding="10dp"
         android:ems="10"
@@ -72,8 +72,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@drawable/border_custom"
-        android:drawableEnd="@drawable/ic_baseline_email_24"
+        android:background="@drawable/custom_border"
+        android:drawableEnd="@drawable/custom_email_icon"
         android:padding="10dp"
         android:ems="10"
         android:hint="  Informe o e-mail"
@@ -100,7 +100,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:background="@drawable/border_custom"
+        android:background="@drawable/custom_border"
         android:drawableEnd="@drawable/custom_password_icon"
         android:padding="10dp"
         android:ems="10"
@@ -117,7 +117,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:background="@drawable/botao_customizado"
+        android:background="@drawable/custom_button"
         android:minWidth="200dp"
         android:minHeight="50dp"
         android:text="CADASTRAR"
@@ -154,7 +154,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.037"
-        app:srcCompat="@drawable/logo_color" />
+        app:srcCompat="@drawable/custom_logo_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
