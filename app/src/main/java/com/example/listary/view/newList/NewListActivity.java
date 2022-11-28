@@ -211,6 +211,5 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
         startActivity(intent);
-        finish();
     }
 }
