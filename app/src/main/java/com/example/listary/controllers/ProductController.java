@@ -33,7 +33,7 @@ public class ProductController implements DatabaseInterface <Product>{
 
     public void returnNewProduct(EditText edRegisterProductName, EditText edRegisterProductBrand,
                                  EditText edRegisterProductLocal, EditText edRegisterProductPrice,
-                                 String uID, Integer updateOption, String productId) {
+                                  Integer updateOption, String productId) {
 
         String name = edRegisterProductName.getText().toString();
         String brand = edRegisterProductBrand.getText().toString();
@@ -47,9 +47,9 @@ public class ProductController implements DatabaseInterface <Product>{
                 .build();
 
         if(updateOption == 0) {
-            sendDataToDatabase(product, uID);
+            sendDataToDatabase(product);
         }else{
-            updateDataToDatabase(product, uID, productId);
+            updateDataToDatabase(product, productId);
         }
     }
 
@@ -117,19 +117,19 @@ public class ProductController implements DatabaseInterface <Product>{
     }
 
     @Override
-    public void sendDataToDatabase(Product product, String userId) {
+    public void sendDataToDatabase(Product product) {
 
         DocumentReference idReference = connection.getDb().collection("data")
-                .document(userId).collection("reservedID")
+                .document(connection.getUserId()).collection("reservedID")
                 .document("reservedProductId");
 
         CollectionReference docRef =
                 connection.getDb().collection("data")
-                        .document(userId)
+                        .document(connection.getUserId())
                         .collection("product");
 
         DocumentReference productReference = connection.getDb().collection("data")
-                .document(userId).collection("product").document();
+                .document(connection.getUserId()).collection("product").document();
 
         idReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -153,10 +153,10 @@ public class ProductController implements DatabaseInterface <Product>{
     }
 
     @Override
-    public void updateDataToDatabase(Product product, String userId, String productId) {
+    public void updateDataToDatabase(Product product, String productId) {
 
         DocumentReference productReference = connection.getDb().collection("data")
-                .document(userId).collection("product").document(productId);
+                .document(connection.getUserId()).collection("product").document(productId);
 
         productReference.update("name", product.getName(), "productBrand", product.getProductBrand(),
                 "location", product.getLocation(), "price", product.getPrice());

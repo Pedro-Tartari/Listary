@@ -22,7 +22,7 @@
         android:ems="10"
         android:hint=" Nome do Produto"
         android:padding="10dp"
-        android:background="@drawable/border_custom"
+        android:background="@drawable/custom_border"
         android:inputType="textPersonName"
         android:paddingStart="15dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
@@ -39,7 +39,7 @@
 
     <EditText
         android:id="@+id/edRegisterProductBrand"
-        android:background="@drawable/border_custom"
+        android:background="@drawable/custom_border"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -55,7 +55,7 @@
 
     <EditText
         android:id="@+id/edRegisterProductLocal"
-        android:background="@drawable/border_custom"
+        android:background="@drawable/custom_border"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -71,7 +71,7 @@
 
     <EditText
         android:id="@+id/edRegisterProductPrice"
-        android:background="@drawable/border_custom"
+        android:background="@drawable/custom_border"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"

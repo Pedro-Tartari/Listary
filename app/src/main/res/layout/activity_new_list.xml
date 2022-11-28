@@ -60,6 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edShoppingListName" />
 
 
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButtonList"
         android:layout_width="63dp"
@@ -73,6 +74,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.968"
         app:srcCompat="@drawable/ic_add_produto_lista" />
+
 
     <TextView
         android:id="@+id/tvTotalPrice"
@@ -106,7 +108,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
-        android:background="@drawable/botao_customizado"
+        android:background="@drawable/custom_button"
         android:onClick="sendListToFirestore"
         android:text="SALVAR"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -122,7 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="12dp"
-        android:background="@drawable/botao_customizado"
+        android:background="@drawable/custom_button"
         android:onClick="toCart"
         android:text="Carrinho"
         app:layout_constraintBottom_toBottomOf="parent"

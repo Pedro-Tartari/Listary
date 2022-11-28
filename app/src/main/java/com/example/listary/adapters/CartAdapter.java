@@ -10,12 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.listary.R;
-import com.example.listary.model.ProductItem;
 import com.example.listary.model.ShoppingList;
-import com.example.listary.view.shoppingCart.ShoppingCart;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 

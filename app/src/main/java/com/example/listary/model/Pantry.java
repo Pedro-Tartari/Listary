@@ -1,13 +1,13 @@
 package com.example.listary.model;
 
-public class Pastry {
+public class Pantry {
 
     private String description;
 
-    public Pastry() {
+    public Pantry() {
     }
 
-    public Pastry(String description) {
+    public Pantry(String description) {
         this.description = description;
     }
 

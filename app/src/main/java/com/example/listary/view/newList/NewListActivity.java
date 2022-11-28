@@ -24,6 +24,7 @@ import com.example.listary.R;
 import com.example.listary.adapters.AutoCompleteProductAdapter;
 import com.example.listary.adapters.RecycleViewerShoppingAdapter;
 import com.example.listary.controllers.ShoppingListController;
+import com.example.listary.interfaces.Callback;
 import com.example.listary.listeners.OnAlterQuantityItem;
 import com.example.listary.model.ProductItem;
 import com.example.listary.view.Pantry.PantryActivity;
@@ -31,15 +32,8 @@ import com.example.listary.view.createProduct.SearchProductActivity;
 import com.example.listary.view.historic.HistoricActivity;
 import com.example.listary.view.loginForm.LoginActivity;
 import com.example.listary.view.menu.MenuActivity;
-import com.example.listary.view.shoppingCart.ShoppingCart;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.listary.view.shoppingCart.ShoppingCartActivity;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.santalu.maskara.widget.MaskEditText;
 
 import java.time.LocalDate;
@@ -49,14 +43,6 @@ import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class NewListActivity extends AppCompatActivity implements OnAlterQuantityItem {
-
-    //FireBase
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference docRef =
-            db.collection("data")
-                    .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                    .collection("product");
-   private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     //AutoComplete
     private AutoCompleteTextView acProduct;
@@ -123,28 +109,13 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
     }
 
     private void getDataFromFire() {
-        docRef.get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (isFinishing() || isDestroyed()) return;
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d("DB success", document.getId() + " => " + document.getData());
-                                String name = document.getString("name");
-                                String local = document.getString("location");
-                                Double price = document.getDouble("price");
-                                String brand = document.getString("productBrand");
-                                String id = document.getId();
-
-                                acProductList.add(new ProductItem(name, local, brand,price, id));
-                                autoCompleteProductAdapter.updateList(acProductList);
-                            }
-                        } else {
-                            Log.d("DB Error", "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
+        shoppingListController.getDataFromDatabase(new Callback() {
+            @Override
+            public void onCallback(Object modelClass) {
+                acProductList.add((ProductItem) modelClass);
+                autoCompleteProductAdapter.updateList(acProductList);
+            }
+        });
     }
 
 
@@ -214,7 +185,8 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
     public void sendListToFirestore(View view) {
         if (shoppingListController.verifyFields(edShoppingListName, edShoppingListDate)) {
             shoppingListController.returnNewShoppingList(edShoppingListName,
-                    rvSelectedProductList, Float.parseFloat(tvListTotalPrice.getText().toString()), user.getUid(), 0, "null",
+                    rvSelectedProductList, Float.parseFloat(tvListTotalPrice.getText().toString()),
+                    0, "null",
                     edShoppingListDate);
 
             startActivity(new Intent(NewListActivity.this, MenuActivity.class));
@@ -225,10 +197,10 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
     public void toCart(View view) {
         if (shoppingListController.verifyFields(edShoppingListName, edShoppingListDate)) {
             shoppingListController.returnNewShoppingList(edShoppingListName,
-                    rvSelectedProductList, Float.parseFloat(tvListTotalPrice.getText().toString()), user.getUid(), 0, "null",
+                    rvSelectedProductList, Float.parseFloat(tvListTotalPrice.getText().toString()), 0, "null",
                     edShoppingListDate);
 
-            startActivity(new Intent(NewListActivity.this, ShoppingCart.class));
+            startActivity(new Intent(NewListActivity.this, ShoppingCartActivity.class));
             finish();
         }
     }

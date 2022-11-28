@@ -16,41 +16,42 @@ import android.widget.EditText;
 
 import com.example.listary.R;
 import com.example.listary.controllers.PantryController;
+import com.example.listary.interfaces.Callback;
 import com.example.listary.view.createProduct.SearchProductActivity;
 import com.example.listary.view.historic.HistoricActivity;
 import com.example.listary.view.loginForm.LoginActivity;
 import com.example.listary.view.menu.MenuActivity;
 import com.example.listary.view.newList.NewListActivity;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class PantryActivity extends AppCompatActivity {
 
     private Button btnSavePantry;
     private EditText edPantry;
-    private String uid;
-
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     private PantryController pantryController = new PantryController();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pentry);
-        uid = user.getUid();
 
         edPantry = findViewById(R.id.edPantry);
 
         btnSavePantry = findViewById(R.id.btnSavePentry);
-        pantryController.show(edPantry, uid);
+        pantryController.getDataFromDatabase(new Callback() {
+            @Override
+            public void onCallback(Object modelClass) {
+                edPantry.setText((String) modelClass);
+            }
+        });
         btnSavePantry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pantryController.post(edPantry, uid, view.getContext());
+                if(pantryController.verifyFields(edPantry)) {
+                    pantryController.returnNewPantry(edPantry);
+
+                }
             }
         });
     }
