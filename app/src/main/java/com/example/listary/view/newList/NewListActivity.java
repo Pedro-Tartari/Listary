@@ -28,6 +28,7 @@ import com.example.listary.interfaces.Callback;
 import com.example.listary.listeners.OnAlterQuantityItem;
 import com.example.listary.model.ProductItem;
 import com.example.listary.view.Pantry.PantryActivity;
+import com.example.listary.view.createProduct.RegisterProductActivity;
 import com.example.listary.view.createProduct.SearchProductActivity;
 import com.example.listary.view.historic.HistoricActivity;
 import com.example.listary.view.loginForm.LoginActivity;
@@ -203,5 +204,13 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
             startActivity(new Intent(NewListActivity.this, ShoppingCartActivity.class));
             finish();
         }
+    }
+
+    public void iconAddProductFromList(View view) {
+        Intent intent = new Intent(this, RegisterProductActivity.class);
+        Bundle bundle = new Bundle();
+        intent.putExtras(bundle);
+        startActivity(intent);
+        finish();
     }
 }
