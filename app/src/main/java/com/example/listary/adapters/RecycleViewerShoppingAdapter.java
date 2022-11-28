@@ -41,7 +41,7 @@ public class RecycleViewerShoppingAdapter extends RecyclerView.Adapter<RecycleVi
         holder.tvRecycleName.setText(items.get(position).getProductName());
         holder.tvRecycleLocal.setText(items.get(position).getProductLocal());
         holder.tvRecycleValue.setText(Double.toString( items.get(position).getProductPrice()));
-
+        holder.edRecycleQuantity.setText(String.valueOf(items.get(position).getProductQuantity()));
         holder.edRecycleQuantity.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

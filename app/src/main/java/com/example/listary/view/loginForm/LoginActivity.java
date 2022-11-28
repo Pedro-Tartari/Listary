@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
                                         finish();
                                     }
                                     else{
-                                        Toast.makeText(LoginActivity.this, "Erro ao tentar se conectar!", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(LoginActivity.this, "E-Mail ou Senha Incorretos", Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
