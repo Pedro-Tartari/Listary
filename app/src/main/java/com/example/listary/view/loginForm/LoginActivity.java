@@ -3,7 +3,6 @@ package com.example.listary.view.loginForm;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.listary.R;
 import com.example.listary.controllers.LoginController;
-import com.example.listary.model.Firestore;
 import com.example.listary.view.menu.MenuActivity;
 import com.example.listary.view.registerForm.RegisterActivity;
 import com.example.listary.view.resetPassword.ResetPasswordActivity;
