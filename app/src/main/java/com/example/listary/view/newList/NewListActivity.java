@@ -3,6 +3,7 @@ package com.example.listary.view.newList;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -87,11 +88,14 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
         acProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                acProduct.setText("");
                 rvSelectedProductList.add(acProductList.get(position));
                 atualizaLista();
             }
         });
         atualizaLista();
+
+        new ItemTouchHelper(itemTouch).attachToRecyclerView(rvNewShoppingList);
     }
 
     public void atualizaLista(){
@@ -101,6 +105,7 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
         rvNewShoppingList.setAdapter(recycleViewerShoppingAdapter);
 
     }
+
 
     private void setViewId() {
         acProduct = findViewById(R.id.acProduct);
@@ -121,6 +126,19 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
             }
         });
     }
+
+    ItemTouchHelper.SimpleCallback itemTouch = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            rvSelectedProductList.remove(viewHolder.getBindingAdapterPosition());
+            recycleViewerShoppingAdapter.notifyDataSetChanged();
+        }
+    };
 
 
     @Override

@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.listary.R;
@@ -65,14 +66,15 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             }
         });
 
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                int position = holder.getBindingAdapterPosition();
-                deleteProduct(position, holder);
-                return true;
-            }
-        });
+//        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                int position = holder.getBindingAdapterPosition();
+//                deleteProduct(position, holder);
+//                return true;
+//            }
+//        });
+
     }
 
     @Override
@@ -112,7 +114,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         notifyDataSetChanged();
     }
 
-    public void deleteProduct(Integer position, SearchAdapter.ViewHolder holder){
+    public void deleteProduct(Integer position, RecyclerView.ViewHolder holder){
 
         ProductItem currentItem = productArrayList.get(position);
         String documentId = currentItem.getId();

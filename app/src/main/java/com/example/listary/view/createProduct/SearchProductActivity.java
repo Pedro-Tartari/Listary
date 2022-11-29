@@ -3,6 +3,7 @@ package com.example.listary.view.createProduct;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -84,6 +85,8 @@ public class SearchProductActivity extends AppCompatActivity {
             }
 
         });
+
+        new ItemTouchHelper(itemTouch).attachToRecyclerView(acRecyclerView);
 
     }
 
@@ -179,5 +182,19 @@ public class SearchProductActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    ItemTouchHelper.SimpleCallback itemTouch = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            int position = viewHolder.getBindingAdapterPosition();
+            searchAdapter.deleteProduct(position, viewHolder);
+            searchAdapter.notifyDataSetChanged();
+        }
+    };
 
 }
