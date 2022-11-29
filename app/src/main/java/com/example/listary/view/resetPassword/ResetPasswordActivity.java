@@ -3,6 +3,7 @@ package com.example.listary.view.resetPassword;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,6 +20,8 @@ public class ResetPasswordActivity extends AppCompatActivity {
     private EditText edResetEmail;
     private Button btnResetPassword;
     private PasswordController passwordController = new PasswordController();
+
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.6F);
 
     @Override
     public void onBackPressed() {
@@ -37,6 +40,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
         btnResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(buttonClick);
                 if (passwordController.CheckAllFields(edResetEmail)) {
                     Toast.makeText(ResetPasswordActivity.this, "Verifique seu email", Toast.LENGTH_SHORT).show();
                 }

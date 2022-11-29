@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -32,6 +33,8 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
     private FirebaseAuth mAuth;
 
     private LoginController loginController = new LoginController();
+
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.6F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +66,7 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
 
     @Override
     public void onClick(View view) {
+        view.startAnimation(buttonClick);
         switch (view.getId()){
 
             case R.id.register:

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -24,6 +25,8 @@ public class HistoricViewActivity extends AppCompatActivity {
     private HistoricViewAdapter historicViewAdapter;
 
     private HistoricController historicController = new HistoricController();
+
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.6F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,7 @@ public class HistoricViewActivity extends AppCompatActivity {
         btConfirmView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(buttonClick);
                 finish();
             }
         });

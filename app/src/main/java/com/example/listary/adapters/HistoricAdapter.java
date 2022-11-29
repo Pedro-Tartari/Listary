@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,8 @@ public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingListDocume
 
     private int updateOption = 0;
 
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.6F);
+
     public HistoricAdapter(@NonNull FirestoreRecyclerOptions<ShoppingListDocument> options) {
         super(options);
     }
@@ -57,6 +60,7 @@ public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingListDocume
             @Override
             public void onClick(View view) {
 
+                view.startAnimation(buttonClick);
                 int position = holder.getBindingAdapterPosition();
                 String documentId = getSnapshots().getSnapshot(position).getId();
 
@@ -71,6 +75,7 @@ public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingListDocume
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+                view.startAnimation(buttonClick);
                 int position = holder.getBindingAdapterPosition();
                 deleteHistoricList(position, holder);
                 return true;

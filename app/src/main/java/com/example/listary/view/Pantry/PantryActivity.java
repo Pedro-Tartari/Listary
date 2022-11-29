@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -31,6 +32,8 @@ public class PantryActivity extends AppCompatActivity {
 
     private PantryController pantryController = new PantryController();
 
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.6F);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +52,7 @@ public class PantryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(pantryController.verifyFields(edPantry)) {
+                    view.startAnimation(buttonClick);
                     pantryController.returnNewPantry(edPantry);
 
                 }

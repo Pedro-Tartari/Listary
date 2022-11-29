@@ -17,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
 import android.widget.EditText;
 
 import com.example.listary.R;
@@ -43,6 +44,8 @@ public class SearchProductActivity extends AppCompatActivity {
     private List<ProductItem> acProductList = new ArrayList<>();
     private RecyclerView acRecyclerView;
     private SearchAdapter searchAdapter;
+
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.6F);
 
     ProductController productController = new ProductController();
 
@@ -169,6 +172,7 @@ public class SearchProductActivity extends AppCompatActivity {
     }
 
     public void iconAddProduct(View view) {
+        view.startAnimation(buttonClick);
         Intent intent = new Intent(this, RegisterProductActivity.class);
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);

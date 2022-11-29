@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText edUserName,edEmail,edPassword;
     private Button btnRegister;
     private RegisterController registerController = new RegisterController();
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.6F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (registerController.checkAllFields(edUserName, edEmail, edPassword)) {
+                    view.startAnimation(buttonClick);
                     createNewUser();
                 }
             }

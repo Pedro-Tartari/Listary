@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +34,8 @@ public class ProductsAdapter extends FirestoreRecyclerAdapter<Product, ProductsA
                     .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
                     .collection("product");
 
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.6F);
+
     private AlertDialog alertDialog;
 
     private int updateOption = 0;
@@ -49,6 +52,7 @@ public class ProductsAdapter extends FirestoreRecyclerAdapter<Product, ProductsA
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(buttonClick);
                 int position = holder.getBindingAdapterPosition();
                 updateProduct(position, holder);
             }
@@ -57,6 +61,7 @@ public class ProductsAdapter extends FirestoreRecyclerAdapter<Product, ProductsA
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+                view.startAnimation(buttonClick);
                 int position = holder.getBindingAdapterPosition();
                 deleteProduct(position, holder);
                 return true;

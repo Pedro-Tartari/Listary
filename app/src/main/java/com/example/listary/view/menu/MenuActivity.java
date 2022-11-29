@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 
 import com.example.listary.R;
 import com.example.listary.controllers.MenuController;
@@ -33,6 +34,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     private MenuController menuController = new MenuController();
     private AlertDialog alertDialog;
     private CardView cvNewList,cvHistoric,cvProduct,cvPantry;
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.6F);
 
     @Override
     public void onBackPressed() {
@@ -116,6 +118,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
 
             case R.id.cvNewList: intent = new Intent(this, NewListActivity.class);
+                view.startAnimation(buttonClick);
                 startActivity(intent);
                 break;
 

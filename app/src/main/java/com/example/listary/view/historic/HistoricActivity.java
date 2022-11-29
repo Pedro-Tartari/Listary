@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.animation.AlphaAnimation;
 
 import com.example.listary.R;
 import com.example.listary.adapters.HistoricAdapter;
@@ -34,6 +35,7 @@ public class HistoricActivity extends AppCompatActivity {
     private HistoricAdapter historicAdapter;
     public static Activity self_intent;
     private HistoricController historicController = new HistoricController();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

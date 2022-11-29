@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -33,6 +34,8 @@ public class RegisterProductActivity extends AppCompatActivity {
     private int updateOption = 0;
 
     private ProductController productController = new ProductController();
+
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.6F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +72,8 @@ public class RegisterProductActivity extends AppCompatActivity {
                     productController.returnNewProduct(edRegisterProductName, edRegisterProductBrand,
                             edRegisterProductLocal, edRegisterProductPrice, updateOption, "null");
 
+                    view.startAnimation(buttonClick);
+
                     Intent intent = new Intent(getApplicationContext(), SearchProductActivity.class);
                     startActivity(intent);
                     finish();
@@ -78,6 +83,7 @@ public class RegisterProductActivity extends AppCompatActivity {
     }
 
     public void btCancelRegisterProduct(View view) {
+        view.startAnimation(buttonClick);
         finish();
     }
 
@@ -114,6 +120,8 @@ public class RegisterProductActivity extends AppCompatActivity {
                 if (productController.verifyFields(edRegisterProductName, edRegisterProductPrice, btnSaveProduct)) {
                     productController.returnNewProduct(edRegisterProductName, edRegisterProductBrand,
                             edRegisterProductLocal, edRegisterProductPrice, updateOption, documentId);
+
+                    view.startAnimation(buttonClick);
 
                     Intent intent = new Intent(getApplicationContext(), SearchProductActivity.class);
                     startActivity(intent);

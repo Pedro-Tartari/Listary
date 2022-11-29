@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -68,6 +69,8 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
     //private Date currentTime = Calendar.getInstance().getTime();
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private LocalDate currentTime = LocalDate.now();
+
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.6F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,6 +193,8 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
                     0, "null",
                     edShoppingListDate);
 
+            view.startAnimation(buttonClick);
+
             startActivity(new Intent(NewListActivity.this, MenuActivity.class));
             finish();
         }
@@ -201,12 +206,15 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
                     rvSelectedProductList, Float.parseFloat(tvListTotalPrice.getText().toString()), 0, "null",
                     edShoppingListDate);
 
+            view.startAnimation(buttonClick);
+
             startActivity(new Intent(NewListActivity.this, ShoppingCartActivity.class));
             finish();
         }
     }
 
     public void iconAddProductFromList(View view) {
+        view.startAnimation(buttonClick);
         Intent intent = new Intent(this, RegisterProductActivity.class);
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
