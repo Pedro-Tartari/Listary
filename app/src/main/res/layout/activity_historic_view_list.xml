@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activityHistoricViewList"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/primary_Background">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
@@ -26,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Visualizando Lista"
-        android:textColor="@color/design_default_color_primary"
+        android:textColor="#F2A766"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
@@ -39,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="#listaNome"
-        android:textColor="@color/design_default_color_primary"
+        android:textColor="#F2A766"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
@@ -63,10 +64,13 @@
         android:id="@+id/btConfirmView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:text="Button"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/custom_button"
+        android:text="Concluir"
+        android:textAlignment="center"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="@+id/guideline9" />
 </androidx.constraintlayout.widget.ConstraintLayout>

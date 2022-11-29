@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_gravity="center"
     android:layout_margin="5dp"
     app:cardCornerRadius="5dp"
@@ -12,6 +13,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:background="@color/SteelBlue"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
@@ -27,9 +29,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Lista 1"
-            android:textColor="@color/design_default_color_primary"
+            android:textColor="#F2A766"
             android:textStyle="bold"
-            android:textSize="10dp"
+            android:textSize="25dp"
             android:textAlignment="center" />
 
     </LinearLayout>
