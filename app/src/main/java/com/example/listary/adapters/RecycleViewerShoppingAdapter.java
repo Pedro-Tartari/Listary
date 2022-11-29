@@ -59,6 +59,17 @@ public class RecycleViewerShoppingAdapter extends RecyclerView.Adapter<RecycleVi
                 }
             }
         });
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                onAlterQuantityItem.onAlterQuantityItem(holder.getBindingAdapterPosition(), 0);
+                items.remove(holder.getBindingAdapterPosition());
+                notifyItemRemoved(holder.getBindingAdapterPosition());
+                notifyItemRangeRemoved(holder.getBindingAdapterPosition(), items.size());
+
+                return true;
+            }
+        });
     }
 
     @Override
