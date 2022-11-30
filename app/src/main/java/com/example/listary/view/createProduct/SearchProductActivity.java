@@ -64,6 +64,7 @@ public class SearchProductActivity extends AppCompatActivity {
         acRecyclerView.setHasFixedSize(true);
 
         getDataFromFirestore();
+
         buildRecyclerView();
 
         edSearchProduct = findViewById(R.id.edSearchProduct);
@@ -113,6 +114,7 @@ public class SearchProductActivity extends AppCompatActivity {
             @Override
             public void onCallback(Object modelClass) {
                 acProductList.add((ProductItem) modelClass);
+                searchAdapter.notifyDataSetChanged();
             }
 
         });
