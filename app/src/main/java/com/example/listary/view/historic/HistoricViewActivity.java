@@ -59,6 +59,8 @@ public class HistoricViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 view.startAnimation(buttonClick);
+                Intent test = new Intent(HistoricViewActivity.this, HistoricActivity.class);
+                startActivity(test);
                 finish();
             }
         });

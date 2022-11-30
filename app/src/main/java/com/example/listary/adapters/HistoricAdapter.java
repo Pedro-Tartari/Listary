@@ -67,6 +67,7 @@ public class HistoricAdapter extends FirestoreRecyclerAdapter<ShoppingListDocume
                 Intent viewHistoricList = new Intent(holder.itemView.getContext(), HistoricViewActivity.class);
                 viewHistoricList.putExtra("documentId",documentId);
                 holder.itemView.getContext().startActivity(viewHistoricList);
+                HistoricActivity.self_intent.finish();
 
             }
         });
