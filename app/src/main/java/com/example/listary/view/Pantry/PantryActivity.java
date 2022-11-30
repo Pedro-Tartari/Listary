@@ -30,7 +30,7 @@ public class PantryActivity extends AppCompatActivity {
     private Button btnSavePantry;
     private EditText edPantry;
 
-    private PantryController pantryController = new PantryController();
+    private PantryController pantryController = new PantryController(this);
 
     private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.6F);
 

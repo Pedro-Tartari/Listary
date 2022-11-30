@@ -74,8 +74,7 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
                 finish();
                 break;
             case R.id.btnLoginUser:
-
-                if (loginController.checkAllFields(edEmailLogin,edPasswordLogin)) {
+                if (loginController.checkAllFields(edEmailLogin, edPasswordLogin)) {
                     mAuth.signInWithEmailAndPassword(edEmailLogin.getText().toString(), edPasswordLogin.getText().toString())
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override

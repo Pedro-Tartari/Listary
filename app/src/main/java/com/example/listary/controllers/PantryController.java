@@ -1,5 +1,6 @@
 package com.example.listary.controllers;
 
+import android.content.Context;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -21,6 +22,12 @@ public class PantryController implements DatabaseInterface<Pantry> {
 
     private Firestore connection = new Firestore();
     private String description;
+
+    public PantryController(Context context) {
+        this.context = context;
+    }
+
+    private Context context;
 
     public void returnNewPantry(EditText edPantry){
 
@@ -45,18 +52,17 @@ public class PantryController implements DatabaseInterface<Pantry> {
             DocumentReference documentReference = connection.getDb().collection("data")
                     .document(connection.getUserId()).collection("pantry")
                     .document("FQpG5QWFiJ4xStsiDING");
-
             documentReference.set(pantry)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(null, "Sucesso", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Sucesso", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(null, "Erro", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Erro", Toast.LENGTH_SHORT).show();
                         }
                     });
     }

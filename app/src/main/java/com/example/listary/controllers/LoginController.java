@@ -11,7 +11,6 @@ public class LoginController {
 
     private Firestore connection = new Firestore();
     private String email,password;
-    private boolean result;
 
     public boolean checkAllFields(EditText edEmailLogin, EditText edPasswordLogin) {
         email = edEmailLogin.getText().toString();

@@ -19,7 +19,6 @@ import com.example.listary.interfaces.Callback;
 
 public class HistoricViewActivity extends AppCompatActivity {
 
-    private TextView tvHistoricListName;
     private RecyclerView rvHistoricViewList;
     private Button btConfirmView;
     private HistoricViewAdapter historicViewAdapter;
@@ -38,7 +37,6 @@ public class HistoricViewActivity extends AppCompatActivity {
         String documentId = getIntent().getStringExtra("documentId");
         getDataFromFirestore(documentId);
 
-        tvHistoricListName = findViewById(R.id.listName);
         rvHistoricViewList = findViewById(R.id.rvHistoricView);
         btConfirmView = findViewById(R.id.btConfirmView);
 
@@ -49,8 +47,6 @@ public class HistoricViewActivity extends AppCompatActivity {
         rvHistoricViewList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         rvHistoricViewList.setHasFixedSize(true);
         rvHistoricViewList.addItemDecoration(dividerItemDecoration);
-
-        tvHistoricListName.setText(historicController.getListName());
 
         btConfirmView.setOnClickListener(new View.OnClickListener() {
             @Override
