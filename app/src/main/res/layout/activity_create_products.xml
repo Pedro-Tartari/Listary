@@ -60,14 +60,14 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="63dp"
         android:layout_height="57dp"
-        android:layout_marginStart="296dp"
+        android:layout_marginStart="284dp"
         android:clickable="true"
         android:onClick="iconAddProduct"
         app:backgroundTint="@color/floatButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline15"
-        app:layout_constraintVertical_bias="0.945"
+        app:layout_constraintVertical_bias="0.943"
         app:srcCompat="@drawable/custom_add_product_list" />
 
 

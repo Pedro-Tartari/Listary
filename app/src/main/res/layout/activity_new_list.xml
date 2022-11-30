@@ -40,8 +40,6 @@
         android:minHeight="40dp"
         android:padding="10dp"
         android:textSize="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/edShoppingListName"
         app:layout_constraintTop_toTopOf="parent"
         app:mask="__/__/____"
@@ -65,20 +63,21 @@
         app:layout_constraintStart_toStartOf="@+id/edShoppingListName"
         app:layout_constraintTop_toBottomOf="@+id/edShoppingListName" />
 
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButtonList"
         android:layout_width="63dp"
         android:layout_height="57dp"
-        android:layout_marginStart="316dp"
+        android:layout_marginStart="292dp"
         android:clickable="true"
         android:onClick="iconAddProductFromList"
         app:backgroundTint="@color/floatButton"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.968"
+        app:layout_constraintVertical_bias="0.987"
         app:srcCompat="@drawable/custom_add_product_list" />
-
 
     <TextView
         android:id="@+id/tvTotalPrice"
@@ -111,30 +110,33 @@
         android:id="@+id/btnSaveList"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginBottom="12dp"
         android:background="@drawable/custom_button"
         android:onClick="sendListToFirestore"
         android:text="SALVAR"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnCart"
-        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.066"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
-        app:layout_constraintVertical_bias="0.473" />
+        app:layout_constraintVertical_bias="0.474" />
 
     <Button
         android:id="@+id/btnCart"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
+        android:layout_marginStart="24dp"
         android:layout_marginBottom="12dp"
         android:background="@drawable/custom_button"
         android:onClick="toCart"
         android:text="Carrinho"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline7"
-        app:layout_constraintVertical_bias="0.482" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnSaveList"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toEndOf="@+id/btnSaveList"
+        app:layout_constraintTop_toTopOf="@+id/btnSaveList"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
