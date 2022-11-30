@@ -1,9 +1,11 @@
 package com.example.listary.view.createProduct;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +18,8 @@ import com.example.listary.controllers.ProductController;
 
 import com.example.listary.model.Firestore;
 import com.example.listary.model.Product;
+import com.example.listary.view.menu.MenuActivity;
+import com.example.listary.view.newList.NewListActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,6 +41,7 @@ public class RegisterProductActivity extends AppCompatActivity {
 
     private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.6F);
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +54,7 @@ public class RegisterProductActivity extends AppCompatActivity {
         edRegisterProductPrice = findViewById(R.id.edRegisterProductPrice);
         btnSaveProduct = findViewById(R.id.btnSaveProduct);
 
+
         Bundle data = getIntent().getExtras();
         String documentId = (String) data.get("documentId");
         updateOption = data.getInt("updateOption");
@@ -59,7 +65,12 @@ public class RegisterProductActivity extends AppCompatActivity {
         else{
             setViewForUpdate(connection.getUserId(), documentId, updateOption);
         }
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 
     private void setViewId(String uid, Integer updateOption) {
@@ -73,18 +84,10 @@ public class RegisterProductActivity extends AppCompatActivity {
                             edRegisterProductLocal, edRegisterProductPrice, updateOption, "null");
 
                     view.startAnimation(buttonClick);
-
-                    Intent intent = new Intent(getApplicationContext(), SearchProductActivity.class);
-                    startActivity(intent);
                     finish();
                 }
             }
         });
-    }
-
-    public void btCancelRegisterProduct(View view) {
-        view.startAnimation(buttonClick);
-        finish();
     }
 
     private void setViewForUpdate(String uid, String documentId, Integer updateOption) {
@@ -116,15 +119,11 @@ public class RegisterProductActivity extends AppCompatActivity {
         btnSaveProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                view.startAnimation(buttonClick);
                 if (productController.verifyFields(edRegisterProductName, edRegisterProductPrice, btnSaveProduct)) {
                     productController.returnNewProduct(edRegisterProductName, edRegisterProductBrand,
                             edRegisterProductLocal, edRegisterProductPrice, updateOption, documentId);
 
-                    view.startAnimation(buttonClick);
-
-                    Intent intent = new Intent(getApplicationContext(), SearchProductActivity.class);
-                    startActivity(intent);
                     finish();
                 }
             }

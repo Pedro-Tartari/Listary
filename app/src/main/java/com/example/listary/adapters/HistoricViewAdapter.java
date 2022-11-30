@@ -41,8 +41,8 @@ public class HistoricViewAdapter extends RecyclerView.Adapter<HistoricViewAdapte
             holder.productLocal.setText(shoppingList.get(position).getProductLocal());
             holder.productPrice.setText(String.valueOf(shoppingList.get(position).getProductPrice()));
             holder.productQuantity.setText(String.valueOf(shoppingList.get(position).getProductQuantity()));
-//            holder.ListTotalValue.setText(String.valueOf(shoppingList.get(position).getProductTotalPrice()));
-//        holder.listName.setText(shoppingList.get(position).);
+//          holder.ListTotalValue.setText(String.valueOf(shoppingList.get(position).getProductTotalPrice()));
+//          holder.listName.setText(shoppingList.get(position).);
     }
 
     @Override

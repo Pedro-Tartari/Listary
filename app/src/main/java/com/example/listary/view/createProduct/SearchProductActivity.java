@@ -91,6 +91,21 @@ public class SearchProductActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        getDataFromFirestore();;
+        buildRecyclerView();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     private void filter(String text) {
         ArrayList<ProductItem> filteredList = new ArrayList<>();
 
@@ -179,10 +194,8 @@ public class SearchProductActivity extends AppCompatActivity {
     public void iconAddProduct(View view) {
         view.startAnimation(buttonClick);
         Intent intent = new Intent(this, RegisterProductActivity.class);
-        Bundle bundle = new Bundle();
-        intent.putExtras(bundle);
+        intent.putExtra("updateOption", 0);
         startActivity(intent);
-        finish();
     }
 
     ItemTouchHelper.SimpleCallback itemTouch = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
