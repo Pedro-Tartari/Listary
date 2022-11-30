@@ -37,20 +37,22 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHistoricView"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginTop="56dp"
+        android:layout_width="359dp"
+        android:layout_height="579dp"
+        android:layout_marginBottom="168dp"
+        app:layout_constraintBottom_toTopOf="@+id/btConfirmView"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
-        app:layout_constraintTop_toBottomOf="@+id/listName"
+        app:layout_constraintTop_toTopOf="@+id/guideline19"
+        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/activity_historic_view_list_item" />
 
     <Button
         android:id="@+id/btConfirmView"
         android:layout_width="353dp"
         android:layout_height="46dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/custom_button"
         android:minHeight="50dp"
         android:text="Concluir"
@@ -82,4 +84,11 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="67dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
