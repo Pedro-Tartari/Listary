@@ -1,83 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutProductRecicler"
     android:layout_width="match_parent"
-    android:id="@+id/cvHistoricViewItem"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/white">
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/custom_border"
+    tools:showIn="@layout/activity_historic_view_list">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/ivHistoricViewItem"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="35dp">
+        android:layout_marginStart="4dp"
+        android:paddingLeft="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.444"
+        app:srcCompat="@drawable/custom_shoppingcart_icon" />
 
-        <ImageView
-            android:id="@+id/ivHistoricViewItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:paddingLeft="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.444"
-            app:srcCompat="@drawable/custom_shoppingcart_icon" />
+    <TextView
+        android:id="@+id/tvHistoricViewNameItem"
+        android:layout_width="89dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_weight="1"
+        android:paddingEnd="10dp"
 
-        <TextView
-            android:id="@+id/tvHistoricViewNameItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:text="#nomeProduto"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/tvHistoricViewPriceItem"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/ivHistoricViewItem"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:text="Produto"
+        android:textColor="@color/product_name_bold"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivHistoricViewItem"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.28" />
 
-        <TextView
-            android:id="@+id/tvHistoricViewPriceItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="#preçoProduto"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.94"
-            app:layout_constraintStart_toEndOf="@+id/ivHistoricViewItem"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.16" />
+    <TextView
+        android:id="@+id/tvHistoricViewLocalItem"
+        android:layout_width="74dp"
+        android:layout_height="19dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="4dp"
+        android:layout_weight="1"
+        android:paddingStart="8dp"
+        android:text="Mercado"
+        android:textColor="@color/product_name_simple"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvHistoricViewNameItem"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvHistoricViewNameItem"
+        app:layout_constraintTop_toBottomOf="@+id/tvHistoricViewNameItem" />
 
-        <TextView
-            android:id="@+id/tvHistoricViewLocalItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="#nomeLocal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivHistoricViewItem"
-            app:layout_constraintTop_toBottomOf="@+id/tvHistoricViewNameItem"
-            app:layout_constraintVertical_bias="0.111" />
+    <TextView
+        android:id="@+id/tvCadProdMarca"
+        android:layout_width="64dp"
+        android:layout_height="19dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="2"
+        android:paddingStart="8dp"
+        android:text="Marca"
+        android:textColor="@color/product_name_simple"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/tvHistoricViewLocalItem"
+        app:layout_constraintTop_toTopOf="@+id/tvHistoricViewLocalItem" />
 
-        <TextView
-            android:id="@+id/tvHistoricViewQuantityItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:text="#qntProduto"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.83"
-            app:layout_constraintStart_toEndOf="@+id/tvHistoricViewLocalItem"
-            app:layout_constraintTop_toBottomOf="@+id/tvHistoricViewPriceItem"
-            app:layout_constraintVertical_bias="0.0" />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="R$"
+        android:textAlignment="center"
+        android:textColor="@color/product_name_bold"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline16"
+        app:layout_constraintTop_toTopOf="@+id/tvHistoricViewNameItem"
+        app:layout_constraintVertical_bias="0.027" />
+
+    <TextView
+        android:id="@+id/tvHistoricViewPriceItem"
+        android:layout_width="60dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="4dp"
+        android:layout_weight="2"
+        android:text="Valor"
+        android:textAlignment="center"
+        android:textColor="@color/product_name_bold"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="194dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:text="QTD"
+        android:textAlignment="center"
+        android:textColor="@color/product_name_bold"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.444" />
+
+    <TextView
+        android:id="@+id/tvHistoricViewQuantityItem"
+        android:layout_width="60dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="4dp"
+        android:text="Valor"
+        android:textAlignment="center"
+        android:textColor="@color/product_name_bold"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView8"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="74dp" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
-
+</androidx.constraintlayout.widget.ConstraintLayout>

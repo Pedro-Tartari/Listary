@@ -8,4 +8,5 @@
     <string name="despensa">Despensa</string>
     <string name="logOut">Log Out</string>
     <string name="cadastrar_produto">Cadastrar Produto</string>
+    <string name="visualizar_list">Visualizando Lista</string>
 </resources>

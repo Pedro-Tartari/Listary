@@ -32,12 +32,13 @@ public class HistoricViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historic_view_list);
+        this.setTitle(getResources().getString(R.string.visualizar_list));
 
 
         String documentId = getIntent().getStringExtra("documentId");
         getDataFromFirestore(documentId);
 
-        tvHistoricListName = findViewById(R.id.tvHistoricListName);
+        tvHistoricListName = findViewById(R.id.listName);
         rvHistoricViewList = findViewById(R.id.rvHistoricView);
         btConfirmView = findViewById(R.id.btConfirmView);
 
