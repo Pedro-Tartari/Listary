@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -16,12 +17,15 @@ import com.example.listary.R;
 import com.example.listary.adapters.HistoricViewAdapter;
 import com.example.listary.controllers.HistoricController;
 import com.example.listary.interfaces.Callback;
+import com.example.listary.interfaces.CallbackHistoric;
+import com.example.listary.view.menu.MenuActivity;
 
 public class HistoricViewActivity extends AppCompatActivity {
 
     private RecyclerView rvHistoricViewList;
     private Button btConfirmView;
     private HistoricViewAdapter historicViewAdapter;
+    private TextView listName, listTotalValue;
 
     private HistoricController historicController = new HistoricController();
 
@@ -33,9 +37,12 @@ public class HistoricViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_historic_view_list);
         this.setTitle(getResources().getString(R.string.visualizar_list));
 
+        listName = findViewById(R.id.listName);
+        listTotalValue = findViewById((R.id.ListTotalValue));
 
         String documentId = getIntent().getStringExtra("documentId");
         getDataFromFirestore(documentId);
+        getDataForList(documentId);
 
         rvHistoricViewList = findViewById(R.id.rvHistoricView);
         btConfirmView = findViewById(R.id.btConfirmView);
@@ -57,6 +64,14 @@ public class HistoricViewActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, HistoricActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     private void getDataFromFirestore(String documentId) {
 
         historicController.getDataFromDatabase(documentId, new Callback() {
@@ -67,6 +82,15 @@ public class HistoricViewActivity extends AppCompatActivity {
                 historicViewAdapter.notifyDataSetChanged();
             }
         });
+    }
 
+    private void getDataForList(String documentId){
+        historicController.getDataFromList(documentId, new CallbackHistoric() {
+            @Override
+            public void onCallback(Object name, Object totalValue) {
+                listName.setText((String) name);
+                listTotalValue.setText(String.valueOf((Double)totalValue));
+            }
+        });
     }
 }

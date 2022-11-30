@@ -47,23 +47,19 @@ import java.util.List;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class NewListActivity extends AppCompatActivity implements OnAlterQuantityItem {
 
-    //AutoComplete
     private AutoCompleteTextView acProduct;
     private AutoCompleteProductAdapter autoCompleteProductAdapter;
     private List<ProductItem> acProductList = new ArrayList<>();
 
-    //Recyle
     private RecyclerView rvNewShoppingList;
     private RecycleViewerShoppingAdapter recycleViewerShoppingAdapter;
     private List<ProductItem> rvSelectedProductList = new ArrayList<>();
 
-    //View
     private TextView tvListTotalPrice;
     private EditText edShoppingListName;
     private MaskEditText edShoppingListDate;
     private Button btnSaveList;
 
-    //Controller
     private ShoppingListController shoppingListController = new ShoppingListController();
 
     //Date
@@ -96,6 +92,21 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
         atualizaLista();
 
         new ItemTouchHelper(itemTouch).attachToRecyclerView(rvNewShoppingList);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        getDataFromFire();
+        atualizaLista();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     public void atualizaLista(){
@@ -225,7 +236,6 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
                     edShoppingListDate);
 
             view.startAnimation(buttonClick);
-
             startActivity(new Intent(NewListActivity.this, ShoppingCartActivity.class));
             finish();
         }
@@ -234,8 +244,7 @@ public class NewListActivity extends AppCompatActivity implements OnAlterQuantit
     public void iconAddProductFromList(View view) {
         view.startAnimation(buttonClick);
         Intent intent = new Intent(this, RegisterProductActivity.class);
-        Bundle bundle = new Bundle();
-        intent.putExtras(bundle);
+        intent.putExtra("updateOption", 0);
         startActivity(intent);
     }
 }

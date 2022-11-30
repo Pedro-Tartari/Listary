@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import com.example.listary.adapters.HistoricViewAdapter;
 import com.example.listary.interfaces.Callback;
+import com.example.listary.interfaces.CallbackHistoric;
 import com.example.listary.model.Firestore;
 import com.example.listary.model.ShoppingList;
 import com.example.listary.model.ShoppingListDocument;
@@ -17,6 +18,7 @@ public class HistoricController {
 
     private Firestore connection = new Firestore();
     private String listName;
+    private double totalValue;
     private CollectionReference docRef = connection.getDb().collection("data")
             .document(connection.getUserId()).collection("shoppingList");
 
@@ -35,7 +37,6 @@ public class HistoricController {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         ShoppingList shoppingDocument = document.toObject(ShoppingListDocument.class).shoppingList;
-                        listName =  shoppingDocument.getName();
                         callback.onCallback(new HistoricViewAdapter(null, shoppingDocument.getProductList()));
                     }
                 }
@@ -43,8 +44,27 @@ public class HistoricController {
         });
     }
 
-    public String getListName() {
-        return listName;
+    public void getDataFromList(String documentId, CallbackHistoric callbackHistoric){
+        DocumentReference idRef = connection.getDb()
+                .collection("data")
+                .document(connection.getUserId())
+                .collection("shoppingList")
+                .document(documentId);
+
+        idRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        ShoppingList shoppingDocument = document.toObject(ShoppingListDocument.class).shoppingList;
+                        listName =  shoppingDocument.getName();
+                        totalValue = shoppingDocument.getTotalPrice();
+                       callbackHistoric.onCallback(listName, totalValue);
+                    }
+                }
+            }
+        });
     }
 
     public CollectionReference getDocRef() {

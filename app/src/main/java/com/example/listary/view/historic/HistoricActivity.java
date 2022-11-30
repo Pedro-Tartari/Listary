@@ -36,6 +36,14 @@ public class HistoricActivity extends AppCompatActivity {
     public static Activity self_intent;
     private HistoricController historicController = new HistoricController();
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
