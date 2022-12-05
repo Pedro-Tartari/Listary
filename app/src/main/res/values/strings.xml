@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Listary</string>
+    <string name="menu_listary">Menu Listary</string>
     <string name="nova_lista">Nova Lista</string>
-    <string name="consultar_Listas">Consultar Listas</string>
+    <string name="consultar_Produto">Consultar Produto</string>
+    <string name="carrinho">Carrinho</string>
+    <string name="historic">Historico</string>
     <string name="despensa">Despensa</string>
     <string name="logOut">Log Out</string>
+    <string name="cadastrar_produto">Cadastrar Produto</string>
+    <string name="visualizar_list">Visualizando Lista</string>
 </resources>

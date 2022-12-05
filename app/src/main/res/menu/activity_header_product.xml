@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.listary.view.menu.MenuActivity">
+
+    <item
+        android:id="@+id/menuListary"
+        android:title="@string/menu_listary"
+        android:orderInCategory="100"
+        />
+    <item
+        android:id="@+id/novaLista"
+        android:title="@string/nova_lista"
+        android:orderInCategory="200"
+        />
+    <item
+        android:id="@+id/historic"
+        android:title="@string/historic"
+        android:orderInCategory="300"
+        />
+    <item
+        android:id="@+id/despensa"
+        android:title="@string/despensa"
+        android:orderInCategory="400"
+        />
+    <item
+        android:id="@+id/logOut"
+        android:title="@string/logOut"
+        android:orderInCategory="500"
+        />
+</menu>

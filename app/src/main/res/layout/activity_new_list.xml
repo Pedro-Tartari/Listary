@@ -1,122 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_Background"
     tools:context=".view.newList.NewListActivity">
-
-
-    <TextView
-        android:id="@+id/tvShoppingList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="NOVA LISTA"
-        android:textAlignment="center"
-        android:textColor="@color/Listary_Primary"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/edShoppingListName"
+        android:layout_width="213dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/custom_border"
+        android:hint="Nome da lista   "
+        android:inputType="textPersonName"
+        android:minHeight="40dp"
+        android:padding="10dp"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.santalu.maskara.widget.MaskEditText
+        android:id="@+id/edShoppingListDate"
+        android:layout_width="147dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/custom_border"
+        android:hint="Data"
+        android:inputType="number"
+        android:minHeight="40dp"
+        android:padding="10dp"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/edShoppingListName"
+        app:layout_constraintTop_toTopOf="parent"
+        app:mask="__/__/____"
+        app:maskCharacter="_"
+        app:maskStyle="completable" />
+
+    <AutoCompleteTextView
+        android:id="@+id/acProduct"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/custom_border"
+        android:ems="10"
+        android:hint="Escreva o nome Produto"
+        android:inputType="textPersonName"
+        android:minHeight="40dp"
+        android:padding="10dp"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/edShoppingListDate"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edShoppingListName"
+        app:layout_constraintTop_toBottomOf="@+id/edShoppingListName" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButtonList"
+        android:layout_width="63dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="292dp"
+        android:clickable="true"
+        android:onClick="iconAddProductFromList"
+        app:backgroundTint="@color/floatButton"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.987"
+        app:srcCompat="@drawable/custom_add_product_list" />
+
+    <TextView
+        android:id="@+id/tvTotalPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="  Informe o nome da lista"
-        android:inputType="textPersonName"
-        android:minHeight="40dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/tvShoppingList"
-        android:paddingLeft="15dp"/>
-
-    <EditText
-        android:id="@+id/edListProduct"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="5dp"
-        android:ems="10"
-        android:hint="  Informe o Produto"
-        android:inputType="textPersonName"
-        android:minHeight="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/edShoppingListName"
-        android:paddingLeft="15dp"/>
-
-    <ImageView
-        android:id="@+id/ivAddProduct"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.928"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_add_produto_lista"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginStart="24dp"
+        android:hint="0"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/tvTotalPriceLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
         android:text="TOTAL"
         android:textColor="@color/black"
-        android:textSize="15dp"
+        android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnSaveList"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvTotalPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="  Valor Total"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnCart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.928"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivAddProduct"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.011"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/rvNewShoppingList" />
 
     <Button
         android:id="@+id/btnSaveList"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/custom_button"
+        android:onClick="sendListToFirestore"
         android:text="SALVAR"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnCart"
-        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.066"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.474" />
 
     <Button
         android:id="@+id/btnCart"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/custom_button"
+        android:onClick="toCart"
         android:text="Carrinho"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSaveList"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toTopOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toEndOf="@+id/btnSaveList"
+        app:layout_constraintTop_toTopOf="@+id/btnSaveList"
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -131,40 +150,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95"/>
+        app:layout_constraintGuide_percent="0.95" />
 
-    <EditText
-        android:id="@+id/edProductQuantity"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Quantidade"
-        android:inputType="textPersonName"
-        android:minHeight="40dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/edListProduct"
-        app:layout_constraintTop_toBottomOf="@+id/edShoppingListName"
-        android:paddingLeft="15dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvNewShoppingList"
+        android:layout_width="360dp"
+        android:layout_height="367dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/acProduct"
+        tools:listitem="@layout/activity_list_recycle" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.90"/>
+        app:layout_constraintGuide_begin="638dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvShoppingList"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/ivAddProduct"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/edListProduct"
-        app:layout_constraintVertical_bias="0.039" />
-
+        android:layout_marginTop="24dp"
+        android:text="R$"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toEndOf="@+id/tvTotalPriceLabel"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvTotalPriceLabel"
+        app:layout_constraintTop_toTopOf="@+id/tvTotalPriceLabel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

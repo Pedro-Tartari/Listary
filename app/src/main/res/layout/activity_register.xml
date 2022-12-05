@@ -1,37 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.registerForm.Register">
+    tools:context=".view.registerForm.RegisterActivity"
+    android:background="@color/primary_Background">
 
-
-
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Listary"
-        android:textColor="@color/purple_500"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.136" />
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.registerForm.RegisterActivity">
 
     <TextView
         android:id="@+id/tvUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
         android:text="Usuário"
-        android:textColor="@color/black"
-        android:textSize="25dp"
+        android:textColor="@color/recycle_item"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/ivHistoricViewItem" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -46,9 +36,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:background="@drawable/border_custom"
+        android:background="@drawable/custom_border"
         android:drawableEnd="@drawable/custom_user_icon"
-        android:paddingLeft="15dp"
+        android:padding="10dp"
         android:ems="10"
         android:hint="  Informe o usuário"
         android:inputType="textPersonName"
@@ -71,8 +61,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="E-mail"
-        android:textColor="@color/black"
-        android:textSize="25dp"
+        android:textColor="@color/recycle_item"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/edUserName" />
 
@@ -81,9 +71,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@drawable/border_custom"
-        android:drawableEnd="@drawable/ic_baseline_email_24"
-        android:paddingLeft="15dp"
+        android:background="@drawable/custom_border"
+        android:drawableEnd="@drawable/custom_email_icon"
+        android:padding="10dp"
         android:ems="10"
         android:hint="  Informe o e-mail"
         android:inputType="textEmailAddress"
@@ -99,8 +89,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Senha"
-        android:textColor="@color/black"
-        android:textSize="25dp"
+        android:textColor="@color/recycle_item"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/edEmail" />
 
@@ -109,9 +99,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:background="@drawable/border_custom"
+        android:background="@drawable/custom_border"
         android:drawableEnd="@drawable/custom_password_icon"
-        android:paddingLeft="15dp"
+        android:padding="10dp"
         android:ems="10"
         android:textSize="15dp"
         android:hint="Informe a senha"
@@ -125,12 +115,14 @@
         android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/custom_button"
         android:minWidth="200dp"
         android:minHeight="50dp"
         android:text="CADASTRAR"
+        android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.579"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/edPassword" />
 
@@ -140,14 +132,28 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="© RETRONIX 2022"
-        android:textColor="@color/black"
-        android:textStyle="bold"
+        android:textColor="@color/recycle_item"
         android:textSize="10dp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/btnRegister"
         app:layout_constraintVertical_bias="1.0" />
 
+    <ImageView
+        android:id="@+id/ivHistoricViewItem"
+        android:layout_width="0dp"
+        android:layout_height="307dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037"
+        app:srcCompat="@drawable/custom_logo_icon" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

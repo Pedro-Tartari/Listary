@@ -1,29 +1,40 @@
 package com.example.listary.model;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class ShoppingList {
 
-    private ArrayList<Product> productList = new ArrayList<>();
+    private List<ProductItem> productList;
     private String name;
     private int id;
     private float totalPrice;
+    private String date;
 
     public ShoppingList() {
     }
 
-    public ShoppingList(String name, Float totalPrice, int id) {
+    public ShoppingList(String name, List productList, Float totalPrice, int id, String date) {
         this.name = name;
+        this.productList = productList;
         this.totalPrice = totalPrice;
         this.id = id;
+        this.date = date;
 
     }
 
-    public ArrayList<Product> getProductList() {
+    public ShoppingList(String name, List<ProductItem> productList) {
+        this.name = name;
+        this.productList = productList;
+
+    }
+
+    public List<ProductItem> getProductList() {
         return productList;
     }
 
-    public void setProductList(ArrayList<Product> productList) {
+    public void setProductList(List<ProductItem> productList) {
         this.productList = productList;
     }
 
@@ -49,5 +60,13 @@ public class ShoppingList {
 
     public void setTotalPrice(float totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

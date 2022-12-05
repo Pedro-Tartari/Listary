@@ -4,24 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/primary_Background">
 
     <TextView
         android:id="@+id/tvTitleMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="96dp"
         android:gravity="center"
-        android:text="MENU LISTARY"
         android:textAlignment="center"
-        android:textColor="@color/Listary_Primary"
+        android:textColor="@color/product_name_bold"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
@@ -38,7 +39,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/SteelBlue">
 
             <ImageView
                 android:id="@+id/ivNewList"
@@ -46,7 +48,7 @@
                 android:layout_height="81dp"
                 android:layout_gravity="center"
                 android:onClick="openNewList"
-                android:src="@mipmap/ic_lista"
+                android:src="@drawable/custom_cart_icon"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -61,6 +63,7 @@
                 android:textAlignment="center"
                 android:textSize="15dp"
                 android:textStyle="bold"
+                android:textColor="@color/floatButton"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -89,7 +92,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/SteelBlue">
 
             <TextView
                 android:layout_width="match_parent"
@@ -97,6 +101,7 @@
                 android:gravity="center"
                 android:text="PRODUTOS"
                 android:textAlignment="center"
+                android:textColor="@color/floatButton"
                 android:textSize="15dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -111,12 +116,12 @@
                 android:layout_width="100dp"
                 android:layout_height="81dp"
                 android:layout_gravity="center"
-                android:src="@mipmap/ic_produtos"
                 android:onClick="openSearchProduct"
+                android:src="@drawable/custom_shoppingcart_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -137,7 +142,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/SteelBlue">
 
             <TextView
                 android:layout_width="match_parent"
@@ -146,6 +152,7 @@
                 android:textAlignment="center"
                 android:textSize="15dp"
                 android:textStyle="bold"
+                android:textColor="@color/floatButton"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -158,12 +165,13 @@
                 android:layout_width="100dp"
                 android:layout_height="81dp"
                 android:layout_gravity="center"
-                android:src="@mipmap/ic_historico"
+                android:onClick="openHistoric"
+                android:src="@drawable/custom_historic_icon"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:onClick="openHistoric"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -185,7 +193,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/SteelBlue">
 
             <TextView
                 android:layout_width="match_parent"
@@ -194,6 +203,7 @@
                 android:textAlignment="center"
                 android:textSize="15dp"
                 android:textStyle="bold"
+                android:textColor="@color/floatButton"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -206,7 +216,7 @@
                 android:layout_width="100dp"
                 android:layout_height="81dp"
                 android:layout_gravity="center"
-                android:src="@mipmap/ic_despensa"
+                android:src="@drawable/custom_pantry_icon"
                 android:onClick="openPantry"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -217,5 +227,14 @@
 
     </androidx.cardview.widget.CardView>
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="359dp"
+        android:layout_height="157dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_banner_foreground" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,31 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
-    android:padding="10dp"
     android:id="@+id/layoutProductRecicler"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/custom_border"
+    android:orientation="vertical"
+    android:padding="10dp"
     tools:showIn="@layout/activity_create_products">
 
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/tvItenProductName"
-            android:textColor="@color/Listary_Primary"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:drawableStart="@drawable/ic_baseline_shopping_basket_24"
-            android:paddingEnd="25dp" />
 
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:id="@+id/tvItenProductPrice"
-            android:textColor="@color/Listary_Primary"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/tvItenProductName"
+        android:layout_width="89dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="4dp"
+        android:layout_weight="1"
+        android:paddingEnd="10dp"
+        android:text="Produto"
+        android:textColor="@color/product_name_bold"
 
-</LinearLayout>
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.128" />
+
+    <TextView
+        android:id="@+id/tvCadProdLocal"
+        android:layout_width="74dp"
+        android:layout_height="19dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="12dp"
+        android:layout_weight="1"
+        android:paddingStart="8dp"
+        android:text="Mercado"
+        android:textColor="@color/product_name_simple"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvItenProductName"
+        app:layout_constraintHorizontal_bias="0.133"
+        app:layout_constraintStart_toStartOf="@+id/tvItenProductName"
+        app:layout_constraintTop_toBottomOf="@+id/tvItenProductName" />
+
+    <TextView
+        android:id="@+id/tvCadProdMarca"
+        android:layout_width="64dp"
+        android:layout_height="19dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="2"
+        android:paddingStart="8dp"
+        android:text="Marca"
+        android:textColor="@color/product_name_simple"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/tvCadProdLocal"
+        app:layout_constraintTop_toTopOf="@+id/tvCadProdLocal" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="60dp"
+        android:layout_height="28dp"
+        android:layout_weight="2"
+        android:text="R$ "
+        android:textAlignment="textEnd"
+        android:textColor="@color/product_name_bold"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvItenProductPrice"
+        app:layout_constraintStart_toStartOf="@+id/guideline16"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/tvItenProductPrice"
+        android:layout_width="60dp"
+        android:layout_height="28dp"
+        android:layout_weight="2"
+        android:text="Valor"
+        android:textColor="@color/product_name_bold"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="154dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

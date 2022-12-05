@@ -1,142 +1,122 @@
 package com.example.listary.view.Pantry;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.nfc.Tag;
+import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.listary.R;
-import com.example.listary.model.Pastry;
-import com.example.listary.view.loginForm.Login;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
+import com.example.listary.controllers.PantryController;
+import com.example.listary.interfaces.Callback;
+import com.example.listary.view.createProduct.SearchProductActivity;
+import com.example.listary.view.historic.HistoricActivity;
+import com.example.listary.view.loginForm.LoginActivity;
+import com.example.listary.view.menu.MenuActivity;
+import com.example.listary.view.newList.NewListActivity;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class PantryActivity extends AppCompatActivity {
 
     private Button btnSavePantry;
     private EditText edPantry;
-    private String uid;
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private PantryController pantryController = new PantryController(this);
 
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.6F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pentry);
-        uid = user.getUid();
 
         edPantry = findViewById(R.id.edPantry);
 
         btnSavePantry = findViewById(R.id.btnSavePentry);
-        show();
+        pantryController.getDataFromDatabase(new Callback() {
+            @Override
+            public void onCallback(Object modelClass) {
+                edPantry.setText((String) modelClass);
+            }
+        });
         btnSavePantry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                post();
-            }
-        });
-    }
+                if(pantryController.verifyFields(edPantry)) {
+                    view.startAnimation(buttonClick);
+                    pantryController.returnNewPantry(edPantry);
 
-    private void show() {
-        DocumentReference docRef = db.collection("data").document(uid).collection("pantry").document("FQpG5QWFiJ4xStsiDING");
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        String banco = document.getString("description");
-                        edPantry.setText(banco);
-                        edPantry.setSelection(edPantry.getText().length());
-                    } else {
-                        Log.d("n", "No such document");
-                    }
-                } else {
-                    Log.d("erro", "get failed with ", task.getException());
                 }
             }
         });
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater formMenu = getMenuInflater();
-        formMenu.inflate(R.menu.activity_header, menu);
+        formMenu.inflate(R.menu.activity_header_pantry, menu);
+
+        this.setTitle(getResources().getString(R.string.despensa));
 
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
+        Intent intent;
+
         switch (item.getItemId()){
+            case R.id.menuListary:
+                intent = new Intent(this, MenuActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+
             case R.id.novaLista:
-                Toast.makeText(this, "Voce clicou em Novo lista", Toast.LENGTH_LONG).show();
+                intent = new Intent(this, NewListActivity.class);
+                startActivity(intent);
+                finish();
                 return true;
 
-
-            case R.id.consultarListas:
-                Toast.makeText(this, "Voce clicou em Consultar Listas", Toast.LENGTH_LONG).show();
+            case R.id.consultarProduto:
+                intent = new Intent(this, SearchProductActivity.class);
+                startActivity(intent);
+                finish();
                 return true;
 
-            case R.id.despensa:
-                Toast.makeText(this, "Voce clicou em Despensa", Toast.LENGTH_LONG).show();
+            case R.id.historic:
+                intent = new Intent(this, HistoricActivity.class);
+                startActivity(intent);
+                finish();
                 return true;
 
             case R.id.logOut:
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(this, Login.class));
+                startActivity(new Intent(this, LoginActivity.class));
+                finish();
             default:
                 return true;
         }
-    }
-
-    private void post() {
-        String description = edPantry.getText().toString();
-        Pastry pantry = new Pastry(
-            description
-    );
-
-        if (description.isEmpty()){
-            Toast.makeText(this, "Campo não pode estar vazio", Toast.LENGTH_LONG).show();
-        } else{
-            DocumentReference documentReference = db.collection("data").document(uid).collection("pantry").document("FQpG5QWFiJ4xStsiDING");
-            documentReference.set(pantry)
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            Toast.makeText(PantryActivity.this, "Sucesso", Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(PantryActivity.this, "Erro", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-        }
-
     }
 }
 
